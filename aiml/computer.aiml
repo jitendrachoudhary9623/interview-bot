@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+<!-- START TEMPLATES-->
+<category>
+<pattern>START INTERVIEW</pattern>
+<template>OK LET'S START THE INTERVIEW.<br/>
+<srai>STEP1</srai>
+</template>
+</category>
+
+<category>
+<pattern>STEP1</pattern>
+<template>What is your name ?</template>
+</category>
+
+<category>
+<pattern>MY NAME IS *</pattern>
+<template><srai>NAME1 <star/></srai></template>
+</category>
+
+<category>
+<pattern>I AM *</pattern>
+<template><srai>NAME1 <star/></srai></template>
+</category>
+
+<category>
+<pattern>NAME1 *</pattern>
+<template>
+<set name="USERNAME"><star index="1"/></set>!!,<br /> 
+Oh! Nice to meet you <get name="USERNAME"></get>.<br />.  
+
+<srai>INTRO</srai>
+</template>
+</category>
+
+<category>
+<pattern>INTRO</pattern>
+<template><get name="USERNAME"></get>, Introduce yourself?
+</template>
+</category>
+
+<!-- END START TEMPLATE-->
+
+<!-- FAMILY -->
+
+<category>
+<pattern> FAMILY </pattern>
+<template>
+Tell me more about your family
+</template>
+</category>
+
+<category>
+<pattern> _ FAMILY </pattern>
+<template>
+<srai> FAMILY </srai>
+</template>
+</category>
+
+<category>
+<pattern> FAMILY * </pattern>
+ <template>
+ <srai> FAMILY </srai>
+ </template>
+ </category>
+ <category>
+ <pattern> _ FAMILY * </pattern>
+ <template>
+ <srai> FAMILY </srai>
+ </template>
+</category>
+
+<!-- END FAMILY -->
+
+<!-- HOBBY -->
+
+<category>
+<pattern> HOBBY </pattern>
+<template>
+Tell me more about your HOBBY
+</template>
+</category>
+
+<category>
+<pattern> _ HOBBY </pattern>
+<template>
+<srai> HOBBY </srai>
+</template>
+</category>
+
+<category>
+<pattern> HOBBY * </pattern>
+ <template>
+ <srai> HOBBY </srai>
+ </template>
+ </category>
+ <category>
+ <pattern> _ HOBBY * </pattern>
+ <template>
+ <srai> HOBBY </srai>
+ </template>
+</category>
+
+
+<!-- HOBBY -->
+<!-- GENERIC -->
+<category>
+<pattern>NEXT QUESTION</pattern>
+<template>
+<srai>ASK QUESTION</srai>
+</template>
+</category>
+<!-- END GENERIC-->
+<category><pattern>WHAT YEAR IS THIS</pattern>
+<template><date format="%Y"/>.</template>
+</category>
+<!-- No to be included in the bot -->
+<category>
+   <pattern>SCHOOL</pattern><!--KEYWORD-->
+   <template>School is an important institution in a child's life.</template>
+</category>
+<category>
+   <pattern>_ SCHOOL</pattern>
+   <template>
+      <srai>SCHOOL</srai>
+   </template>
+</category>
+
+<category>
+   <pattern>_ SCHOOL</pattern>
+   <template>
+      <srai>SCHOOL</srai>
+   </template>
+</category>
+
+<category>
+   <pattern>SCHOOL *</pattern>
+   <template>
+      <srai>SCHOOL</srai>
+   </template>
+</category>
+
+<category>
+   <pattern>_ SCHOOL *</pattern>
+   <template>
+      <srai>SCHOOL</srai>
+   </template>
+</category>
+
+<category>
+<pattern>I AM AFRAID OF * </pattern>
+<template>WHAT HAVE YOU DONE TO OVERCOME YOUR FEAR OF <star/>?</template>
+</category>
+
+
+
+<!-- This will be included -->
+  <category>
+    <pattern>ASK QUESTION</pattern>
+    <template>
+      <random>
+        <li>Introduce yourself</li>
+        <li>What is your weakness?</li>
+        <li>What is your strength?</li>
+        <li>Tell me something which is not on your resume?</li>
+        <li>What if we hire you for development and ask you to do testing?</li>
+	<li>What do know about our company?</li>
+        <li>Why should we hire you?</li>
+        <li>Why aren't you opting for hire studies?</li>
+        <li>tell me something about your family?</li>
+<li>How you feel about working late or during the weekends?</li>
+<li>Have you faced any challenging situation? How did you handle it?</li>
+<li>Where do you see yourself in the next five years?</li>
+<li>What are your hobbies and interests?</li>
+<li>Do you lie?</li>
+<li>How much salary are you expecting?</li>
+<li>Do you have any questions for me?</li>
+<li>You have not done your PG yet. This is not a drawback, but don’t you think you should get a PG degree asap?</li>
+<li>What are your strong points? or What are your strengths?</li>
+<li>What is your greatest fear?</li>
+<li>If I call up your current or previous reporting manager now, what will be their opinion about you? What will they say that you need to work on?</li>
+<li>Do you have any serious medical issues?</li>
+<li>Did you ever have a conflict with your current/previous boss or professor?</li>
+<li>What do your friends/co-workers say about you?</li>
+<li>What did you do in the last year to improve your knowledge?</li>
+<li>Explain the difference between group and team. Are you a team player?</li>
+<li>What is your ideal company or workplace?</li>
+<li>Have you ever had to fire anyone? How did you feel about that?</li>
+<li>What is the most difficult thing that you’ve ever accomplished? or What is the most difficult thing you have ever done?</li>
+<li>What is the difference between hard work and smart work?</li>
+<li>How do you feel about working weekends and night shifts?</li>
+<li>Where do you see yourself 3 years from now? or Where do you see yourself in 5 years?</li>
+<li>Give an example of a time you had to respond to an unhappy manager/ customer/ colleague/ professor/ friend.</li>
+<li>How quickly do you adapt to new technology?</li>
+<li>What software packages are you familiar with?</li>
+<li>On a scale of 1 to 10 how would you rate yourself as a leader?</li>
+<li>What makes you angry?</li>
+<li>Are you open to take risks? or Do you like experimenting?</li>
+<li>What are your future goals? Tell me about your short term and long-term goals.</li>
+<li>What motivates you?</li>
+<li>What are your hobbies? or What are you passionate about?</li>
+<li>What are your biggest achievements till date?</li>
+<li>What are you most proud of?</li>
+<li>What has been your greatest failure?</li>
+<li>What do you always regret? or Do you have any regrets?</li>
+<li>How do you respond to change?</li>
+<li>Are you demanding as a boss?</li>
+<li>Are you an organized person?</li>
+<li>Can you describe your time management skills?</li>
+<li>What’s your absenteeism record like?</li>
+<li>Are you reliable? or Can I trust you with responsibilities?</li>
+<li>What are the three things that are most important for you in a job?</li>
+<li>What was the toughest decision you ever had to make?</li>
+<li>If you won a Rs.10-crore lottery, would you still work?</li>
+<li>Give me an example of your creativity.</li>
+<li>What makes you happy?</li>
+<li>How do you work under pressure? Can you handle the pressure?</li>
+<li>Are you willing to relocate or travel?</li>
+<li>What do you know about us or our company?</li>
+<li>How long do you think you will work for us after we hire you?</li>
+<li>Are you applying for other jobs? Do you have any other offer in hand?</li>
+<li>Why do you want to work for us or our company? or Why do you want this job?</li>
+<li>Do you know anyone who works for us?</li>
+<li>Why should we hire you? or Why should I hire you?</li>
+<li>What are your salary expectations?</li>
+<li>Your interview is more or less coming to an end when the interviewer asks you, “Do you have any questions for me?”</li>
+      </random>
+    </template>
+  </category> 
+</aiml>
