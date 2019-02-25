@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>
+</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+body{
+margin:10%;
+background:#f2f08c;
+font-size:24px;
+}
+hr{
+background:brown
+}
+</style>
+</head>
+<body>
+
+
+<div class="container" style="margin-right:3%;"> <!-- container start -->
+  <h1 class="display-4"><b>Interview-bot : Report</b></h1> <!-- heading -->
+  <hr/>
+   <!-- message -->
+  <p>Congratulations!!!.. <span style="color:red">Your Report is generated</span></p>
+  <p style="margin-right:2%;">Dear Candidate,<br/><br/>
+   We hope you have came acroos various questions which could be asked based on the responses you provide during the interview process.<br/>
+We agree interviews may seem difficult, but once you get come to know how to answer in ther interview you can defintely crack any interview. This is a report generated based on the responses you gave during the mock interview. Don't get disheartned if you scored less there is always a room of improvement, and if you have scored great, that's awesome keep practising
+  <p>
+  <p>Thank you</p>
+  <p>BE COMP 2<br/>
+  <b>PROJECT - INTERVIEW BOT</b>
+  </p>
+  <!--end message -->
+  <!--<div style="height:3%;"></div>-->
+  <hr/>
+  <!-- sentiment score -->
+  <h2>Your Sentiment Score</h2>
+  
+ <div class="row"><!-- start row -->
+  <div class="col">
+  <p>Overall sentiment during the interview process was : <b style="color:red">Neutral</b></p><br/>
+  <p>Keeping Neutral Sentiment is not a bad idea and it's way better than having a negative impression on the interviewer.
+A little more positive answers would definetly work for you, and you should try the same.</p>
+  </div>
+  <div class="col">
+   <div id="chartContainer" style="height: 300px; width: 400px;"></div>
+  </div>
+  </div><!-- end row -->
+  <hr/>
+  <h2>Your Emotion Score</h2>
+  <div class="row">
+   <div class="col">
+  <p>Overall sentiment during the interview process was : <b style="color:red">Neutral</b></p><br/>
+  <p>Keeping Neutral Sentiment is not a bad idea and it's way better than having a negative impression on the interviewer.
+A little more positive answers would definetly work for you, and you should try the same.</p>
+   </div>
+   <div class="col">
+   <div id="chartContainer2" style="height: 300px; width: 400px;"></div>
+   </div>
+  </div>
+</div> <!-- end container -->
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+<script>
+window.onload = function () {
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Sentiment score (in %)"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "green",
+		dataPoints: [
+			{ y: 0.89, label: "Positive" },
+			{ y: -0.8, label: "Negative" },
+			{ y: 0.5, label: "Neutral" },
+			
+		]
+	}]
+});
+chart.render();
+//sentiment done
+//emotion begin
+
+var chart2 = new CanvasJS.Chart("chartContainer2", {
+
+	title:{
+		text: "Email Categories",
+		horizontalAlign: "left"
+	},
+	data: [{
+		type: "doughnut",
+		startAngle: 60,
+		//innerRadius: 60,
+		indexLabelFontSize: 17,
+		indexLabel: "{label} - #percent%",
+		toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+		dataPoints: [
+			{ y: 45, label: "Happy" },
+			{ y: 28, label: "Sad" },
+			{ y: 76, label: "Neutral" },
+			{ y: 7, label: "Fear"},
+			{ y: 15, label: "Disgust"},
+			{ y: 6, label: "Angry"}
+		]
+	}]
+});
+chart2.render();
+
+}
+</script>
+</body>
+</html>

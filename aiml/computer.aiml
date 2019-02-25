@@ -45,29 +45,34 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
 <!-- FAMILY -->
 
 <category>
-<pattern> FAMILY </pattern>
+<pattern>FAMILY</pattern>
 <template>
-Tell me more about your family
+<random>
+<li>Tell me more about your family</li>
+<li>Tell me more about your parents</li>
+<li>Tell me about your siblings</li>
+<li>Why family is important for you?</li> 
+</random>
 </template>
 </category>
 
 <category>
-<pattern> _ FAMILY </pattern>
+<pattern>_ FAMILY</pattern>
 <template>
-<srai> FAMILY </srai>
+<srai>FAMILY</srai>
 </template>
 </category>
 
 <category>
-<pattern> FAMILY * </pattern>
+<pattern>FAMILY * </pattern>
  <template>
- <srai> FAMILY </srai>
+ <srai>FAMILY</srai>
  </template>
  </category>
  <category>
- <pattern> _ FAMILY * </pattern>
+ <pattern>_ FAMILY *</pattern>
  <template>
- <srai> FAMILY </srai>
+ <srai>FAMILY</srai>
  </template>
 </category>
 
@@ -76,9 +81,13 @@ Tell me more about your family
 <!-- HOBBY -->
 
 <category>
-<pattern> HOBBY </pattern>
+<pattern>HOBBY</pattern>
 <template>
-Tell me more about your HOBBY
+<random>
+<li>Tell me more about your hobby</li>
+<li>do you have any other hobbies?</li>
+ 
+</random>
 </template>
 </category>
 

@@ -5,7 +5,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Chatbot</title>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="{{ url_for('static',filename ='js/Chart.js') }}" type="text/js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+               <link href="{{ url_for('static', filename='styles/style.css') }}" type="text/css" rel="stylesheet" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +22,10 @@
         color: black;
         overflow: auto;
         }
+.modal-backdrop {
+  z-index: 0;
+}
+
         .media-list {
         overflow: auto;
         clear: both;
@@ -70,11 +76,8 @@
         height: 36%;
         background-color: #666;
         }
-        body {
-            /*background-image: linear-gradient(to right top, #5a85e3, #4074c1, #2b62a0, #1c507f, #143e5f, #173a5c, #1b3559, #1e3155, #3a3466, #5e3270, #83296f, #a61a63);
-            */
-            background:white;
-        }
+   
+
       </style>
    </head>
    <body>
@@ -88,8 +91,13 @@
                   <li class="active"><a href="#">Welcome</a></li>
                   <li><a></a></li>
                </ul>
-               <button class="btn btn-success navbar-btn">Start Interview</button>
-               <button class="btn btn-danger navbar-btn">Finish Interview</button>
+
+<ul class="nav navbar-nav navbar-right">
+  <li><button type="button" class="btn btn-success navbar-btn " id="startInterviewButton">Start Interview</button></li>
+   <li><form id="finishForm" action="/generate"><button type="submit" class="btn btn-danger navbar-btn" id="finishInterviewButton">Finish Interview</button></form></li>
+</ul>
+
+
             </div>
          </nav>
        </div>
@@ -97,9 +105,11 @@
        <div class="container-fluid">
          <div class="row">
             
-            <div class="container2 col-md-4">
+            <div class="container2 col-md-4 panel panel-warning">
+		<div class="panel-body">
                <video autoplay="true" id="videoElement">
                </video>
+</div>
             </div>
             <div class="container2 col-md-4">
                <img src="{{url_for('static', filename='interview-stare.jpg')}}" id="videoElement" />
@@ -116,10 +126,10 @@
                         <br/>
                         <div class="input-group">
                            <span class="input-group-btn">
-                           <button class="btn btn-danger" type="button" id="chatbot-form-btn-clear-input">clear input</button>
-                           <button class="btn btn-info" type="button" id="chatbot-form-btn">Send</button>
-                           <button class="btn btn-danger" type="button" id="chatbot-form-btn-clear">Clear</button>
-                           <button class="btn btn-success" type="button" id="chatbot-form-btn-voice">Voice</button>
+                           <button class="btn btn-danger" type="button" id="chatbot-form-btn-clear-input">Clear input</button>
+                           <button class="btn btn-success" type="button" id="chatbot-form-btn">Submit Your Answer</button>
+                           <button class="btn btn-warning" type="button" id="chatbot-form-btn-clear">Clear</button>
+                           <button class="btn btn-info" type="button" id="chatbot-form-btn-voice">Voice</button>
                            </span>
                         </div>
                      </form>
@@ -159,14 +169,16 @@
          var exports = {};
       </script>
      <!-- <script src="https://unpkg.com/speech-to-text@0.7.4/lib/index.js"></script>-->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
       <script>
          $(function() {
          var asked_questions=[];
          var previousQuestion="";
 	
-
+ $("#startInterviewButton").click(function(){
+    $("#myModal").modal('toggle');
+  });
 	//chartjs context
 	var ctx = document.getElementById("myChart").getContext('2d');
 
@@ -218,7 +230,16 @@
              msg.voice = voices[7];
              msg.rate = 1;
              msg.pitch = 0.9;
-         
+         //Interview finish
+	$("#finishInterviewButton").click(function(e){
+	 e.preventDefault();
+	$("#finishModal").modal('toggle');
+	//$("#finishInterviewButton").submit();
+	 });
+$('#finsihModalButton').click(function(e){
+console.log("Clicked");
+$("#finishForm").submit();
+});
              $('#chatbot-form-btn').click(function(e) {
                  e.preventDefault();
                  $('#chatbot-form').submit();
@@ -314,7 +335,14 @@
             url: "/sentiment",
             data: $(this).serialize(),
             success: function(response) {
-new Chart(document.getElementById("myChart"), {
+
+var positive=response.sentiment_positive;
+var negative=response.sentiment_negative;
+var neutral=response.sentiment_neutral;
+
+console.log(positive,negative,neutral);
+
+new Chart($("#myChart"), {
     type: 'horizontalBar',
     data: {
       labels: ["Positive", "Negative", "Neutral"],
@@ -322,7 +350,7 @@ new Chart(document.getElementById("myChart"), {
         {
           label: "Sentiment in terms of %",
           backgroundColor: ["#03c637","#f4424b","#8e5ea2"],
-          data: [response.sentiment_positive,response.sentiment_negative,response.sentiment_neutal]
+          data: [positive,-1*negative,neutral]
         }
       ]
     },
@@ -346,5 +374,72 @@ new Chart(document.getElementById("myChart"), {
          
          });
       </script>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="instruction_heading">Start Interview - Instructions</h4>
+        </div>
+        <div class="modal-body"  id="instruction_body">
+	<h3>Welcome to Interview Bot</h3>
+	<h5> Interviews required practise and this project aims to prepare you for the same.</h5>
+	<div style="color:green">
+	<ul>
+	<li>The Left side of the screen panel have your live stream</li>
+	<li>The Center side of the screen is the interviewer</li>
+	<li>The Righ side of the screen have the chatbot which will take your interview</li>
+	<li>The Bottom of the screen have the various analysis which are done your reponse to the question</li>
+	</ul>
+	</div>
+        <p>Before starting the interview, please read the following instructions</p>
+	<ul>
+	<li>To begin interview speak "<b><span style="color:red">START INTERVIEW</span></b>"</li>
+	<li>After speaking your answer click on the <b>SEND</b> button</li>
+	<li>If the bot continously asks the same question or you want to skip the question, then speak "<b><span style="color:red">NEXT QUESTION</span></b>"</li>
+	</ul>
+
+
+        </div>
+        <div class="modal-footer">
+<p style="color:green">All the best !!</p>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Continue</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- end modal -->
+
+<!-- Modal -->
+  <div class="modal fade" id="finishModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="instruction_heading">Start Interview - Instructions</h4>
+        </div>
+        <div class="modal-body"  id="instruction_body">
+	<h3>Are you sure you want to finish Interview?</h3>
+	
+	</ul>
+
+
+        </div>
+        <div class="modal-footer">
+<p style="color:green">Finish Interview</p>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" id="finsihModalButton">Finish</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- end modal -->
    </body>
 </html>

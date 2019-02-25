@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify,make_response
 import aiml
 import os
 from nlp import TextAnalyser
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import pdfkit
 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
@@ -15,10 +16,14 @@ def load_kern(forcereload):
 
 
 app = Flask(__name__)
+
+#route for main page
 @app.route("/")
 def hello():
 	load_kern(False)
 	return render_template('chat.html')
+
+#route for chatbot
 asked=[]
 @app.route("/ask", methods=['POST','GET'])
 def ask():
@@ -43,9 +48,9 @@ def ask():
 			return jsonify({'status':'OK','answer':bot_response})
 		asked.append(temp)
 		print(bot_response)
-		# print bot_response
 		return jsonify({'status':'OK','answer':bot_response})
 
+#Route for sentiment analysis
 @app.route('/sentiment',methods=['POST','GET'])
 def sentiments():
 	print("sentiment")
@@ -63,5 +68,14 @@ def sentiments():
 'sentiment_neutral':scores['neu'],
 'overall_sentiment':sentiment})		
 
+
+@app.route('/generate')
+def pdf_template():
+	rendered=render_template("pdf_template.html")
+	pdf=pdfkit.from_string(rendered,False)#true for client sending
+	response=make_response(pdf)
+	response.headers['Content-Type']="application/pdf"
+	response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
+	return response
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,port=5008)
