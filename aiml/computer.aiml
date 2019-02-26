@@ -85,29 +85,28 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
 <template>
 <random>
 <li>Tell me more about your hobby</li>
-<li>do you have any other hobbies?</li>
- 
+<li>do you have any other hobbies?</li> 
 </random>
 </template>
 </category>
 
 <category>
-<pattern> _ HOBBY </pattern>
+<pattern>_ HOBBY</pattern>
 <template>
-<srai> HOBBY </srai>
+<srai>HOBBY</srai>
 </template>
 </category>
 
 <category>
-<pattern> HOBBY * </pattern>
+<pattern>HOBBY *</pattern>
  <template>
- <srai> HOBBY </srai>
+ <srai>HOBBY</srai>
  </template>
  </category>
  <category>
- <pattern> _ HOBBY * </pattern>
+ <pattern>_ HOBBY *</pattern>
  <template>
- <srai> HOBBY </srai>
+ <srai>HOBBY</srai>
  </template>
 </category>
 
@@ -124,45 +123,46 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
 <category><pattern>WHAT YEAR IS THIS</pattern>
 <template><date format="%Y"/>.</template>
 </category>
-<!-- No to be included in the bot -->
-<category>
-   <pattern>SCHOOL</pattern><!--KEYWORD-->
-   <template>School is an important institution in a child's life.</template>
-</category>
-<category>
-   <pattern>_ SCHOOL</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
 
-<category>
-   <pattern>_ SCHOOL</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
-
-<category>
-   <pattern>SCHOOL *</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
-
-<category>
-   <pattern>_ SCHOOL *</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
 
 <category>
 <pattern>I AM AFRAID OF * </pattern>
 <template>WHAT HAVE YOU DONE TO OVERCOME YOUR FEAR OF <star/>?</template>
 </category>
 
+<!--PROJECT -->
+<category>
+<pattern>PROJECT</pattern>
+<template>
+<random>
+<li>Tell me more about your project</li>
+<li>What is the use case for your project?</li>
+<li>What is the future scope of the project?</li>
+<li>What was your role in the project?</li>
+<li>What did you learn during the project?</li>
+</random>
+</template>
+</category>
 
+<category>
+<pattern>_ PROJECT</pattern>
+<template>
+<srai>PROJECT</srai>
+</template>
+</category>
+
+<category>
+<pattern>PROJECT *</pattern>
+ <template>
+ <srai>PROJECT</srai>
+ </template>
+ </category>
+ <category>
+ <pattern>_ PROJECT *</pattern>
+ <template>
+ <srai>PROJECT</srai>
+ </template>
+</category>
 
 <!-- This will be included -->
   <category>

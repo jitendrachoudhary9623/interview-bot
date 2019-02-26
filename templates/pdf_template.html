@@ -63,6 +63,19 @@ A little more positive answers would definetly work for you, and you should try 
    <div id="chartContainer2" style="height: 300px; width: 400px;"></div>
    </div>
   </div>
+<div style="height:12%"></div>
+<hr/>
+<h2>Your Interview Score</h2>
+<div class="row"><!-- start row -->
+  <div class="col">
+  <p>Total Duration of the interview</p><br/>
+  </div>
+  <div class="col">
+   <p>{{ totalDuration }}</p>
+  </div>
+  </div><!-- end row -->
+  <hr/>
+ 
 </div> <!-- end container -->
 
 
@@ -102,8 +115,8 @@ chart.render();
 var chart2 = new CanvasJS.Chart("chartContainer2", {
 
 	title:{
-		text: "Email Categories",
-		horizontalAlign: "left"
+		text: "Emotion during interview",
+		horizontalAlign: "right"
 	},
 	data: [{
 		type: "doughnut",
@@ -113,12 +126,12 @@ var chart2 = new CanvasJS.Chart("chartContainer2", {
 		indexLabel: "{label} - #percent%",
 		toolTipContent: "<b>{label}:</b> {y} (#percent%)",
 		dataPoints: [
-			{ y: 45, label: "Happy" },
-			{ y: 28, label: "Sad" },
-			{ y: 76, label: "Neutral" },
+			{ y: 85, label: "Happy" },
+			{ y: 35, label: "Sad" },
+			{ y: 96, label: "Neutral" },
 			{ y: 7, label: "Fear"},
 			{ y: 15, label: "Disgust"},
-			{ y: 6, label: "Angry"}
+			{ y: 62, label: "Angry"}
 		]
 	}]
 });

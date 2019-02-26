@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml>
 
-<!-- No to be included in the bot -->
-<category>
-   <pattern>SCHOOL</pattern><!--KEYWORD-->
-   <template>School is an important institution in a child's life.</template>
-</category>
-<category>
-   <pattern>_ SCHOOL</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
-
-<category>
-   <pattern>_ SCHOOL</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
-
-<category>
-   <pattern>SCHOOL *</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
-
-<category>
-   <pattern>_ SCHOOL *</pattern>
-   <template>
-      <srai>SCHOOL</srai>
-   </template>
-</category>
-
-<category>
-<pattern>I AM AFRAID OF * </pattern>
-<template>WHAT HAVE YOU DONE TO OVERCOME YOUR FEAR OF <star/>?</template>
-</category>
-
 
 <!-- This will be included -->
   <category>

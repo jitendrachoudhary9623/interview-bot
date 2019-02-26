@@ -69,13 +69,16 @@ def sentiments():
 'overall_sentiment':sentiment})		
 
 
-@app.route('/generate')
+@app.route('/generate',methods=['POST'])
 def pdf_template():
-	rendered=render_template("pdf_template.html")
-	pdf=pdfkit.from_string(rendered,False)#true for client sending
-	response=make_response(pdf)
-	response.headers['Content-Type']="application/pdf"
-	response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
-	return response
+	if request.method == 'POST':
+		message = str(request.form['iTime'])
+		print(message)
+		rendered=render_template("pdf_template.html",totalDuration=str(request.form['iTime']))
+		pdf=pdfkit.from_string(rendered,False)#true for client sending
+		response=make_response(pdf)
+		response.headers['Content-Type']="application/pdf"
+		response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
+		return response
 if __name__ == "__main__":
-    app.run(debug=True,port=5008)
+    app.run(debug=True,port=5009)
