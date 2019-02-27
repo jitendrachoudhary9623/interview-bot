@@ -184,7 +184,10 @@
             <div class="col-lg-4">
                <div class="panel panel-default">
   		<div class="panel-heading">Emotion Analyis</div>
-  			<div class="panel-body">Panel Content</div>
+  			<div class="panel-body">Panel Content
+<canvas id="myChart2" width="400" height="170"></canvas>
+			</div>
+
 		</div>
             </div>
             <div class="col-lg-4">
@@ -227,21 +230,68 @@ let scoreThreshold = 0.5
                 height: 300
             }
         };
+	var charts = [];
+
+	var emotionDisplay={
+	"neutral":0,
+	"angry":0,
+	"disgust":0,
+	"fear":0,
+	"happy":0,
+	"sad":0,
+	"surprise":0	
+	};
         var EmotionModel;
         var offset_x = 34;
         var offset_y = 20;
         var emotion_labels = ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"];
-        var emotion_colors = ["#ff0000", "#00a800", "#ff4fc1", "#ffe100", "#306eff", "#ff9d00", "#7c7c7c"];
+        var emotion_colors = ["#ff0000","#ff00ff","#e6e600","#00ff00","#009999","#ff3399","#8000ff"];
 
         let forwardTimes = []
+	function initEmotion(){
+//Initaialized
 
+	}
         function updateTimeStats(timeInMs) {
             forwardTimes = [timeInMs].concat(forwardTimes).slice(0, 30)
             const avgTimeInMs = forwardTimes.reduce((total, t) => total + t) / forwardTimes.length
             $('#time').val(`${Math.round(avgTimeInMs)} ms`)
             $('#fps').val(`${faceapi.round(1000 / avgTimeInMs)}`)
         }
+var chart=null;
+var flag=false;
+function updateCharts(){
+var ctx = document.getElementById("myChart2").getContext("2d");
 
+if (flag){
+
+chart.destroy();
+}
+flag=true;
+  chart=new Chart(ctx, {
+					    type: 'doughnut',
+					    data: {
+					      labels: ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"],
+					      datasets: [
+						{
+						  label: "Sentiment in terms of %",
+						  backgroundColor:["#ff0000","#ff00ff","#e6e600","#00ff00","#009999","#ff3399","#8000ff"],
+						  data: [emotionDisplay["angry"],emotionDisplay["disgust"],emotionDisplay["fear"],emotionDisplay["happy"],emotionDisplay["sad"],emotionDisplay["surprise"],emotionDisplay["neutral"]]
+						}
+					      ]
+					    },
+					    options: {
+ animation: {
+        duration: 0
+    },
+					      legend: { display: false },
+					      title: {
+						display: true,
+						text: 'Emotion Analysis '
+					      }
+					    }
+					});
+}
 
 async function onPlay(videoEl) {
 //check if video is playing or not if not then return no need to process it
@@ -294,7 +344,12 @@ async function onPlay(videoEl) {
 
                     z = EmotionModel.predict(cT)
                     let index = z.argMax(1).dataSync()[0]
-                    let label = emotion_labels[index];
+                    let label = emotion_labels[index]; //detected emotion
+		    console.log(label);
+		    emotionDisplay[label]=emotionDisplay[label]+1;
+		    console.log(emotionDisplay[label]);
+updateCharts();
+		    updateCharts();		    
                     ctx.strokeStyle = emotion_colors[index];
                     ctx.rect(s_x, s_y, s_w, s_h);
                     ctx.stroke();
@@ -464,11 +519,12 @@ loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorf
 
 		//start Interview action
 		$('#continueInterview').click(function(e){
-loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
+		loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
 
-            const sizeTypeSelect =160
-            run()		
-//enabling buttons
+            	const sizeTypeSelect =160
+            	run()
+		initEmotion();	
+		//enabling buttons
 		$( "#chatbot-form-btn-clear-input" ).prop( "disabled", false );
 		$("#chatbot-form-btn").prop( "disabled", false );
 		$("#chatbot-form-btn-voice").prop( "disabled", false );
