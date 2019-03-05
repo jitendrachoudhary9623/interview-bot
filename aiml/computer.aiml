@@ -163,7 +163,40 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
  <srai>PROJECT</srai>
  </template>
 </category>
+<!--Internship-->
+<category>
+<pattern>INTERNSHIP</pattern>
+<template>
+<random>
+<li>Tell me more about your internship</li>
+<li>What did you learn from your internship?</li>
+<li>What was your internship project?</li>
+<li>Which technology stack did you used in your internship project?</li>
+<li>How was your experience?</li>
+</random>
+</template>
+</category>
 
+<category>
+<pattern>_ INTERNSHIP</pattern>
+<template>
+<srai>INTERNSHIP</srai>
+</template>
+</category>
+
+<category>
+<pattern>INTERNSHIP *</pattern>
+ <template>
+ <srai>INTERNSHIP</srai>
+ </template>
+ </category>
+ <category>
+ <pattern>_ INTERNSHIP *</pattern>
+ <template>
+ <srai>INTERNSHIP</srai>
+ </template>
+</category>
+<!--Internship-->
 <!-- This will be included -->
   <category>
     <pattern>ASK QUESTION</pattern>

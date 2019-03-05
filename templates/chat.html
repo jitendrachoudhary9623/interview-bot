@@ -4,19 +4,24 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Chatbot</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <!--	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script> 
         <link href="{{ url_for('static', filename='styles/style.css') }}" type="text/css" rel="stylesheet" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+	<script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
 	<!--tensorflow js -->
-  <script src="{{ url_for('static',filename='face-api.js') }}"></script>
-    <script src="{{ url_for('static',filename='commons.js') }}"></script>
- <!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
-        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"></script>
-
-       	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-      	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  	<script src="{{ url_for('static',filename='js/face-api.js') }}"></script>
+    	<script src="{{ url_for('static',filename='js/commons.js') }}"></script>
+ 	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
+        <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"></script>-->
+	<script src="{{ url_for('static', filename='js/tf.min.js') }}"></script>
+       	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+        <link href="{{ url_for('static', filename='styles/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+      	<!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"rel="stylesheet">-->
+        <link href="{{ url_for('static', filename='styles/font-awesome.min.css') }}" type="text/css" rel="stylesheet" />
       	<link href="{{ url_for('static',filename ='styles/style.css') }}" rel="stylesheet">
       <style type="text/css">
 
@@ -173,31 +178,23 @@
             </div>
          </div>
          <div class="row"><!--row-->
+    	   <div class="col-lg-4">
+		<canvas id="myChart2" width="400" height="200"></canvas>
+	    </div>
             <div class="col-lg-4">
-              <div class="panel panel-default">
-  		<div class="panel-heading">Sentiment Analysis</div>
-  		<div class="panel-body">
+              
 			<canvas id="myChart" width="400" height="170"></canvas>
-		</div>
-		</div>
+		
             </div>
-            <div class="col-lg-4">
-               <div class="panel panel-default">
-  		<div class="panel-heading">Emotion Analyis</div>
-  			<div class="panel-body">Panel Content
-<canvas id="myChart2" width="400" height="170"></canvas>
-			</div>
-
-		</div>
-            </div>
+        
             <div class="col-lg-4">
                <div class="panel panel-default">
   		<div class="panel-heading">Text Analysis</div>
-  		<div class="panel-body">Panel Content
-            <div class="row">
+  		<div class="panel-body">
+           <!-- <div class="row">
                 <label for="time">Time:</label>
                 <input disabled value="-" id="time" type="text" class="bold">
-            </div>
+            </div> -->
             <div class="row">
                 <label for="fps">Estimated Fps:</label>
                 <input disabled value="-" id="fps" type="text" class="bold">
@@ -219,7 +216,7 @@
       <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
 <script>
-let scoreThreshold = 0.5
+	let scoreThreshold = 0.5
         let sizeType = '160'
         let modelLoaded = false
         var cImg;
@@ -255,7 +252,7 @@ let scoreThreshold = 0.5
         function updateTimeStats(timeInMs) {
             forwardTimes = [timeInMs].concat(forwardTimes).slice(0, 30)
             const avgTimeInMs = forwardTimes.reduce((total, t) => total + t) / forwardTimes.length
-            $('#time').val(`${Math.round(avgTimeInMs)} ms`)
+            //$('#time').val(`${Math.round(avgTimeInMs)} ms`)
             $('#fps').val(`${faceapi.round(1000 / avgTimeInMs)}`)
         }
 var chart=null;
@@ -274,7 +271,7 @@ flag=true;
 					      labels: ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"],
 					      datasets: [
 						{
-						  label: "Sentiment in terms of %",
+						  label: "Emotions",
 						  backgroundColor:["#ff0000","#ff00ff","#e6e600","#00ff00","#009999","#ff3399","#8000ff"],
 						  data: [emotionDisplay["angry"],emotionDisplay["disgust"],emotionDisplay["fear"],emotionDisplay["happy"],emotionDisplay["sad"],emotionDisplay["surprise"],emotionDisplay["neutral"]]
 						}
@@ -284,7 +281,9 @@ flag=true;
  animation: {
         duration: 0
     },
-					      legend: { display: false },
+					      legend: { display: true,position: 'right'
+						
+ },
 					      title: {
 						display: true,
 						text: 'Emotion Analysis '
