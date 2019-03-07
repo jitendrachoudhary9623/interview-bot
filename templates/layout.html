@@ -7,8 +7,10 @@
 <script src="{{ url_for('static', filename='js/bootstrap4.min.js') }}"></script> 
 <link href="{{ url_for('static',filename ='styles/bootstrap4.min.css') }}" rel="stylesheet">
 <style>
-body{
-
+.fixed-bottom{
+border:solid 1px #4a148c;
+color:#4a148c;
+font-style:bold;
 }
 </style>
 <title></title>
@@ -21,14 +23,17 @@ body{
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav ml-auto">
+    <ul class="nav navbar-nav ml-auto ">
 	{% if session.log %}
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
       </li>
 	{% endif %} 
     </ul>
-    <ul class="nav navbar-nav mr-auto">
+    <ul class="nav navbar-nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="/ppt"><b>How it works?</b></a>
+      </li>
 	{% if not session.log %}
 
       <li class="nav-item">
@@ -37,7 +42,7 @@ body{
       <li class="nav-item">
         <a class="nav-link" href="/login"><b>Login</b></a>
       </li>
-	
+
 
 	{% else %}
 
@@ -49,6 +54,19 @@ body{
       </li>     
 
 	{% endif %} 
+ 	<li class="nav-item p-2">
+        <a class="nav-link" href=""></a>
+      	</li>
+ 	<li class="nav-item">
+        <a class="nav-link" href=""></a>
+      	</li>
+ 	<li class="nav-item">
+        <a class="nav-link" href=""></a>
+      	</li> 	<li class="nav-item">
+        <a class="nav-link" href=""></a>
+      	</li> 	<li class="nav-item">
+        <a class="nav-link" href=""></a>
+      	</li>
     </ul>
    
   </div>
@@ -57,5 +75,9 @@ body{
 {% include  "includes/_message.html" %}
 {% block body%}
 {% endblock %}
+
+<footer  class="fixed-bottom font-weight-bold text-center">
+Interview Bot - B.E Final Year Project
+</footer>
 </body>
 </html>

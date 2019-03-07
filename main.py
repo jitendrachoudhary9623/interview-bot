@@ -79,14 +79,16 @@ def login():
 def logout():
 	session["log"]=False
 	session.clear()
-	flash("Logged out ,Thank you for using our service","success")
+	#flash("Logged out ,Thank you for using our service","success")
 	return redirect(url_for("login"))
 
 #route for main page
 @app.route("/chatbot")
 def chatbot():
-	load_kern(False)
-	return render_template('chat.html')
+	if 'log' in session:
+		load_kern(False)
+		return render_template('chat.html')
+	return render_template('notallowed.html')
 
 #route for chatbot
 asked=[]
@@ -162,6 +164,14 @@ def pdf_template():
 		response.headers['Content-Type']="application/pdf"
 		response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
 		return response
+
+
+#error handlers
+@app.errorhandler(404)
+def error404(error):
+	return "404",404
+
+
 if __name__ == "__main__":
     app.secret_key="interviewbot"
-    app.run(debug=True,port=9145)
+    app.run(debug=True,port=9147)
