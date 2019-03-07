@@ -107,10 +107,7 @@ def ask():
 	else:
 		bot_response = kernel.respond(message)
 		temp=bot_response
-		if temp in asked:
-			print("Already Asked")
-			bot_response=kernel.respond("NEXT QUESTION")
-			return jsonify({'status':'OK','answer':bot_response})
+
 		asked.append(temp)
 		print(bot_response)
 		return jsonify({'status':'OK','answer':bot_response})
@@ -167,4 +164,4 @@ def pdf_template():
 		return response
 if __name__ == "__main__":
     app.secret_key="interviewbot"
-    app.run(debug=True,port=9138)
+    app.run(debug=True,port=9145)
