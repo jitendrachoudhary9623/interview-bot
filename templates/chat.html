@@ -4,23 +4,17 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Chatbot</title>
-   <!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <link href="{{ url_for('static', filename='styles/bootstrap4.min.css') }}" type="text/css" rel="stylesheet" />
         <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-  <!--	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script> 
+
+
+	<script src="{{ url_for('static', filename='js/bootstrap4.min.js') }}"></script> 
         <link href="{{ url_for('static', filename='styles/style.css') }}" type="text/css" rel="stylesheet" />
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
 	<script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
-	<!--tensorflow js -->
   	<script src="{{ url_for('static',filename='js/face-api.js') }}"></script>
     	<script src="{{ url_for('static',filename='js/commons.js') }}"></script>
- 	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
-        <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"></script>-->
 	<script src="{{ url_for('static', filename='js/tf.min.js') }}"></script>
-       	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
-        <link href="{{ url_for('static', filename='styles/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
-      	<!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"rel="stylesheet">-->
+
         <link href="{{ url_for('static', filename='styles/font-awesome.min.css') }}" type="text/css" rel="stylesheet" />
       	<link href="{{ url_for('static',filename ='styles/style.css') }}" rel="stylesheet">
       <style type="text/css">
@@ -98,134 +92,140 @@
 
       </style>
    </head>
-   <body>
-      <div class="container-fluid background-color:white;">
-         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-               <div class="navbar-header">
-                  <a class="navbar-brand" href="#">Interview Bot</a>
-               </div>
-               <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Welcome</a></li>
-                  <li><a></a></li>
-<li><button type="button" class="btn btn-success navbar-btn " id="timerText">0:00 sec</button></li>
-               </ul>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4a148c;">
+<a class="navbar-brand" href="/"><b>Interview Bot</b></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-		<ul class="nav navbar-nav navbar-right">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-  			<li><button type="button" class="btn btn-success navbar-btn " id="startInterviewButton">Start Interview</button></li>
-			<li><a></a></li>
-   			<li><form id="finishForm" action="/generate" method="post">			
-			<input type="text" id="iTime" name="iTime" value="hidden value" hidden/>			
-			<button type="submit" class="btn btn-danger navbar-btn" id="finishInterviewButton" disabled>
-			Finish Interview
-			</button>
-			</form>
-			</li>
-			<li><a></a></li>
-		</ul>
+<ul class="nav navbar-nav ml-auto ">
+<li class="nav-item active">
+<button id="timerText" class="btn btn-danger">Value</button>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+</li>
+</ul>
+
+<ul class="nav navbar-nav justify-content-end">
+<li class="nav-item"><a class="nav-link" href="/ppt"><b>How it works?</b></a></li>
+<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>     
 
 
-            </div>
-         </nav>
-       </div><!--navbarend -->
-       <br/><br/><br/>
-       <div class="container-fluid">
-         <div class="row">
-            <!-- video -->
-            <div class="container2 col-md-4 ">
-		<div  style="position: relative; margin-left:3%;" >
+</ul>
+
+</div>
+</nav>     
+<br/>
+
+<div class="container-fluid">
+
 <div class="row">
-<div class="col">
-       <video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
-</div>
-<div class="col">
-            <canvas id="overlay" />
-</div>
-            <!--<canvas id='canvas' />-->
-</div>
-		</div>
-            </div>
-	   <!-- interviewer -->
-            <div class="container2 col-md-4 panel panel-warning">
-		<div class="panel-body">
-               		<img src="{{url_for('static', filename='interview-stare.jpg')}}" id="videoElement" />
-		</div>
-            </div>
-	   <!-- chatbot -->
-            <div class="col-md-4">
-               <div id="chatPanel" class="panel panel-info">
-                  <div class="panel-body fixed-panel">
-                     <ul class="media-list">
-                     </ul>
-                  </div>
-                  <div class="panel-footer">
-                     <form method="post" id="chatbot-form" autocomplete="off">
-                        <textarea class="form-control" placeholder="Enter Message" name="messageText" id="messageText" autofocus disabled required/></textarea>
 
-                        <br/>
-                        <div class="input-group">
-                           <span class="input-group-btn">
-                           <button class="btn btn-danger" type="button" id="chatbot-form-btn-clear-input" disabled>Clear input</button>
-                           <button class="btn btn-success" type="button" id="chatbot-form-btn" disabled>Submit Your Answer</button>
-                           <button class="btn btn-warning" type="button" id="chatbot-form-btn-clear" disabled>Clear</button>
-                           <button class="btn btn-info" type="button" id="chatbot-form-btn-voice" disabled>Voice</button>
-                           </span>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="row"><!--row-->
-    	   <div class="col-lg-4">
-		<canvas id="myChart2" width="400" height="200"></canvas>
-	    </div>
-            <div class="col-lg-4">
-              
-			<canvas id="myChart" width="400" height="170"></canvas>
-		
-            </div>
-        
-            <div class="col-lg-4">
-               <div class="panel panel-default">
-  		<div class="panel-heading">Text Analysis</div>
-  		<div class="panel-body">
-           <!-- <div class="row">
-                <label for="time">Time:</label>
-                <input disabled value="-" id="time" type="text" class="bold">
-            </div> -->
-            <div class="row">
-                <label for="fps">Estimated Fps:</label>
-                <input disabled value="-" id="fps" type="text" class="bold">
-            </div>
-            <div class="row">
-                <label for="word">Number of words</label>
-                <input disabled value="-" id="word" type="text" class="bold">
-            </div>
-            <div class="row">
-                <label for="nos">Number of sentences:</label>
-                <input disabled value="-" id="nos" type="text" class="bold">
-            </div>
-            <div class="row">
-                <label for="ld">Lexical Diversity:</label>
-                <input disabled value="-" id="ld" type="text" class="bold">
-            </div>	    
+<!--emotion output-->
+<div class=" col-md-4 ">
+<div  style="position: relative; margin-left:3%;" >
+<video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
+<canvas id="overlay" />
+<div class="spinner-border text-muted" id="loader" ></div>
+
+<br/>
+
 </div>
-		</div>
-            </div>
-         </div><!--end row -->
+</div>
 
+<!-- interviewer -->
+<div class=" col-md-4 panel panel-warning">
+<div class="panel-body">
 
+<img src="{{url_for('static', filename='interview-stare.jpg')}}" id="videoElement" />
+<br/><br/>
+<div class="text-center">
+<button class="btn btn-success" id="startInterviewButton">Start Interview</button>	
 
-  </div>
-     <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script>
-         var exports = {};
-      </script>
-     <!-- <script src="https://unpkg.com/speech-to-text@0.7.4/lib/index.js"></script>-->
-      <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<button type="submit" class="btn btn-danger" id="finishInterviewButton" disabled>
+Finish Interview
+</button>	
+<form id="finishForm" action="/generate" method="post">	
+
+<input type="text" id="iTime" name="iTime" value="hidden value" hidden/>			
+
+</form>
+</div>
+
+</div>
+</div>
+
+<!-- chatbot -->
+<div class="col-md-4">
+<div id="chatPanel" class="panel panel-info">
+<div class="panel-body fixed-panel">  <!--chat history-->
+<ul class="media-list">
+</ul>
+</div>
+<div class="panel-footer">	<!--chat option -->
+<form method="post" id="chatbot-form" autocomplete="off">
+<textarea class="form-control" placeholder="Enter Message" name="messageText" id="messageText" autofocus disabled required/></textarea>		<!--chat area-->
+<br/>
+<div class="input-group">	<!--chat buttons-->
+<span class="input-group-btn">
+<button class="btn btn-danger" type="button" id="chatbot-form-btn-clear-input" disabled>Clear input</button>
+<button class="btn btn-success" type="button" id="chatbot-form-btn" disabled>Submit Your Answer</button>
+<button class="btn btn-warning" type="button" id="chatbot-form-btn-clear" disabled>Clear</button>
+<button class="btn btn-info" type="button" id="chatbot-form-btn-voice" disabled>Voice</button>
+</span>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div> <!--end row-->
+
+<!-- Analysis Part -->
+<div class="row"><!--row-->
+
+<!-- Real time update of emotion -->
+<div class="col-md-4">
+<canvas id="myChart2" width="400" height="200"></canvas>
+</div>
+
+<!-- Sentiment Analysis -->
+<div class="col-md-4">
+<canvas id="myChart" width="400" height="170"></canvas>
+</div>
+
+<!--Text Analysis -->  
+<div class="col-lg-4">
+<div class="panel panel-default">
+<div class="panel-heading">Text Analysis</div>
+<div class="panel-body">
+
+<div class="row">
+<label for="fps">Estimated Fps:</label>
+<input disabled value="-" id="fps" type="text" class="bold">
+</div>
+<div class="row">
+<label for="word">Number of words</label>
+<input disabled value="-" id="word" type="text" class="bold">
+</div>
+<div class="row">
+<label for="nos">Number of sentences:</label>
+<input disabled value="-" id="nos" type="text" class="bold">
+</div>
+<div class="row">
+<label for="ld">Lexical Diversity:</label>
+<input disabled value="-" id="ld" type="text" class="bold">
+</div>	 
+   
+</div>
+</div>
+</div>
+</div><!--end row -->
+
+</div><!--container -->
 
 <script src="{{ url_for('static', filename='js/emotion.js') }}"></script>
 
@@ -244,7 +244,7 @@ navigator.mediaDevices.getUserMedia(constraints)  //change global constraints fo
 //passing video id
 onPlay($('#inputVideo').get(0))
 	   //hiding loader
-           // $('#loader').hide()
+          $('#loader').hide()
         }
 function loadModelFunction(){
 loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
@@ -254,17 +254,18 @@ loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorf
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" id="instruction_heading">Start Interview - Instructions</h4>
-        </div>
-        <div class="modal-body"  id="instruction_body">
-	<h3>Welcome to Interview Bot</h3>
+
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Start Interview - Instructions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<h3>Welcome to Interview Bot</h3>
 	<h5> Interviews required practise and this project aims to prepare you for the same.</h5>
 	<div style="color:green">
 	<ul>
@@ -280,19 +281,17 @@ loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorf
 	<li>After speaking your answer click on the <b>SEND</b> button</li>
 	<li>If the bot continously asks the same question or you want to skip the question, then speak "<b><span style="color:red">NEXT QUESTION</span></b>"</li>
 	</ul>
-
-
-        </div>
-        <div class="modal-footer">
-<p style="color:green">All the best !!</p>
-          <button type="button" class="btn btn-info" data-dismiss="modal" id="continueInterview">Continue</button>
-        </div>
       </div>
-      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+          <button type="button" class="btn btn-info" data-dismiss="modal" id="continueInterview">Continue</button>
+      </div>
     </div>
   </div>
-<!-- end modal -->
+</div>
 
+<!-- end modal -->
 <!-- Modal -->
   <div class="modal fade" id="finishModal" role="dialog">
     <div class="modal-dialog">

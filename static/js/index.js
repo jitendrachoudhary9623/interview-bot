@@ -1,9 +1,9 @@
 //Main functionalities
 $(function() {
-
+$('.toast').toast('show');
 loadModelFunction();
 const sizeTypeSelect = sizeType
-run()
+
 var asked_questions=[];
 var previousQuestion="";
 var reportData={
@@ -82,6 +82,7 @@ loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorf
 //run()
 //initEmotion();	
 //enabling buttons	S
+run()
 $( "#chatbot-form-btn-clear-input" ).prop( "disabled", false );
 $("#chatbot-form-btn").prop( "disabled", false );
 $("#chatbot-form-btn-voice").prop( "disabled", false );
@@ -92,6 +93,7 @@ $('#messageText').prop( "disabled", false );
 $('#timerText').click();
 $('#timerText').show();
 $('#timerText').prop( "disabled", true );
+
 });
 
 
