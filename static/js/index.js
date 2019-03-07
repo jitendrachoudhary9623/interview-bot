@@ -97,8 +97,8 @@ const sizeTypeSelect = sizeType
 		$('#continueInterview').click(function(e){
 		loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
 
-            	const sizeTypeSelect =160
-            	run()
+            	//const sizeTypeSelect =160
+            	//run()
 		//initEmotion();	
 		//enabling buttons
 		$( "#chatbot-form-btn-clear-input" ).prop( "disabled", false );
@@ -239,6 +239,23 @@ const sizeTypeSelect = sizeType
 					    }
 					});//end chart
 				 
+			    },//end success
+			    error: function(error) {
+				console.log("Not working"+error);
+			    }//end error
+			});//end sentiment ajax
+
+//Sentiment request    
+		 $.ajax({
+			    type: "POST",
+			    url: "/textAnalysis",
+			    data: $(this).serialize(),
+			    success: function(response) {
+				console.log(response)
+				$("#word").val(response['numChars'])
+				$("#nos").val(response['numSentences'])
+				$("#ld").val(response['Lexical'])
+      					    
 			    },//end success
 			    error: function(error) {
 				console.log("Not working"+error);

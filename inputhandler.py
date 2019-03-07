@@ -37,6 +37,6 @@ def readStopwords(language):
     exists in the folder app/static
     '''    
     filename = "stopwords" + language + ".txt"
-    path = os.path.join("app/static/", filename)
+    path = os.path.join("static/", filename)
     file = open(path, 'r')
     return file.read().splitlines()  # splitlines is used to remove newlines
