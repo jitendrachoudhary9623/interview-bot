@@ -31,7 +31,7 @@ var EmotionModel;
 var offset_x = 34;
 var offset_y = 20;
 var emotion_labels = ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"];
-var emotion_colors = ["#ff0000","#ff00ff","#e6e600","#00ff00","#009999","#ff3399","#8000ff"];
+var emotion_colors = ["#ff5722","#827717","#6200ea","#c51162","#3f51b5","#004d40","#9e9e9e"];
 
 let forwardTimes = []
 var chart=null;
@@ -64,7 +64,7 @@ function updateCharts(){
 			      datasets: [
 				{
 				  label: "Emotions",
-				  backgroundColor:["#ff0000","#ff00ff","#e6e600","#00ff00","#009999","#ff3399","#8000ff"],
+				  backgroundColor:["#ff5722","#827717","#6200ea","#c51162","#3f51b5","#004d40","#9e9e9e"],
 				  data: [emotionDisplay["angry"],emotionDisplay["disgust"],emotionDisplay["fear"],emotionDisplay["happy"],emotionDisplay["sad"],emotionDisplay["surprise"],emotionDisplay["neutral"]]
 				}
 			      ]

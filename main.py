@@ -81,6 +81,9 @@ def logout():
 	session.clear()
 	#flash("Logged out ,Thank you for using our service","success")
 	return redirect(url_for("login"))
+@app.route("/ppt")
+def ppt():
+	return render_template("ppt.html")
 
 #route for main page
 @app.route("/chatbot")
@@ -174,4 +177,4 @@ def error404(error):
 
 if __name__ == "__main__":
     app.secret_key="interviewbot"
-    app.run(debug=True,port=9149)
+    app.run(debug=True,port=9150)
