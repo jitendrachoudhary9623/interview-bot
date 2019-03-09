@@ -16,21 +16,21 @@ font-style:bold;
 <title></title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4a148c;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top font-weight-bold" style="background-color: #4a148c;">
   <a class="navbar-brand" href="/"><b>Interview Bot</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav ml-auto ">
+    <ul class="nav navbar-nav ml-auto font-weight-bold">
 	{% if session.log %}
       <li class="nav-item active">
         <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
       </li>
 	{% endif %} 
     </ul>
-    <ul class="nav navbar-nav justify-content-end">
+    <ul class="nav navbar-nav justify-content-end font-weight-bold">
       <li class="nav-item">
         <a class="nav-link" href="/ppt"><b>How it works?</b></a>
       </li>
@@ -47,10 +47,10 @@ font-style:bold;
 	{% else %}
 
       <li class="nav-item">
-        <a class="nav-link" href="/chatbot">Mock Interview</a>
+        <a class="nav-link" href="/chatbot"><b>Mock Interview</b></a>
       </li>       
       <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
+        <a class="nav-link" href="/logout"><b>Logout</b></a>
       </li>     
 
 	{% endif %} 
@@ -71,6 +71,8 @@ font-style:bold;
    
   </div>
 </nav>
+<br/>
+<br/>
 <br/>
 {% include  "includes/_message.html" %}
 {% block body%}

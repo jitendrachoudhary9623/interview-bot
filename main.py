@@ -80,7 +80,7 @@ def logout():
 	session["log"]=False
 	session.clear()
 	#flash("Logged out ,Thank you for using our service","success")
-	return redirect(url_for("login"))
+	return redirect(url_for("index"))
 @app.route("/ppt")
 def ppt():
 	return render_template("ppt.html")
