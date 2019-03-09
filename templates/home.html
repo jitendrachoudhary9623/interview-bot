@@ -1,46 +1,104 @@
 {% extends "layout.html"%}
 {% block body %}
-<div class="container-fluid">
+<style>
 
-<div class="card text-center">
-<div class="card-header">
-Prepare for your interviews
-</div>
-<div class="card-body">
-<h5 class="card-title">Interview Bot - A chat bot based approach for interview preparation</h5>
-<p class="card-text">Practise your interviews with the help of AI.</p>
-<a href="/chatbot" class="btn btn-success">Start Interview</a>
-</div>
-</div>
-<br/>
-<div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">How to write your resume for interviews</h5>
-        <p class="card-text">Learn how to make a good resume</p>
-        <a href="#" class="btn btn-danger">Checkout Resume Guide</a>
+body {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+  background:red;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.side1{
+color:black;
+background:white;
+}
+.side1container{
+color:black;
+background-image: linear-gradient(to right top, #490b8e, #510b99, #590aa4, #6208b0, #6b05bb);
+
+}
+</style>
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="side1container border-right" id="sidebar-wrapper">
+
+      <div class="list-group list-group-flush" style="background:red;">
+        <a href="#" class="list-group-item list-group-item-action side1container"></a>
+        <a href="/home" class="list-group-item list-group-item-action side1"><i class="fas fa-tachometer-alt"></i>
+
+&nbsp;&nbsp;Dashboard</a>
+        <a href="/" class="list-group-item list-group-item-action side1"><i class="fas fa-home"></i>
+
+ &nbsp;&nbsp;Home</a>
+        <a href="/chatbot" class="list-group-item list-group-item-action side1"><i class="fas fa-chalkboard-teacher"></i>
+
+&nbsp;&nbsp;Mock Interview</a>
+        <a href="/interview" class="list-group-item list-group-item-action side1"><i class="fas fa-users"></i>
+&nbsp;&nbsp;Interview Tips</a>
+        <a href="/resume" class="list-group-item list-group-item-action side1"><i class="fas fa-file"></i>
+
+&nbsp;&nbsp;Resume Tips</a>
+        <a href="/logout" class="list-group-item list-group-item-action side1"><i class="fas fa-sign-out-alt"></i>
+
+&nbsp;&nbsp;Logout</a>
+
       </div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">How to prepare for technical interview</h5>
-        <p class="card-text">Learn and understand how and what to prepare for technical interviews.</p>
-        <a href="#" class="btn btn-danger">Technical Interview Guide</a>
+    <!-- /#sidebar-wrapper -->
+
+    
+      <div class="container-fluid">
+   {% block home_content %}
+
+   {% endblock %}
       </div>
     </div>
+    <!-- /#page-content-wrapper -->
+
   </div>
- <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Interview Tips</h5>
-        <p class="card-text">Get Interview Tips</p>
-        <a href="#" class="btn btn-danger">Interview Tips</a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+  <!-- /#wrapper -->
+
+  
 {% endblock %}

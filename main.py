@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify,make_response,session,logging,url_for,redirect,flash
+from flask import Flask, render_template, request, jsonify,make_response,session,logging,url_for,redirect,flash,abort
 import aiml
 import os
 from nlp import TextAnalyser
@@ -31,30 +31,39 @@ def index():
 
 @app.route("/home")
 def home():
-	return render_template("home.html")
+	if 'log' in session:
+		return render_template("home.html")
+	abort(404)
 
 @app.route("/register",methods=["GET","POST"])
 def register():
-	if request.method == "POST":
-		name=request.form.get("name")
-		username=request.form.get("username")
-		password=request.form.get("password")
-		confirm=request.form.get("confirm")
-		secure_password=sha256_crypt.encrypt(str(password))
-		
-		if password == confirm:
-			db.execute("INSERT INTO users(name,username,password) VALUES (:name,:username,:password)",{"name":name,"username":username,"password":secure_password})
-			db.commit()
-			flash("Registeration successfull , Please Login ","success")
-			return redirect(url_for('login'))
-		else:
-			flash("Password does not match","danger")
-			return render_template('register.html')
-	return render_template("register.html")
+	if 'log' in session:
+		flash("Your already logged in your account, logout if you want to create new account","danger")
+		return redirect(url_for("home"))
+	else:
+		if request.method == "POST":
+			name=request.form.get("name")
+			username=request.form.get("username")
+			password=request.form.get("password")
+			confirm=request.form.get("confirm")
+			secure_password=sha256_crypt.encrypt(str(password))
+			
+			if password == confirm:
+				db.execute("INSERT INTO users(name,username,password) VALUES (:name,:username,:password)",{"name":name,"username":username,"password":secure_password})
+				db.commit()
+				flash("Registeration successfull , Please Login ","success")
+				return redirect(url_for('login'))
+			else:
+				flash("Password does not match","danger")
+				return render_template('register.html')
+		return render_template("register.html")
 
 
 @app.route("/login",methods=["GET","POST"])
 def login():
+	if 'log' in session:
+			flash("Already Logged in , To login with another account logout first","danger")
+			return render_template('home.html')
 	if request.method=="POST":
 		uname=request.form.get("username")
 		password=request.form.get("password")
@@ -77,10 +86,14 @@ def login():
 
 @app.route("/logout")
 def logout():
-	session["log"]=False
-	session.clear()
-	#flash("Logged out ,Thank you for using our service","success")
-	return redirect(url_for("index"))
+	if 'log' in session:
+		session["log"]=False
+		session.clear()
+		flash("Logged out ,Thank you for using our service","success")
+		return redirect(url_for("index"))
+	else:
+		flash("For logging out you need to login first","danger")
+		return redirect(url_for("index"))
 @app.route("/ppt")
 def ppt():
 	return render_template("ppt.html")
@@ -158,23 +171,27 @@ def text_analysis():
 
 @app.route('/generate',methods=['POST'])
 def pdf_template():
-	if request.method == 'POST':
-		message = str(request.form['iTime'])
-		print(message)
-		rendered=render_template("pdf_template.html",totalDuration=str(request.form['iTime']))
-		pdf=pdfkit.from_string(rendered,False)#true for client sending
-		response=make_response(pdf)
-		response.headers['Content-Type']="application/pdf"
-		response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
-		return response
+	if 'log' in session:
+		if request.method == 'POST':
+			message = str(request.form['iTime'])
+			print(message)
+			rendered=render_template("pdf_template.html",totalDuration=str(request.form['iTime']))
+			pdf=pdfkit.from_string(rendered,False)#true for client sending
+			response=make_response(pdf)
+			response.headers['Content-Type']="application/pdf"
+			response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
+			return response
+	abort(404)
 
 
 #error handlers
 @app.errorhandler(404)
 def error404(error):
-	return "404",404
+	return render_template("notallowed.html"),404
 
-
+@app.errorhandler(405)
+def error405(error):
+	return render_template("noaccess.html"),405
 if __name__ == "__main__":
     app.secret_key="interviewbot"
     app.run(debug=True,port=9150)

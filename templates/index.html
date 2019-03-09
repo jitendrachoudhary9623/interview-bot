@@ -6,9 +6,9 @@
 <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap4.min.js') }}"></script> 
 <link href="{{ url_for('static',filename ='styles/bootstrap4.min.css') }}" rel="stylesheet">
-<link rel='stylesheet' href="{{ url_for('static',filename ='styles/all.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-<link rel='stylesheet' href="{{ url_for('static',filename ='styles/icon.css') }}">
+<link rel='stylesheet' href="{{ url_for('static',filename ='styles/icon.css') }}" >
 <style>
 .fixed-bottom{
 border:solid 1px #4a148c;
@@ -48,67 +48,13 @@ h1 {
 <title></title>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #4a148c;">
-  <a class="navbar-brand" href="/"><b>Interview Bot</b></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav ml-auto ">
-	{% if session.log %}
-      <li class="nav-item active">
-        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-      </li>
-	{% endif %} 
-    </ul>
-    <ul class="nav navbar-nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link" href="/ppt"><b>How it works?</b></a>
-      </li>
-	{% if not session.log %}
-
-      <li class="nav-item">
-        <a class="nav-link" href="/register"><b>Register</b></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login"><b>Login</b></a>
-      </li>
-
-
-	{% else %}
-
-      <li class="nav-item">
-        <a class="nav-link" href="/chatbot"><b>Mock Interview</b></a>
-      </li>       
-      <li class="nav-item">
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
-      </li>     
-
-	{% endif %} 
- 	<li class="nav-item p-2">
-        <a class="nav-link" href=""></a>
-      	</li>
- 	<li class="nav-item">
-        <a class="nav-link" href=""></a>
-      	</li>
- 	<li class="nav-item">
-        <a class="nav-link" href=""></a>
-      	</li> 	<li class="nav-item">
-        <a class="nav-link" href=""></a>
-      	</li> 	<li class="nav-item">
-        <a class="nav-link" href=""></a>
-      	</li>
-    </ul>
-   
-  </div>
-</nav>
+{% include  "includes/_navbar.html" %}
 <?xml version="1.0" standalone="no"?><!-- Generator: Gravit.io --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 1080 512" width="1080" height="512"><defs><clipPath id="_clipPath_16hyhvd3TyjYpFWkJOcgOdVvheiGz4OM"><rect width="1080" height="512"/></clipPath></defs><g clip-path="url(#_clipPath_16hyhvd3TyjYpFWkJOcgOdVvheiGz4OM)"><ellipse vector-effect="non-scaling-stroke" cx="944" cy="79" rx="340" ry="319" fill="rgb(74,20,140)"/></g></svg>
 <br/>
 <br/>
 <br/>
 <div class="container-fluid">
+{% include  "includes/_message.html" %}
 <div class="row">
 <div class="col-md-8">
 <h1 style="color:#4a148c;
