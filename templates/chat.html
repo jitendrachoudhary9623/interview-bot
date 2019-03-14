@@ -21,16 +21,37 @@
       <style type="text/css">
 
         .fixed-panel {
-        min-height: 170px;
-        max-height:170px;
+        min-height: 250px;
+        max-height:250px;
         background-color: white;
         color: black;
         overflow: auto;
+	padding:1.5%;
+	border:1px #4a148c solid;
         }
 	.modal-backdrop {
 	  z-index: 0;
 	}
-
+	.user-chat{
+	background:white;
+	padding:5%;
+	margin-left:25%;
+	text-align:right;
+	color : #4a148c;
+	border: 1px solid #4a148c;
+	border-radius:30px;
+	width:100%;
+	}
+	.chat-bot{
+	background:#4a148c;
+	padding:5%;
+	margin-right:8%;
+	margin-top:2%;
+	margin-bottom:2%;
+	color : white;
+	border-radius:30px;
+	width:100%;
+	}	
         .media-list {
         overflow: auto;
         clear: both;
@@ -58,11 +79,11 @@
         border-color: #0c2735;
         }
         .panel-footer {
-        padding: 10px 15px;
+        padding: 15px 20px;
         background-color: white;
         border-top: 1px solid #0c2735;
-        border-bottom-right-radius: 3px;
-        border-bottom-left-radius: 3px
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px
         }
 
         #demotext {
@@ -81,14 +102,18 @@
         height: 36%;
         background-color: #666;
         }
-    #overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-    background-color: transparent;
+	#overlay {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  z-index: 10;
+	  background-color: transparent;
 
-}
+	}
+
+	.chatbot-background{
+	background:#4a148c;
+	}
 
 
       </style>
@@ -143,16 +168,16 @@ Finish Interview
 <ul class="media-list">
 </ul>
 </div>
-<div class="panel-footer">	<!--chat option -->
+<div class="panel-footer chatbot-background">	<!--chat option -->
 <form method="post" id="chatbot-form" autocomplete="off">
 <textarea class="form-control" placeholder="Enter Message" name="messageText" id="messageText" autofocus disabled required/></textarea>		<!--chat area-->
 <br/>
 <div class="input-group">	<!--chat buttons-->
 <span class="input-group-btn">
-<button class="btn btn-danger" type="button" id="chatbot-form-btn-clear-input" disabled>Clear input</button>
-<button class="btn btn-success" type="button" id="chatbot-form-btn" disabled>Submit Your Answer</button>
-<button class="btn btn-warning" type="button" id="chatbot-form-btn-clear" disabled>Clear</button>
-<button class="btn btn-info" type="button" id="chatbot-form-btn-voice" disabled>Voice</button>
+<button class="btn" style="background:white;color:#4a148c;" type="button" id="chatbot-form-btn-clear-input" disabled>Clear input</button>
+<button class="btn" style="background:white;color:#4a148c;" type="button" id="chatbot-form-btn" disabled>Submit Your Answer</button>
+<button class="btn" style="background:white;color:#4a148c;" type="button" id="chatbot-form-btn-clear" disabled>Clear</button>
+<!--<button class="btn btn-info" type="button" id="chatbot-form-btn-voice" disabled>Voice</button> -->
 </span>
 </div>
 </form>

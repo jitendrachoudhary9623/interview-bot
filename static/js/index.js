@@ -153,7 +153,7 @@ var message_validation=message.split(" ");
 if(message_validation.length>10||(message.indexOf("MY NAME IS") !=-1)||(message.indexOf("START INTERVIEW")!=-1)||(message.indexOf("NEXT QUESTION")!=-1)||(message.indexOf("ASK QUESTION")!=-1))
 {
 
-$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style = "text-align:right; color : black" class="media-body">' + message + '<hr/></div></div></div></li>');
+$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body user-chat">' + message + '</div></div></div></li>');
 
 
 //ajax for chatbot
@@ -175,10 +175,10 @@ success: function(response) {
 	$('#chatbot-form').submit();
 	}//re ask
 	else{
-	console.log("new");
+	console.log("new 1");
 	questionlist.push(answer)
 	const chatPanel = document.getElementById("chatPanel");
-	$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style = "color : red" class="media-body">' + answer + '<hr/></div></div></div></li>');
+	$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' + answer + '</div></div></div></li>');
 	$(".fixed-panel").stop().animate({ scrollTop: $(".fixed-panel")[0].scrollHeight}, 1000);
 	msg.text="";
 	msg.text = answer;
@@ -191,9 +191,10 @@ error: function(error) {
 });//end ajax
 }else{ //end if start else
 
-$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style = "color : red" class="media-body">' + 'Please give detailed answer ' + '<hr/></div></div></div></li>');
-$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style = "color : red" class="media-body">' + previousQuestion + '<hr/></div></div></div></li>');
+$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' + 'Please give detailed answer ' + '</div></div></div></li>');
+$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' + previousQuestion + '</div></div></div></li>');
 var answer="Please provide a detailed answer to the question. This is very important";
+	$(".fixed-panel").stop().animate({ scrollTop: $(".fixed-panel")[0].scrollHeight}, 1000);
 msg.text="";
 var answer_check=previousQuestion.split("\.");
 msg.text=answer+". \n"+answer_check.pop(); 
