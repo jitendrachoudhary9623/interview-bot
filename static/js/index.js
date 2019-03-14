@@ -1,3 +1,36 @@
+var options = {
+    controls: false,
+    width: 400,
+    height: 100,
+    fluid: false,
+    plugins: {
+        wavesurfer: {
+            src: 'live',
+            waveColor: 'white',
+            progressColor: 'black',
+            debug: false,
+            cursorWidth: 1,
+            msDisplayMax: 20,
+            hideScrollbar: true
+        },
+        record: {
+            audio: true,
+            video: false,
+            maxLength: 20,
+            debug: true
+        }
+    }
+};
+//audio
+var player = videojs('myAudio', options, function() {
+    // print version information at startup
+    var msg = 'Using video.js ' + videojs.VERSION +
+        ' with videojs-record ' + videojs.getPluginVersion('record') +
+        ', videojs-wavesurfer ' + videojs.getPluginVersion('wavesurfer') +
+        ', wavesurfer.js ' + WaveSurfer.VERSION + ' and recordrtc ' +
+        RecordRTC.version;
+    videojs.log(msg);
+});
 //Main functionalities
 $(function() {
 $('.toast').toast('show');
@@ -53,16 +86,19 @@ msg.pitch = 0.9;
 //Interview finish
 $("#finishInterviewButton").click(function(e){
 	e.preventDefault();
+	
 	$("#finishModal").modal('toggle');
 	$('#iTime').val($('#timerText').text());
+
 });
 
 //calls for pdf
+
 $('#finsihModalButton').click(function(e){
 $('#timerText').hide();
 $('#timerText').prop( "disabled", false );
 $("#finishForm").submit();
-});
+}); 
 
 //timer
 $('#timerText').click(function(e){
@@ -77,6 +113,7 @@ $('#timerText').hide();
 
 //start Interview action
 $('#continueInterview').click(function(e){
+openFullscreen();
 loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
 //const sizeTypeSelect =160
 //run()
@@ -94,6 +131,43 @@ $('#timerText').click();
 $('#timerText').show();
 $('#timerText').prop( "disabled", true );
 
+
+
+//trigger
+
+
+//full screen
+
+var screen = document.getElementById("container");
+  if (screen.requestFullscreen) {
+    screen.requestFullscreen();
+  } else if (screen.mozRequestFullScreen) { 
+    screen.mozRequestFullScreen();
+  } else if (screen.webkitRequestFullscreen) {
+    screen.webkitRequestFullscreen();
+  } else if (screen.msRequestFullscreen) { 
+    screen.msRequestFullscreen();
+  }
+console.log('lets see');
+
+});
+
+// error handling
+player.on('deviceError', function() {
+    console.log('device error:', player.deviceErrorCode);
+});
+player.on('error', function(element, error) {
+    console.error(error);
+});
+// user clicked the record button and started recording
+player.on('startRecord', function() {
+    console.log('started recording!');
+});
+// user completed recording and stream is available
+player.on('finishRecord', function() {
+    // the blob object contains the recorded data that
+    // can be downloaded by the user, stored on server etc.
+    console.log('finished recording: ', player.recordedData);
 });
 
 
@@ -259,6 +333,12 @@ console.log("Not working"+error);
 });
 
 
-			 
+		 
 });//end onload
+
+
+function openFullscreen() {
+console.log('work');
+
+}
 

@@ -18,8 +18,24 @@
         <link href="{{ url_for('static', filename='styles/font-awesome.min.css') }}" type="text/css" rel="stylesheet" />
       	<link href="{{ url_for('static',filename ='styles/style.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-      <style type="text/css">
 
+<link href="{{ url_for('static',filename='lib/video-js.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='lib/videojs.wavesurfer.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='lib/videojs.record.css') }}" rel="stylesheet">
+
+  <script src="{{ url_for('static',filename='lib/video.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='lib/RecordRTC.js') }}" ></script>
+  <script src="{{ url_for('static',filename='lib/adapter.js') }}"></script>
+  <script src="{{ url_for('static',filename='lib/wavesurfer.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='lib/wavesurfer.microphone.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='lib/videojs.wavesurfer.min.js') }}"></script>
+
+  <script src="{{ url_for('static',filename='lib/videojs.record.js') }}"></script>
+
+      <style type="text/css">
+  #myAudio {
+      background-color: #4a148c;
+  }
         .fixed-panel {
         min-height: 250px;
         max-height:250px;
@@ -114,7 +130,10 @@
 	.chatbot-background{
 	background:#4a148c;
 	}
-
+	::backdrop
+	{
+	    background-color: white;
+	}
 
       </style>
    </head>
@@ -123,7 +142,8 @@
 <br/>
 <br/>
 <br/>
-<div class="container-fluid">
+<div class="container-fluid" id="container">
+<button class="btn btn-danger" align="right" id="timerText" style="display: flex; justify-content: flex-end;"> 0 secs </button>
 
 <div class="row">
 
@@ -196,6 +216,7 @@ Finish Interview
 
 <!-- Sentiment Analysis -->
 <div class="col-md-4">
+<audio id="myAudio" class="video-js" autoplay muted></audio>
 <canvas id="myChart" width="400" height="170"></canvas>
 </div>
 
@@ -295,7 +316,7 @@ loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorf
 
 <!-- end modal -->
 <!-- Modal -->
-  <div class="modal fade" id="finishModal" role="dialog">
+  <div class="modal" id="finishModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -320,5 +341,6 @@ loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorf
     </div>
   </div>
 <!-- end modal -->
+
    </body>
 </html>
