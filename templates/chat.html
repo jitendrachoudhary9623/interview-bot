@@ -149,9 +149,9 @@
 
 <!--emotion output-->
 <div class=" col-md-4 ">
-<div  style="position: relative; margin-left:3%;" >
-<video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
-<canvas id="overlay" />
+<div  style="position: relative; margin:3%;" >
+<video onplay="onPlay(this)" id="inputVideo" autoplay muted style="border-radius:30px;"></video>
+<canvas id="overlay" style="border-radius:30px;"/>
 <div class="spinner-border text-muted" id="loader" ></div>
 
 <br/>
@@ -227,22 +227,35 @@ Finish Interview
 <div class="panel-body">
 
 <div class="row">
-<label for="fps">Estimated Fps:</label>
+<div class="col-md-6">
+<label for="fps">Estimated Fps:</label> 
 <input disabled value="-" id="fps" type="text" class="bold">
 </div>
-<div class="row">
-<label for="word">Number of words</label>
+<div class="col-md-6">
+<label for="word">Total Words</label>
 <input disabled value="-" id="word" type="text" class="bold">
 </div>
+</div>
+
 <div class="row">
-<label for="nos">Number of sentences:</label>
+<div class="col-md-6">
+<label for="nos">Total unique words</label>
 <input disabled value="-" id="nos" type="text" class="bold">
 </div>
-<div class="row">
+
+<div class="col-md-6">
 <label for="ld">Lexical Diversity:</label>
 <input disabled value="-" id="ld" type="text" class="bold">
 </div>	 
-   
+</div>
+
+<div class="row">
+<div class="col-md-4">
+<label for="ld">Frequent Words:</label>
+<input disabled value="-" id="frequentword" type="text" class="bold">
+</div>	
+</div>
+
 </div>
 </div>
 </div>

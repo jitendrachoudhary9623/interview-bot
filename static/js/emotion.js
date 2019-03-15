@@ -10,8 +10,8 @@ var cImg;
 var constraints = {
 	audio: false,
 	video: {
-		width: 360,
-		height: 300
+		width: 460,
+		height: 370
 	}
 };
 
@@ -91,6 +91,8 @@ plays and replaces emotion in realtime over a canvas
 */
 
 async function onPlay(videoEl) {
+	videoEl.height=constraints.video.height;
+	videoEl.width=constraints.video.width;
 //check if video is playing or not if not then return no need to process it
 	if (videoEl.paused || videoEl.ended || !modelLoaded){
 		return false;

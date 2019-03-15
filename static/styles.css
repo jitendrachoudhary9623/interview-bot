@@ -53,13 +53,6 @@
   padding: 0 10px !important;
 }
 
-#github-link {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid;
-  margin-bottom: 10px;
-}
 
 #overlay {
   position: absolute;

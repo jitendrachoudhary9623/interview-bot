@@ -1,6 +1,6 @@
 var options = {
     controls: false,
-    width: 400,
+    width: 450,
     height: 100,
     fluid: false,
     plugins: {
@@ -21,6 +21,9 @@ var options = {
         }
     }
 };
+
+sentimentFlag=false;
+var schart=null;
 //audio
 var player = videojs('myAudio', options, function() {
     // print version information at startup
@@ -236,11 +239,11 @@ type: "POST",
 url: "/ask",
 data: $(this).serialize(),
 success: function(response) {
-	$('#messageText').val('');
+	//$('#messageText').val('');
 	var answer = response.answer.toUpperCase();
 	previousQuestion=answer;
 	
-	//console.log(answer);
+	console.log(answer);
 	if(questionlist.includes(answer)){
 	console.log(questionlist)
 	console.log("Already asked");
@@ -287,7 +290,11 @@ var positive=response.sentiment_positive;
 var negative=response.sentiment_negative;
 var neutral=response.sentiment_neutral;
 console.log(positive,negative,neutral);
-new Chart($("#myChart"), {
+if (sentimentFlag){
+		schart.destroy()
+}
+sentimentFlag=true;
+schart=new Chart($("#myChart"), {
 type: 'horizontalBar',
 data: {
 labels: ["Positive", "Negative", "Neutral"],
@@ -300,6 +307,7 @@ data: [positive,-1*negative,neutral]
 ]
 },
 options: {
+animation: { duration: 0 },
 legend: { display: false },
 title: {
 display: true,
@@ -321,9 +329,10 @@ url: "/textAnalysis",
 data: $(this).serialize(),
 success: function(response) {
 console.log(response)
-$("#word").val(response['numChars'])
-$("#nos").val(response['numSentences'])
+$("#word").val(response['numTokens'])
+$("#nos").val(response['uniqueTokens'])
 $("#ld").val(response['Lexical'])
+$("#frequentword").val(response['topwords'])
 
 },//end success
 error: function(error) {
