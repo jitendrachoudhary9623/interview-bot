@@ -24,6 +24,8 @@ var options = {
 
 sentimentFlag=false;
 var schart=null;
+var totalWords=0;
+var totalDuration=0;
 var containerElement=$('#container');
 //audio
 var player = videojs('myAudio', options, function() {
@@ -58,13 +60,19 @@ recognition.lang = 'en-gb';
 p=document.getElementById("words");
 text="";
 recognition.addEventListener('result', e => {
-
+console.log(e);
 const transcript = Array.from(e.results)
 .map(result => result[0])
 .map(result => result.transcript)
 .join('');
+
+const confidence = Array.from(e.results)
+.map(result => result[0])
+.map(result => result.confidence)
+.join('');
 const script = transcript; //replace anything here
-         
+
+$('#confidenceS').val((confidence*100).toFixed(2)+" %");         
 $('#messageText').val(script);
 if (e.results[0].isFinal) {
 //$('#messageText').val(text);
