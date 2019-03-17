@@ -143,8 +143,10 @@
 <br/>
 <br/>
 <div class="container-fluid" id="container">
-<button class="btn btn-danger" align="right" id="timerText" style="display: flex; justify-content: flex-end;"> 0 secs </button>
-
+<div class="row">
+<button class="btn btn-danger"  id="timerText" > 0 secs </button>&nbsp;&nbsp;
+<button class="btn btn-info"  id="fullScreenMode" > Go Full Screen </button>
+</div>
 <div class="row">
 
 <!--emotion output-->
@@ -251,8 +253,12 @@ Finish Interview
 
 <div class="row">
 <div class="col-md-4">
-<label for="ld">Frequent Words:</label>
+<label for="frequentword">Frequent Words:</label>
 <input disabled value="-" id="frequentword" type="text" class="bold">
+</div>	
+<div class="col-md-4">
+<label for="ss">Speaking speed</label>
+<input disabled value="-" id="ss" type="text" class="bold">
 </div>	
 </div>
 
@@ -284,6 +290,21 @@ onPlay($('#inputVideo').get(0))
         }
 function loadModelFunction(){
 loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
+}
+
+function getReadingTime(text) {
+console.log('check '+text)
+  var totalWords,
+    wordsPerMillisecond,
+    totalReadingTime,
+    wordsPerMinute = 250,
+    wordsPerMillisecond = wordsPerMinute / 60000;
+
+  text = text.replace(/<\/?[^>]+(>|$)/g, ''); // Remove any HTML-tags
+  totalWords = text.split(/\s+/g).length; // Split up in words
+  totalReadingTime = Math.floor(totalWords*100 / 200);
+
+  return totalReadingTime;
 }
 </script>
 

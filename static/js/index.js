@@ -24,6 +24,7 @@ var options = {
 
 sentimentFlag=false;
 var schart=null;
+var containerElement=$('#container');
 //audio
 var player = videojs('myAudio', options, function() {
 });
@@ -109,7 +110,7 @@ $('#timerText').hide();
 
 //start Interview action
 $('#continueInterview').click(function(e){
-openFullscreen();
+
 loadModel("{{ url_for('static',filename='model.json') }}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
 //const sizeTypeSelect =160
 //run()
@@ -130,18 +131,8 @@ $('#timerText').prop( "disabled", true );
 
 
 //full screen
-
-var screen = document.getElementById("container");
-  if (screen.requestFullscreen) {
-    screen.requestFullscreen();
-  } else if (screen.mozRequestFullScreen) { 
-    screen.mozRequestFullScreen();
-  } else if (screen.webkitRequestFullscreen) {
-    screen.webkitRequestFullscreen();
-  } else if (screen.msRequestFullscreen) { 
-    screen.msRequestFullscreen();
-  }
-
+//openFullscreen()
+toggleFullscreen();
 });
 
 // error handling
@@ -175,6 +166,10 @@ $('#chatPanel').find('.media-list').html('');
 //clear input text
 $('#chatbot-form-btn-clear-input').click(function(e){
 $('#messageText').val('');
+});
+
+$('#fullScreenMode').click(function(e){
+toggleFullscreen();
 });
 //voice button interaction
 $('#chatbot-form-btn-voice').click(function(e) {
@@ -215,6 +210,8 @@ e.preventDefault();
 var message = $('#messageText').val().toUpperCase();
 var message_validation=message.split(" ");
 
+var wpm=getReadingTime(message);
+$('#ss').val(wpm);
 //begin if
 if(message_validation.length>10||(message.indexOf("MY NAME IS") !=-1)||(message.indexOf("START INTERVIEW")!=-1)||(message.indexOf("NEXT QUESTION")!=-1)||(message.indexOf("ASK QUESTION")!=-1))
 {
@@ -268,6 +265,7 @@ speechSynthesis.speak(msg);
 
 } 
 
+if(message.indexOf("ASK QUESTION")==-1){
 //Sentiment request    
 $.ajax({
 type: "POST",
@@ -311,7 +309,7 @@ console.log("Not working"+error);
 }//end error
 });//end sentiment ajax
 
-//Sentiment request    
+//text request    
 $.ajax({
 type: "POST",
 url: "/textAnalysis",
@@ -328,6 +326,7 @@ error: function(error) {
 console.log("Not working"+error);
 }//end error
 });//end sentiment ajax
+}
 });
 
 
@@ -335,8 +334,36 @@ console.log("Not working"+error);
 });//end onload
 
 
-function openFullscreen() {
-console.log('work');
 
+function toggleFullscreen(elem) {
+  elem = elem || document.documentElement;
+  if (!document.fullscreenElement && !document.mozFullScreenElement &&
+    !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+	$('#fullScreenMode').text('Exit Full Screen');
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+	$('#fullScreenMode').text('Enter Full Screen');
+  }
 }
+
+
+
+
 
