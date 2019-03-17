@@ -26,13 +26,6 @@ sentimentFlag=false;
 var schart=null;
 //audio
 var player = videojs('myAudio', options, function() {
-    // print version information at startup
-    var msg = 'Using video.js ' + videojs.VERSION +
-        ' with videojs-record ' + videojs.getPluginVersion('record') +
-        ', videojs-wavesurfer ' + videojs.getPluginVersion('wavesurfer') +
-        ', wavesurfer.js ' + WaveSurfer.VERSION + ' and recordrtc ' +
-        RecordRTC.version;
-    videojs.log(msg);
 });
 //Main functionalities
 $(function() {
@@ -136,9 +129,6 @@ $('#timerText').prop( "disabled", true );
 
 
 
-//trigger
-
-
 //full screen
 
 var screen = document.getElementById("container");
@@ -151,7 +141,6 @@ var screen = document.getElementById("container");
   } else if (screen.msRequestFullscreen) { 
     screen.msRequestFullscreen();
   }
-console.log('lets see');
 
 });
 

@@ -136,39 +136,46 @@ def ask():
 def sentiments():
 	print("sentiment")
 	message = str(request.form['messageText'])
-	print(message)
-	scores = sid.polarity_scores(message)
-	if scores['compound'] > 0:
-		sentiment='Positive'
-	elif scores['compound']< 0:
-		sentiment='Negative'
+	if message != "ask question" and message !="ASK QUESTION":
+		scores = sid.polarity_scores(message)
+		if scores['compound'] > 0:
+			sentiment='Positive'
+		elif scores['compound']< 0:
+			sentiment='Negative'
+		else:
+			sentiment='Neutral'
+		return jsonify({'status':'OK','sentiment_positive':scores['pos'],
+	'sentiment_negative':scores['neg'],
+	'sentiment_neutral':scores['neu'],
+	'overall_sentiment':sentiment})	
 	else:
-		sentiment='Neutral'
-	return jsonify({'status':'OK','sentiment_positive':scores['pos'],
-'sentiment_negative':scores['neg'],
-'sentiment_neutral':scores['neu'],
-'overall_sentiment':sentiment})		
+		return jsonify({'status':'NOT PK'})		
 
 #route for text analysis
 @app.route('/textAnalysis',methods=['POST','GET'])
 def text_analysis():
 	userText = str(request.form['messageText'])
-	stemmingType = TextAnalyser.STEM
-	language = "EN"
-	myText = TextAnalyser(userText, language)
-	myText.preprocessText(lowercase = userText,removeStopWords = userText,stemming = stemmingType)
-	if myText.uniqueTokens() == 0:
-       		uniqueTokensText = 1
+	print(userText)
+	
+	if userText != "ask question" and userText !="ASK QUESTION":
+		stemmingType = TextAnalyser.STEM
+		language = "EN"
+		myText = TextAnalyser(userText, language)
+		myText.preprocessText(lowercase = userText,removeStopWords = userText,stemming = stemmingType)
+		if myText.uniqueTokens() == 0:
+	       		uniqueTokensText = 1
+		else:
+			uniqueTokensText = myText.uniqueTokens()
+		print('calls text analysis'+userText)
+		print(myText.getMostCommonWords(10))
+		numChars=myText.length()
+		numSentences=myText.getSentences()
+		numTokens=myText.getTokens()
+		top=myText.getMostCommonWords(10)
+		lexical=myText.getTokens() / uniqueTokensText
+		return jsonify({'status':200,'numChars': numChars,'numSentences':myText.getSentences(),'numTokens': myText.getTokens(),'uniqueTokens':uniqueTokensText,'topwords':top,'Lexical':lexical})
 	else:
-		uniqueTokensText = myText.uniqueTokens()
-	print('calls text analysis')
-	print(myText.getMostCommonWords(10))
-	numChars=myText.length()
-	numSentences=myText.getSentences()
-	numTokens=myText.getTokens()
-	top=myText.getMostCommonWords(10)
-	lexical=myText.getTokens() / uniqueTokensText
-	return jsonify({'status':200,'numChars': numChars,'numSentences':myText.getSentences(),'numTokens': myText.getTokens(),'uniqueTokens':uniqueTokensText,'topwords':top,'Lexical':lexical})
+		return jsonify({'status':500,'numChars': 0,'numSentences':0,'numTokens': 0,'uniqueTokens':0,'topwords':0,'Lexical':0})
 
 @app.route('/generate',methods=['POST'])
 def pdf_template():
@@ -195,4 +202,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
     app.secret_key="interviewbot"
-    app.run(debug=True,port=8128)
+    app.run(debug=True,port=8131)
