@@ -387,7 +387,55 @@ console.log('check '+text)
 <!-- end modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
 <script>
+function invokeGetDisplayMedia(success, error) {
+    var displaymediastreamconstraints = {
+        video: {
+            displaySurface: 'monitor', // monitor, window, application, browser
+            logicalSurface: true,
+            cursor: 'always' // never, always, motion
+        }
+    };
 
+    // above constraints are NOT supported YET
+    // that's why overridnig them
+    displaymediastreamconstraints = {
+        video: true
+    };
+
+    if(navigator.mediaDevices.getDisplayMedia) {
+        navigator.mediaDevices.getDisplayMedia(displaymediastreamconstraints).then(success).catch(error);
+    }
+    else {
+        navigator.getDisplayMedia(displaymediastreamconstraints).then(success).catch(error);
+    }
+}
+
+function captureScreen(callback) {
+    invokeGetDisplayMedia(function(screen) {
+        addStreamStopListener(screen, function() {
+            if(window.stopCallback) {
+                window.stopCallback();
+            }
+
+        });
+        callback(screen);
+    }, function(error) {
+        console.error(error);
+        alert('Unable to capture your screen. Please check console logs.\n' + error);
+    });
+}
+
+function captureCamera(cb) {
+    navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(cb);
+}
+
+function keepStreamActive(stream) {
+    var video = document.createElement('video');
+    video.muted = true;
+    video.srcObject = stream;
+    video.style.display = 'none';
+    (document.body || document.documentElement).appendChild(video);
+}
 </script>
 
    </body>
