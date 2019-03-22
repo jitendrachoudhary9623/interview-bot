@@ -28,8 +28,9 @@
 <pattern>NAME1 *</pattern>
 <template>
 <set name="USERNAME"><star index="1"/></set>!!,<br /> 
-Oh! Nice to meet you <get name="USERNAME"></get>.<br />.  
-
+Oh! Nice to meet you <get name="USERNAME"></get>.<br/>.
+This is your dream company. And you have cleared all the previous rounds.  
+So lets get started.
 <srai>INTRO</srai>
 </template>
 </category>
@@ -163,6 +164,8 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
  <srai>PROJECT</srai>
  </template>
 </category>
+
+
 <!--Internship-->
 <category>
 <pattern>INTERNSHIP</pattern>
@@ -172,7 +175,7 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
 <li>What did you learn from your internship?</li>
 <li>What was your internship project?</li>
 <li>Which technology stack did you used in your internship project?</li>
-<li>How was your experience?</li>
+<li>Tell me your internship experience?</li>
 </random>
 </template>
 </category>
@@ -197,20 +200,256 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
  </template>
 </category>
 <!--Internship-->
+
+<!-- Skils related -->
+
+<!--AI-->
+<category>
+<pattern>AI</pattern>
+<template>
+<random>
+<li><get name="USERNAME"></get>,What is Artificial Intelligence?</li>
+<li>How AI is been utilized in your daily life?</li>
+<li>List some applications of AI.</li>
+<li>What is Turing test?</li>
+<li><get name="USERNAME"></get>,What is Deep learning?</li>
+<li>can you differentiate between supervised, unsupervised and reinforcement learning.</li>
+<li>Name few Machine Learning algorithms you know.</li>
+<li><get name="USERNAME"></get>,Tell me any project you have done in AI.</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>_ AI</pattern>
+<template>
+<srai>AI</srai>
+</template>
+</category>
+
+<category>
+<pattern>AI * </pattern>
+ <template>
+ <srai>AI</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ AI *</pattern>
+ <template>
+ <srai>AI</srai>
+ </template>
+</category>
+
+
+<category>
+<pattern>_ Artificial Intelligence</pattern>
+<template>
+<srai>AI</srai>
+</template>
+</category>
+
+<category>
+<pattern>Artificial Intelligence * </pattern>
+ <template>
+ <srai>AI</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ Artificial Intelligence *</pattern>
+ <template>
+ <srai>AI</srai>
+ </template>
+</category>
+<!--AI-->
+
+
+<!--ML-->
+<category>
+<pattern>ML</pattern>
+<template>
+<random>
+<li>What is Machine Learning?</li>
+<li>You are given a train data set having 1000 columns and 1 million rows. The data set is based on a classification problem. Your manager has asked you to reduce the dimension of this data so that model computation time can be reduced. Your machine has memory constraints. What would you do? (You are free to make practical assumptions.)</li>
+<li>Why is naive Bayes so naive ?</li>
+<li>How AI is different from Machine Learning?</li>
+<li>Do you know any company which have a product based on Machine Learning</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>_ ML</pattern>
+<template>
+<srai>ML</srai>
+</template>
+</category>
+
+<category>
+<pattern>ML * </pattern>
+ <template>
+ <srai>ML</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ ML *</pattern>
+ <template>
+ <srai>ML</srai>
+ </template>
+</category>
+
+
+<category>
+<pattern>_ MACHINE LEARNING</pattern>
+<template>
+<srai>ML</srai>
+</template>
+</category>
+
+<category>
+<pattern>MACHINE LEARNING * </pattern>
+ <template>
+ <srai>ML</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ MACHINE LEARNING *</pattern>
+ <template>
+ <srai>ML</srai>
+ </template>
+</category>
+<!--ML-->
+
+<!--CV-->
+<category>
+<pattern>CV</pattern>
+<template>
+<random>
+<li>What is computer vision</li>
+<li>Is Computer vision or pattern recognition or image processing is all same thing.</li>
+<li>Any projects related to computer vision?</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>_ CV</pattern>
+<template>
+<srai>CV</srai>
+</template>
+</category>
+
+<category>
+<pattern>CV * </pattern>
+ <template>
+ <srai>CV</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ CV *</pattern>
+ <template>
+ <srai>CV</srai>
+ </template>
+</category>
+
+
+<category>
+<pattern>_ COMPUTER VISION</pattern>
+<template>
+<srai>CV</srai>
+</template>
+</category>
+
+<category>
+<pattern>COMPUTER VISION * </pattern>
+ <template>
+ <srai>CV</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ COMPUTER VISION *</pattern>
+ <template>
+ <srai>CV</srai>
+ </template>
+</category>
+<!--CV-->
+
+<!--BLOCKCHAIN-->
+<category>
+<pattern>BLC</pattern>
+<template>
+<random>
+<li>What is blockchain</li>
+<li>Is blockchain and bitcoin one and the same thing.</li>
+<li>How blockchain can bring revolution</li>
+<li>Any projects or ideas you have implemented based on blockchain.</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>_ BLOCKCHAIN</pattern>
+<template>
+<srai>BLC</srai>
+</template>
+</category>
+
+<category>
+<pattern>BLOCKCHAIN * </pattern>
+ <template>
+ <srai>BLC</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ BLOCKCHAIN *</pattern>
+ <template>
+ <srai>BLC</srai>
+ </template>
+</category>
+
+
+<category>
+<pattern>_ BLOCKCHAIN</pattern>
+<template>
+<srai>BLC</srai>
+</template>
+</category>
+
+<category>
+<pattern>BLOCKCHAIN * </pattern>
+ <template>
+ <srai>BLC</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ BLOCKCHAIN *</pattern>
+ <template>
+ <srai>BLC</srai>
+ </template>
+</category>
+<!--BLOCKCHAIN-->
+
 <!-- This will be included -->
-  <category>
-    <pattern>ASK QUESTION</pattern>
-    <template>
-      <random>
-        <li>Introduce yourself</li>
-        <li>What is your weakness?</li>
-        <li>What is your strength?</li>
-        <li>Tell me something which is not on your resume?</li>
-        <li>What if we hire you for development and ask you to do testing?</li>
-	<li>What do know about our company?</li>
-        <li>Why should we hire you?</li>
-        <li>Why aren't you opting for hire studies?</li>
-        <li>tell me something about your family?</li>
+<category>
+<pattern>ASK QUESTION</pattern>
+<template>
+<random>
+<li>Introduce yourself</li>
+<li>What is your weakness?</li>
+<li>What is your strength?</li>
+<li>Tell me something which is not on your resume?</li>
+<li>What if we hire you for development and ask you to do testing or support work?</li>
+<li>What do know about our company?</li>
+<li>Why should we hire you?</li>
+<li>Why aren't you opting for hire studies?</li>
+<li>tell me something about your family?</li>
 <li>How you feel about working late or during the weekends?</li>
 <li>Have you faced any challenging situation? How did you handle it?</li>
 <li>Where do you see yourself in the next five years?</li>
@@ -250,7 +489,6 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
 <li>Are you demanding as a boss?</li>
 <li>Are you an organized person?</li>
 <li>Can you describe your time management skills?</li>
-<li>What’s your absenteeism record like?</li>
 <li>Are you reliable? or Can I trust you with responsibilities?</li>
 <li>What are the three things that are most important for you in a job?</li>
 <li>What was the toughest decision you ever had to make?</li>
@@ -266,8 +504,8 @@ Oh! Nice to meet you <get name="USERNAME"></get>.<br />.
 <li>Do you know anyone who works for us?</li>
 <li>Why should we hire you? or Why should I hire you?</li>
 <li>What are your salary expectations?</li>
-<li>Your interview is more or less coming to an end when the interviewer asks you, “Do you have any questions for me?”</li>
-      </random>
-    </template>
-  </category> 
+
+</random>
+</template>
+</category> 
 </aiml>

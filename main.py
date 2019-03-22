@@ -6,6 +6,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pdfkit
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session,sessionmaker
+import json
 
 from passlib.hash import sha256_crypt
 
@@ -78,6 +79,7 @@ def login():
 			for pd in passdata:
 				if sha256_crypt.verify(password,pd):
 					session["log"]=True
+					session["username"]=userdata[0]
 					flash("Welcome back {} ".format(userdata[0]),"success")
 					return redirect(url_for("home"))
 				else:
@@ -125,16 +127,14 @@ def ask():
 		return jsonify({"status":"ok", "answer":"exit Thank You"})
 	else:
 		bot_response = kernel.respond(message)
-		temp=bot_response
-
-		asked.append(temp)
-		print(bot_response)
+		if bot_response=="":
+			bot_response=kernel.respond("NEXT QUESTION")
 		return jsonify({'status':'OK','answer':bot_response})
 
 #Route for sentiment analysis
 @app.route('/sentiment',methods=['POST','GET'])
 def sentiments():
-	print("sentiment")
+	#print("sentiment")
 	message = str(request.form['messageText'])
 	if message != "ask question" and message !="ASK QUESTION":
 		scores = sid.polarity_scores(message)
@@ -155,7 +155,7 @@ def sentiments():
 @app.route('/textAnalysis',methods=['POST','GET'])
 def text_analysis():
 	userText = str(request.form['messageText'])
-	print(userText)
+	#print(userText)
 	
 	if userText != "ask question" and userText !="ASK QUESTION":
 		stemmingType = TextAnalyser.STEM
@@ -166,8 +166,8 @@ def text_analysis():
 	       		uniqueTokensText = 1
 		else:
 			uniqueTokensText = myText.uniqueTokens()
-		print('calls text analysis'+userText)
-		print(myText.getMostCommonWords(10))
+		#print('calls text analysis'+userText)
+		#print(myText.getMostCommonWords(10))
 		numChars=myText.length()
 		numSentences=myText.getSentences()
 		numTokens=myText.getTokens()
@@ -181,9 +181,12 @@ def text_analysis():
 def pdf_template():
 	if 'log' in session:
 		if request.method == 'POST':
-			message = str(request.form['iTime'])
-			print(message)
-			rendered=render_template("pdf_template.html",totalDuration=str(request.form['iTime']))
+			message = str(request.form['data'])
+			#print(message)
+			message=d = json.loads(message)
+			#message.username="OKsy"
+			#print(message['transcript'])
+			rendered=render_template("pdf_template.html",transcript=message['transcript'],emotion=message["emotion"],totalDuration=message["interviewTime"])
 			pdf=pdfkit.from_string(rendered,False)#true for client sending
 			response=make_response(pdf)
 			response.headers['Content-Type']="application/pdf"
@@ -202,4 +205,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
     app.secret_key="interviewbot"
-    app.run(debug=True,port=8154)
+    app.run(debug=True,port=8177)

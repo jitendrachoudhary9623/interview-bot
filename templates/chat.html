@@ -173,10 +173,10 @@
 <button type="submit" class="btn btn-danger" id="finishInterviewButton" disabled>
 Finish Interview
 </button>	
-<form id="finishForm" action="/generate" method="post">	
 
-<input type="text" id="iTime" name="iTime" value="hidden value" hidden/>			
-
+<form enctype='application/json' id="finishForm" action="/generate" method="post">
+ <input type="text" id="data" name="data" value="data" hidden/>			
+ <input type="text" id="iTime" name="iTime" value="hidden value" hidden/>			
 </form>
 </div>
 

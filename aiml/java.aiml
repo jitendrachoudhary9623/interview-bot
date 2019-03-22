@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+<category>
+<pattern>JAVA</pattern>
+<template>
+<random>
+<li>What is difference between c++ and java</li>
+<li>What is differnce between</li>
+<li>Tell me about your siblings</li>
+<li>Why family is important for you?</li> 
+<li>What is difference between c++ and java</li>
+<li>What is differnce between jre and jvm?</li>
+<li> what are static blocks and static initalizers in Java ? </li>
+<li> How to call one constructor from the other constructor ? </li>
+<li> What is method overriding in java ? </li>
+<li> What is super keyword in java ? </li>
+<li> Difference between method overloading and method overriding in java ? </li>
+<li> Difference between abstract class and interface ? </li>
+<li> Why java is platform independent? </li>
+<li> What is method overloading in java ? </li>
+<li> What is difference between c++ and Java ? </li>
+<li> What is JIT compiler ? </li>
+<li> What is bytecode in java ? </li>
+<li> Difference between this( </li>
+<li> What is a class ? </li>
+<li> What is an object ? </li>
+<li> What is method in java ? </li>
+<li> What is encapsulation ? </li>
+<li> Explain about main( </li>
+<li> What is constructor in java ? </li>
+<li> What is difference between length and length( </li>
+<li> What  is ASCII Code? </li>
+<li> What is Unicode ? </li>
+<li> Difference between Character Constant and String Constant in java ? </li>
+<li> What are constants and how to create constants in java? </li>
+<li> Difference between ‘>>’ and ‘>>>’ operators in java? </li>
+<li> Explain Java Coding Standards for classes or Java coding conventions for </li>
+<li> Explain Java Coding standards for interfaces? </li>
+<li> Explain Java Coding standards for Methods? </li>
+<li> Explain Java Coding Standards for variables ? </li>
+<li> Explain Java Coding Standards for Constants? </li>
+<li> Difference between overriding and overloading in java? </li>
+<li> What is ‘IS-A ‘ relationship  in java? </li>
+<li> What is ‘HAS A’’ relationship in java? </li>
+<li> Difference between ‘IS-A’ and ‘HAS-A’ relationship in java? </li>
+<li> Explain about instanceof operator in java? </li>
+<li> What does null mean in java? </li>
+<li> Can we have multiple classes in single file ? </li>
+<li> What all access modifiers are allowed for top class ? </li>
+<li> What are packages in java? </li>
+<li> Can we have more than one package statement in source file ? </li>
+<li> Can we define package statement after import statement in java? </li>
+<li> What are identifiers in  java? </li>
+<li> What are access modifiers in java? </li>
+<li> What is the difference between access specifiers and access modifiers in java? </li>
+<li> What access modifiers can be used for class ? </li>
+<li> Explain what access modifiers can be used for methods? </li>
+<li> Explain what access modifiers can be used for variables? </li>
+<li> What is final access modifier in java? </li>
+<li> Explain about abstract classes in java? </li>
+<li> Can we create constructor in abstract class ? </li>
+<li> What are abstract methods in java? </li>
+<li> What is an exception in java? </li>
+<li> State some situations where exceptions may arise in java? </li>
+<li> What is Exception handling in java? </li>
+<li> What is an eror in Java? </li>
+<li> What are advantages of Exception handling in java? </li>
+<li> In how many ways we can do exception handling in java? </li>
+<li> List out five keywords related to Exception handling ? </li>
+<li> Explain try and catch keywords in java? </li>
+<li> Can we have try block without catch block? </li>
+<li> Can we have multiple catch block for a try block? </li>
+<li> Explain importance of finally block in java? </li>
+<li> Can we have any code between try and catch blocks? </li>
+<li> Can we have any code between try and finally blocks? </li>
+<li> Can we catch more than one exception in single catch block? </li>
+<li> What are checked Exceptions? </li>
+<li> What are unchecked exceptions in java? </li>
+<li> Explain differences between checked and Unchecked exceptions in java? </li>
+<li> What is default Exception handling in java? </li>
+<li> Explain throw keyword in java? </li>
+<li> Can we write any code after throw statement? </li>
+<li> Explain importance of throws keyword in java? </li>
+<li> Explain the importance of finally over return statement? </li>
+<li> Explain a situation where finally block will not be executed? </li>
+<li> Can we use catch statement for checked exceptions? </li>
+<li> What are user defined exceptions? </li>
+<li> Can we rethrow the same exception from  catch handler? </li>
+<li> Can we nested try statements in java? </li>
+<li> Explain the importance of throwable class and its methods? </li>
+<li> Explain when ClassNotFoundException will be raised ? </li>
+<li> Explain  when NoClassDefFoundError  will be raised ? </li>
+<li> What is process ? </li>
+<li> What is thread in java? </li>
+<li> Difference between process and thread? </li>
+<li> What is multitasking ? </li>
+<li> What are different types of multitasking? </li>
+<li> What are the benefits of  multithreaded programming? </li>
+<li> Explain thread in java? </li>
+<li> List Java API that supports threads? </li>
+<li> Explain about main thread in java? </li>
+<li> In how many ways we can create threads in java? </li>
+<li> Explain creating threads by implementing Runnable class? </li>
+<li> Explain creating threads by extending Thread class ? </li>
+<li> Which is the best approach for creating thread ? </li>
+<li> Explain the importance of thread scheduler in java? </li>
+<li> Explain the life cycle of thread? </li>
+<li> Can we restart a dead thread in java? </li>
+<li> Can one thread block the other thread? </li>
+<li> Can we  restart a thread already started in java? </li>
+<li> What happens if we don’t override run method ? </li>
+<li> What is a lock or purpose of locks in java? </li>
+<li> In how many ways we can do synchronization in java? </li>
+<li> What are synchronized methods ? </li>
+<li> When do we use synchronized methods in java? </li>
+<li> When a thread is executing synchronized methods , then is it possible to </li>
+<li> When a thread is executing a synchronized method , then is it possible for the </li>
+<li> What are synchronized blocks in java? </li>
+<li> When do we use synchronized blocks and advantages of using synchronized </li>
+<li> What is class level lock ? </li>
+<li> Can we synchronize static methods in java? </li>
+<li> Can we use synchronized block for primitives? </li>
+<li> What are thread priorities and importance of thread priorities in java? </li>
+<li> Explain different types of thread priorities ? </li>
+<li> How to change the priority of thread or how to set priority of thread? </li>
+<li> If two threads have same priority which thread will be executed first ? </li>
+<li> What all methods are used to prevent thread execution ? </li>
+<li> Is it possible for yielded thread to get chance for its execution again ? </li>
+<li> Explain about interrupt( </li>
+<li> Explain about interthread communication and how it takes place in java? </li>
+<li> Explain wait( </li>
+<li> Explain why wait( </li>
+<li> Explain IllegalMonitorStateException and when it will be thrown? </li>
+<li> What are thread groups? </li>
+<li> What are thread local variables ? </li>
+<li> What are daemon threads in java? </li>
+<li> How to make a non daemon thread as daemon? </li>
+<li> What are nested classes in java? </li>
+<li> What are inner classes or non static nested classes in java? </li>
+<li> Why to use nested classes in java? </li>
+<li> Explain about static nested classes in java? </li>
+<li> How to instantiate static nested classes in java? </li>
+<li> Explain about method local inner classes or local inner classes in java? </li>
+<li> Explain about features of local inner class? </li>
+<li> Explain about anonymous inner classes in java? </li>
+<li> Explain restrictions for using anonymous inner classes? </li>
+<li> Is this valid in java ? can we instantiate interface in java? </li>
+<li> Explain about member inner classes? </li>
+<li> How to instantiate member inner class? </li>
+<li> How to do encapsulation in Java? </li>
+<li> What are reference variables in java? </li>
+<li> Will the compiler creates a default constructor if I have a parameterized </li>
+<li> Can we have a method name same as class name in java? </li>
+<li> Can we override constructors in java? </li>
+<li> Can Static methods access instance variables in java? </li>
+<li> How do we access static members in java? </li>
+<li> Can we override static methods in java? </li>
+<li> Difference between object and reference? </li>
+<li> Objects or references which of them gets garbage collected? </li>
+<li> How many times finalize method will be invoked ? who invokes finalize( </li>
+<li> Can we able to pass objects as an arguments in java? </li>
+<li> Explain wrapper classes in java? </li>
+<li> Explain different types of wrapper classes in java? </li>
+<li> Explain about transient variables in java? </li>
+<li> Can we serialize static variables in java? </li>
+<li> What is type conversion in java? </li>
+<li> Explain about Automatic type conversion in java? </li>
+<li> Explain about narrowing conversion in java? </li>
+<li> Explain the importance of import keyword in java? </li>
+<li> Explain naming conventions for packages ? </li>
+<li> What is classpath ? </li>
+<li> What is jar ? </li>
+<li> What is the scope or life time of instance variables ? </li>
+<li> Explain the scope or life time of class variables or static variables? </li>
+<li> Explain scope or life time of local variables in java? </li>
+<li> Explain about static imports in java? </li>
+<li> Can we define static methods inside interface? </li>
+<li> Define interface in java? </li>
+<li> What is the purpose of interface? </li>
+<li> Explain features of interfaces in java? </li>
+<li> Explain enumeration in java? </li>
+<li> Explain restrictions on  using enum? </li>
+<li> Explain about field hiding in java? </li>
+<li> Explain about Varargs in java? </li>
+<li> Explain where variables are created in memory? </li>
+<li> Can we use Switch statement with Strings? </li>
+<li> In java how do we copy objects? </li>
+<li> Explain about procedural programming language or structured programming </li>
+<li> Explain about object oriented programming and its features? </li>
+<li> List out benefits of object oriented programming language? </li>
+<li> Differences between traditional programming language and object oriented </li>
+<li> Explain oops concepts in detail? </li>
+<li> Explain what is encapsulation? </li>
+<li> What is inheritance ? </li>
+<li> Explain importance of inheritance in java? </li>
+<li> What is polymorphism in java? </li>
+<li> What is collections framework ? </li>
+<li> What is collection ? </li>
+<li> Difference between collection, Collection and Collections in java? </li>
+<li> Explain about Collection  interface in java ? </li>
+<li> List  the interfaces which extends collection interface ? </li>
+<li> Explain List interface ? </li>
+<li> Explain methods specific to List interface ? </li>
+<li> List implementations of List Interface ? </li>
+<li> Explain about ArrayList ? </li>
+<li> Difference between Array and ArrayList ? </li>
+<li> What is vector? </li>
+<li> Difference between arraylist and vector ? </li>
+<li> Define  Linked List and its features with signature ? </li>
+<li> Define Iterator and methods in Iterator? </li>
+<li> In which order the Iterator iterates over collection? </li>
+<li> Explain ListIterator and methods in ListIterator? </li>
+<li> Explain about Sets ? </li>
+<li> Implementations of Set interface ? </li>
+<li> Explain HashSet and its features ? </li>
+<li> Explain Tree Set and its features? </li>
+<li> When do we use HashSet over TreeSet? </li>
+<li> What is Linked HashSet and its features? </li>
+<li> Explain about Map interface in java? </li>
+<li> What is linked hashmap and its features? </li>
+<li> What is SortedMap interface? </li>
+<li> What is Hashtable and explain features of Hashtable? </li>
+<li> Difference between HashMap and Hashtable? </li>
+<li> Difference between arraylist and linkedlist? </li>
+<li> Difference between Comparator and  Comparable in java? </li>
+<li> What is concurrent hashmap and its features ? </li>
+<li> Difference between Concurrent HashMap and Hashtable and </li>
+<li> Explain copyOnWriteArrayList and when do we use copyOnWriteArrayList? </li>
+<li> What is serialization in java? </li>
+<li> What is the main purpose of serialization in java? </li>
+<li> What are alternatives to java serialization? </li>
+<li> Explain about serializable interface in java? </li>
+<li> How to make object serializable in java? </li>
+<li> What is serial version UID and its importance in java? </li>
+<li> What happens if we don’t define serial version UID ? </li>
+<li> Can we serialize static variables in java? </li>
+<li> When we serialize an object does the serialization mechanism saves its </li>
+<li> If we don’t want some of the fields not to serialize How to do that? </li>
+<li> what are static blocks and static initalizers in Java ? </li>
+<li> How to call one constructor from the other constructor ? </li>
+<li> What is method overriding in java ? </li>
+<li> What is super keyword in java ? </li>
+<li> Difference between method overloading and method overriding in java ? </li>
+<li> What is JIT compiler ? </li>
+<li> What is bytecode in java ? </li>
+<li> What is encapsulation ? </li>
+<li> What  is ASCII Code? </li>
+<li> What is Unicode ? </li>
+<li> Difference between Character Constant and String Constant in java ? </li>
+<li> What are constants and how to create constants in java? </li>
+<li> Difference between ‘>>’ and ‘>>>’ operators in java? </li>
+<li> Explain Java Coding Standards for classes or Java coding conventions for classes? </li>
+<li> Explain Java Coding standards for interfaces? </li>
+<li> Interface should start with uppercase letters </li>
+<li> Interfaces names should be adjectives </li>
+<li> Explain Java Coding standards for Methods? </li>
+<li> Explain when ClassNotFoundException will be raised ? </li>
+<li> Explain  when NoClassDefFoundError  will be raised ? </li>
+<li> What is process ? </li>
+<li> What is thread in java? </li>
+<li> Which is the best approach for creating thread ? </li>
+<li> Explain the importance of thread scheduler in java? </li>
+<li> Explain the life cycle of thread? </li>
+<li> Explain about static nested classes in java? </li>
+<li> How to instantiate static nested classes in java? </li>
+<li> Explain about method local inner classes or local inner classes in java? </li>
+<li> Explain about features of local inner class? </li>
+<li> Explain about anonymous inner classes in java? </li>
+<li> Explain restrictions for using anonymous inner classes? </li>
+<li> Is this valid in java ? can we instantiate interface in java? </li>
+<li> Explain about member inner classes? </li>
+<li> How to instantiate member inner class? </li>
+<li> How to do encapsulation in Java? </li>
+<li> What are reference variables in java? </li>
+<li> Will the compiler creates a default constructor if I have a parameterized </li>
+<li> Can we have a method name same as class name in java? </li>
+<li> Can we override constructors in java? </li>
+<li> Can Static methods access instance variables in java? </li>
+<li> How do we access static members in java? </li>
+<li> Can we override static methods in java? </li>
+<li> Difference between object and reference? </li>
+<li> Objects or references which of them gets garbage collected? </li>
+<li> How many times finalize method will be invoked ? who invokes finalize( </li>
+<li> Can we able to pass objects as an arguments in java? </li>
+<li> Explain wrapper classes in java? </li>
+<li> Explain different types of wrapper classes in java? </li>
+<li> Explain about transient variables in java? </li>
+<li> Can we serialize static variables in java? </li>
+<li> What is type conversion in java? </li>
+<li> Explain about Automatic type conversion in java? </li>
+<li> Explain about narrowing conversion in java? </li>
+<li> Explain the importance of import keyword in java? </li>
+<li> Explain naming conventions for packages ? </li>
+<li> What is classpath ? </li>
+<li> What is jar ? </li>
+<li> What is the scope or life time of instance variables ? </li>
+<li> Explain the scope or life time of class variables or static variables? </li>
+<li> Explain scope or life time of local variables in java? </li>
+<li> Explain about static imports in java? </li>
+<li> Can we define static methods inside interface? </li>
+<li> Define interface in java? </li>
+<li> What is the purpose of interface? </li>
+<li> Explain features of interfaces in java? </li>
+<li> Explain enumeration in java? </li>
+<li> Explain restrictions on  using enum? </li>
+<li> Explain about field hiding in java? </li>
+<li> Explain about Varargs in java? </li>
+<li> Explain where variables are created in memory? </li>
+<li> Can we use Switch statement with Strings? </li>
+<li> In java how do we copy objects? </li>
+<li> Explain about procedural programming language or structured programming </li>
+<li> Explain about object oriented programming and its features? </li>
+<li> List out benefits of object oriented programming language? </li>
+<li> Differences between traditional programming language and object oriented </li>
+<li> Explain oops concepts in detail? </li>
+<li> Explain what is encapsulation? </li>
+<li> What is inheritance ? </li>
+<li> Explain importance of inheritance in java? </li>
+<li> What is polymorphism in java? </li>
+<li> What is collections framework ? </li>
+<li> What is collection ? </li>
+<li> Difference between collection, Collection and Collections in java? </li>
+<li> Explain about Collection  interface in java ? </li>
+<li> List  the interfaces which extends collection interface ? </li>
+<li> Explain List interface ? </li>
+<li> Explain methods specific to List interface ? </li>
+<li> List implementations of List Interface ? </li>
+<li> Explain about ArrayList ? </li>
+<li> Difference between Array and ArrayList ? </li>
+<li> What is vector? </li>
+<li> Difference between arraylist and vector ? </li>
+<li> Define  Linked List and its features with signature ? </li>
+<li> Define Iterator and methods in Iterator? </li>
+<li> In which order the Iterator iterates over collection? </li>
+<li> Explain ListIterator and methods in ListIterator? </li>
+<li> Explain about Sets ? </li>
+<li> Implementations of Set interface ? </li>
+<li> Explain HashSet and its features ? </li>
+<li> Explain Tree Set and its features? </li>
+<li> When do we use HashSet over TreeSet? </li>
+<li> What is Linked HashSet and its features? </li>
+<li> Explain about Map interface in java? </li>
+<li> What is linked hashmap and its features? </li>
+<li> What is SortedMap interface? </li>
+<li> What is Hashtable and explain features of Hashtable? </li>
+<li> Difference between HashMap and Hashtable? </li>
+<li> Difference between arraylist and linkedlist? </li>
+<li> Difference between Comparator and  Comparable in java? </li>
+<li> What is concurrent hashmap and its features ? </li>
+<li> Difference between Concurrent HashMap and Hashtable and </li>
+<li> Explain copyOnWriteArrayList and when do we use copyOnWriteArrayList? </li>
+<li> Explain about fail fast iterators in java? </li>
+<li> Explain about fail safe iterators in java? </li>
+<li> What is serialization in java? </li>
+<li> What is the main purpose of serialization in java? </li>
+<li> What are alternatives to java serialization? </li>
+<li> Explain about serializable interface in java? </li>
+<li> How to make object serializable in java? </li>
+<li> What is serial version UID and its importance in java? </li>
+<li> What happens if we don’t define serial version UID ? </li>
+<li> Can we serialize static variables in java? </li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>_ JAVA</pattern>
+<template>
+<srai>JAVA</srai>
+</template>
+</category>
+
+<category>
+<pattern>JAVA * </pattern>
+ <template>
+ <srai>JAVA</srai>
+ </template>
+ </category>
+ <category>
+ <pattern>_ JAVA *</pattern>
+ <template>
+ <srai>JAVA</srai>
+ </template>
+</category>
+
+
+
+<category><pattern>*</pattern><template>NEXT QUESTION</template></category>
+</aiml>

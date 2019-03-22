@@ -22,6 +22,13 @@ var options = {
     }
 };
 
+var userTranscript={
+	username:"",
+	interviewTime:"",
+	transcript:[],
+	
+};
+var rdata="";
 sentimentFlag=false;
 var schart=null;
 var totalWords=0;
@@ -30,6 +37,16 @@ var containerElement=$('#container');
 //audio
 var player = videojs('myAudio', options, function() {
 });
+var msg;
+//Pre initialization of chatbot
+function chatbotInstruction(instruct){
+	$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' + instruct + '</div></div></div></li>');
+	$(".fixed-panel").stop().animate({ scrollTop: $(".fixed-panel")[0].scrollHeight}, 1000);
+	msg.text="";
+	msg.text = instruct;
+	userTranscript.transcript.push("IBot: "+instruct);
+	speechSynthesis.speak(msg);
+}
 //Main functionalities
 $(function() {
 $('.toast').toast('show');
@@ -60,7 +77,7 @@ recognition.lang = 'en-gb';
 p=document.getElementById("words");
 text="";
 recognition.addEventListener('result', e => {
-console.log(e);
+//console.log(e);
 const transcript = Array.from(e.results)
 .map(result => result[0])
 .map(result => result.transcript)
@@ -81,7 +98,7 @@ if (e.results[0].isFinal) {
 
 recognition.addEventListener('end', recognition.start);
 recognition.start();
-var msg = new SpeechSynthesisUtterance();
+ msg = new SpeechSynthesisUtterance();
 var voices = synth.getVoices();
 //Tuning
 msg.voice = voices[7];
@@ -102,6 +119,10 @@ $("#finishInterviewButton").click(function(e){
 $('#finsihModalButton').click(function(e){
 $('#timerText').hide();
 $('#timerText').prop( "disabled", false );
+userTranscript.transcript.push("You : END INTERVIEW.")
+userTranscript.emotion=emotionDisplay;
+userTranscript.interviewTime=$('#timerText').text();
+$('#data').val(JSON.stringify(userTranscript));
 $("#finishForm").submit();
 }); 
 
@@ -141,6 +162,11 @@ $('#timerText').prop( "disabled", true );
 //full screen
 //openFullscreen()
 toggleFullscreen();
+
+const chatPanel = document.getElementById("chatPanel");
+setTimeout(chatbotInstruction("Hello , I am a interview bot whose task is to ask you interview Questions.To start interview speak START INTERVIEW and submit your response."),1500);
+setTimeout(chatbotInstruction("You would be asked to tell your name , please speak in the following format.. My name is XYZ..if bot is not asking you any question please speak NEXT QUESTION..."),2000);
+
 });
 
 // error handling
@@ -182,7 +208,7 @@ toggleFullscreen();
 //voice button interaction
 $('#chatbot-form-btn-voice').click(function(e) {
 e.preventDefault();
-console.log("clicked");
+//console.log("clicked");
 
 var onAnythingSaid = function (text) {
 console.log('Interim text: ', text);
@@ -213,11 +239,11 @@ console.log(error);
 questionlist=[]         
 //on submit button
 $('#chatbot-form').submit(function(e) {
-
+console.log(userTranscript);
 e.preventDefault();
 var message = $('#messageText').val().toUpperCase();
 var message_validation=message.split(" ");
-
+userTranscript.transcript.push("You: "+message);
 var wpm=getReadingTime(message);
 $('#ss').val(wpm);
 //begin if
@@ -237,7 +263,7 @@ success: function(response) {
 	var answer = response.answer.toUpperCase();
 	previousQuestion=answer;
 	
-	console.log(answer);
+	//console.log(answer);
 	if(questionlist.includes(answer)){
 	console.log(questionlist)
 	console.log("Already asked");
@@ -246,11 +272,12 @@ success: function(response) {
 	$('#chatbot-form').submit();
 	}//re ask
 	else{
-	console.log("new 1");
+	//console.log("new 1");
 	questionlist.push(answer)
 	const chatPanel = document.getElementById("chatPanel");
 	$(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' + answer + '</div></div></div></li>');
 	$(".fixed-panel").stop().animate({ scrollTop: $(".fixed-panel")[0].scrollHeight}, 1000);
+	userTranscript.transcript.push("IBot: "+answer);
 	msg.text="";
 	msg.text = answer;
 	speechSynthesis.speak(msg);
@@ -269,6 +296,7 @@ var answer="Please provide a detailed answer to the question. This is very impor
 msg.text="";
 var answer_check=previousQuestion.split("\.");
 msg.text=answer+". \n"+answer_check.pop(); 
+userTranscript.transcript.push("IBot: "+answer);
 speechSynthesis.speak(msg);
 
 } 
@@ -284,7 +312,7 @@ success: function(response) {
 var positive=response.sentiment_positive;
 var negative=response.sentiment_negative;
 var neutral=response.sentiment_neutral;
-console.log(positive,negative,neutral);
+//console.log(positive,negative,neutral);
 if (sentimentFlag){
 		schart.destroy()
 }
@@ -323,7 +351,7 @@ type: "POST",
 url: "/textAnalysis",
 data: $(this).serialize(),
 success: function(response) {
-console.log(response)
+//console.log(response)
 $("#word").val(response['numTokens'])
 $("#nos").val(response['uniqueTokens'])
 $("#ld").val(response['Lexical'])
