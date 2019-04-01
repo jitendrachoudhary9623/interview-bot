@@ -96,7 +96,7 @@ async function onPlay(videoEl) {
 //check if video is playing or not if not then return no need to process it
 	if (videoEl.paused || videoEl.ended || !modelLoaded){
 		return false;
-	}
+	}1
 	const {
        		width,
                 height

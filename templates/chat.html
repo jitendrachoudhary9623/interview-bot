@@ -144,8 +144,22 @@
 <br/>
 <div class="container-fluid" id="container">
 <div class="row">
-<button class="btn btn-danger"  id="timerText" > 0 secs </button>&nbsp;&nbsp;
-<button class="btn btn-info"  id="fullScreenMode" > Go Full Screen </button>
+&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger"  id="timerText" > 0 secs </button>&nbsp;&nbsp;
+<button class="btn btn-info"  id="fullScreenMode" > Go Full Screen </button>&nbsp;&nbsp;
+<button class="btn btn-success" id="startInterviewButton">Start Interview</button>	&nbsp;&nbsp;
+
+<button type="submit" class="btn btn-danger" id="finishInterviewButton" disabled>
+Finish Interview
+</button>&nbsp;&nbsp;
+<div class="p1 btn" style="overflow-y:auto; width:30%; min-height: 50px;max-height:50px;color:white;background:#4a148c"></div>&nbsp;&nbsp;
+<div class="btn btn-danger">Keywords - START INTERVIEW<br/> NEXT QUESTION</div>&nbsp;&nbsp;
+<form enctype='application/json' id="finishForm" action="/generate" method="post">
+ <input type="text" id="data" name="data" value="data" hidden/>			
+ <input type="text" id="iTime" name="iTime" value="hidden value" hidden/>			
+</form>
+
+<input disabled value="-" id="s_status" type="text" class=" bold float-right">
+
 </div>
 <div class="row">
 
@@ -167,18 +181,9 @@
 
 <img src="{{url_for('static', filename='interview-stare.jpg')}}" id="videoElement" />
 <br/><br/>
-<div class="text-center">
-<button class="btn btn-success" id="startInterviewButton">Start Interview</button>	
 
-<button type="submit" class="btn btn-danger" id="finishInterviewButton" disabled>
-Finish Interview
-</button>	
 
-<form enctype='application/json' id="finishForm" action="/generate" method="post">
- <input type="text" id="data" name="data" value="data" hidden/>			
- <input type="text" id="iTime" name="iTime" value="hidden value" hidden/>			
-</form>
-</div>
+
 
 </div>
 </div>
@@ -251,16 +256,21 @@ Finish Interview
 <input disabled value="-" id="ld" type="text" class="bold">
 </div>	 
 </div>
-
+<!--
 <div class="row">
 <div class="col-md-6">
 <label for="frequentword">Frequent Words:</label>
 <input disabled value="-" id="frequentword" type="text" class="bold">
 </div>	
+<!--
 <div class="col-md-6">
-<label for="ss">Speaking speed</label>
+<label for="ss">WPM</label>
 <input disabled value="-" id="ss" type="text" class="bold">
 </div>	
+</div>-->
+
+<div class="row">
+<canvas id="freqChart" width="300" height="110"></canvas>
 </div>
 <!--
 <div class="row">

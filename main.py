@@ -106,7 +106,7 @@ def ppt():
 def chatbot():
 	if 'log' in session:
 		load_kern(False)
-		return render_template('chat.html')
+		return render_template('chat.html') #chatbot.html
 	return render_template('notallowed.html')
 
 #route for chatbot
@@ -136,6 +136,7 @@ def ask():
 def sentiments():
 	#print("sentiment")
 	message = str(request.form['messageText'])
+	print(message)
 	if message != "ask question" and message !="ASK QUESTION":
 		scores = sid.polarity_scores(message)
 		if scores['compound'] > 0:
@@ -205,4 +206,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
     app.secret_key="interviewbot"
-    app.run(debug=True,port=8177)
+    app.run(debug=True,port=8242)

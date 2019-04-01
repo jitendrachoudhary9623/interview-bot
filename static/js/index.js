@@ -28,9 +28,12 @@ var userTranscript={
 	transcript:[],
 	
 };
+var script="";
 var rdata="";
-sentimentFlag=false;
+var sentimentFlag=false;
+var freqFlag=false;
 var schart=null;
+var fchart=null;
 var totalWords=0;
 var totalDuration=0;
 var containerElement=$('#container');
@@ -72,7 +75,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 recognition.lang = 'en-gb';
-         
+//recognition.continuous = true;  //continous dictation        
 
 p=document.getElementById("words");
 text="";
@@ -87,12 +90,21 @@ const confidence = Array.from(e.results)
 .map(result => result[0])
 .map(result => result.confidence)
 .join('');
-const script = transcript; //replace anything here
+ script = transcript; //replace anything here
 
-$('#confidenceS').val((confidence*100).toFixed(2)+" %");         
+$('#confidenceS').val((confidence*100)+" %");         
 $('#messageText').val(script);
 if (e.results[0].isFinal) {
+  console.log("event interpretation :  - "+e.interpretation);
+
 //$('#messageText').val(text);
+$('#messageText').val(script);
+	$( ".p1" ).append("<p><b>Transcript : &nbsp;&nbsp;</b>"+script+"</p>");
+	$(".p1").stop().animate({ scrollTop: $(".p1")[0].scrollHeight}, 1000);
+$("#s_status").val("You / Bot Are Not Speaking");
+}
+else{
+$("#s_status").val("You / Bot Are Speaking");
 }
 }); //end event
 
@@ -247,7 +259,7 @@ userTranscript.transcript.push("You: "+message);
 var wpm=getReadingTime(message);
 $('#ss').val(wpm);
 //begin if
-if(message_validation.length>10||(message.indexOf("MY NAME IS") !=-1)||(message.indexOf("START INTERVIEW")!=-1)||(message.indexOf("NEXT QUESTION")!=-1)||(message.indexOf("ASK QUESTION")!=-1))
+if(message_validation.length>3||(message.indexOf("MY NAME IS") !=-1)||(message.indexOf("START INTERVIEW")!=-1)||(message.indexOf("NEXT QUESTION")!=-1)||(message.indexOf("ASK QUESTION")!=-1))
 {
 
 $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body user-chat">' + message + '</div></div></div></li>');
@@ -357,6 +369,39 @@ $("#nos").val(response['uniqueTokens'])
 $("#ld").val(response['Lexical'])
 $("#frequentword").val(response['topwords'])
 
+var flabels=[];
+var fval=[];
+for(var i=0;i<response['topwords'].length;i++){
+	flabels.push(response['topwords'][i][0]);
+	fval.push(response['topwords'][i][1]);
+}
+
+
+if (freqFlag){
+		fchart.destroy()
+}
+freqFlag=true;
+fchart=new Chart($("#freqChart"), {
+type: 'polarArea',
+data: {
+labels: flabels,
+datasets: [
+{
+label: "Most Frequent Word",
+backgroundColor: ["#03c637","#f4424b","#8e5ea2","#ff5722","#827717","#6200ea","#c51162","#3f51b5","#004d40","#9e9e9e"],
+data: fval
+}
+]
+},
+options: {
+animation: { duration: 0 },
+legend: { display: false },
+title: {
+display: true,
+
+}
+}
+});//end chart
 },//end success
 error: function(error) {
 console.log("Not working"+error);
