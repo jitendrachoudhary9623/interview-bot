@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
     html, body {
@@ -131,6 +133,18 @@ captureScreen(function(screen) {
                 document.querySelector('video').src = URL.createObjectURL(blob);
                 document.querySelector('video').muted = false;
 
+var fd = new FormData();
+fd.append('fname', 'test.wav');
+fd.append('data', blob);
+$.ajax({
+    type: 'POST',
+    url: '/save',
+    data: fd,
+    processData: false,
+    contentType: false
+}).done(function(data) {
+       console.log(data);
+});
                 [screen, camera].forEach(function(stream) {
                     stream.getTracks().forEach(function(track) {
                         track.stop();

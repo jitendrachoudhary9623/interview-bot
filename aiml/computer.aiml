@@ -379,6 +379,114 @@ So lets get started.
 </category>
 <!--CV-->
 
+<!--SQL1-->
+<category>
+<pattern>SQL1</pattern>
+<template>
+<random>
+<li>What is SQL?</li>
+<li>What is the difference between SQL and NOSQL?</li>
+<li>Give me a scenario when you could use NOSQL instead of SQL?</li>
+<li>Which databases you know?</li>
+<li>Tell me the difference between SQL and PLSQL</li>
+</random>
+</template>
+</category>
+
+ <category>
+ <pattern>SQL</pattern>
+ <template>
+ <srai>SQL1</srai>
+ </template>
+</category>
+
+
+<category>
+<pattern>_ SQL</pattern>
+<template>
+<srai>SQL1</srai>
+</template>
+</category>
+
+<category>
+<pattern>SQL * </pattern>
+ <template>
+ <srai>SQL1</srai>
+ </template>
+ </category>
+
+ <category>
+ <pattern>_ SQL *</pattern>
+ <template>
+ <srai>SQL1</srai>
+ </template>
+</category>
+<!--SQL-->
+<!--BIG DATA -->
+
+<category>
+<pattern>
+BDATA
+</pattern>
+<template>
+<random>
+<li>What do you know about the term Big Data?</li>
+<li>What are the five V’s of Big Data?</li>
+<li>Tell us how big data and Hadoop are related to each other.</li>
+<li>How is big data analysis helpful in increasing business revenue?</li>
+<li>Explain the steps to be followed to deploy a Big Data solution.</li>
+<li>Define respective components of HDFS and YARN</li>
+<li>Why is Hadoop used for Big Data Analytics?</li>
+<li>What are the main differences between NAS (Network-attached storage) and HDFS?</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>
+_ BIG DATA *
+</pattern>
+<template>
+<srai>
+BDATA
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+BIG DATA *
+</pattern>
+<template>
+<srai>
+BDATA
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ BIG DATA
+</pattern>
+<template>
+<srai>
+BDATA
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+BIG DATA
+</pattern>
+<template>
+<srai>
+BDATA
+</srai>
+</template>
+</category>
+
+<!--BIG DATA -->
 <!--BLOCKCHAIN-->
 <category>
 <pattern>BLC</pattern>
@@ -436,6 +544,256 @@ So lets get started.
 </category>
 <!--BLOCKCHAIN-->
 
+<!-- DATA ANALysis -->
+<category>
+<pattern>
+DA1
+</pattern>
+<template>
+<random>
+<li> Which technique is used to predict categorical responses?</li>
+<li>What is logistic regression? Or State an example when you have used logistic regression recently.</li>
+<li>What are Recommender Systems?</li>
+<li>Why data cleaning plays a vital role in analysis?</li>
+<li>Differentiate between univariate, bivariate and multivariate analysis</li>
+<li> What do you understand by the term Normal Distribution?</li>
+<li> What is Linear Regression?</li>
+<li>What is K-means? How can you select K for K-means?</li>
+<li>Are expected value and mean value different?</li>
+<li>What is the goal of A/B Testing?</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>
+_ DATA ANALYSIS *
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+DATA ANALYSIS *
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ DATA ANALYSIS
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+DATA ANALYSIS
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ DATA ANALYTICS *
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+DATA ANALYTICS *
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ DATA ANALYTICS
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+DATA ANALYTICS
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ DATA SCIENCE *
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+DATA SCIENCE *
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ DATA SCIENCE
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+DATA SCIENCE
+</pattern>
+<template>
+<srai>
+DA1
+</srai>
+</template></category>
+
+<!-- Data Analytics -->
+
+<!-- CLOUD COMPUTING -->
+<category>
+<pattern>
+CC1
+</pattern>
+<template>
+<random>
+<li>What are the advantages of using cloud computing?</li>
+<li>Mention platforms which are used for large scale cloud computing?</li>
+<li>Explain different models for deployment in cloud computing?</li>
+<li>What is the difference in cloud computing and computing for mobiles?</li>
+<li>For a transport in cloud how you can secure your data?</li>
+<li>Mention some open source cloud computing platform databases?</li>
+<li>Explain the difference between cloud and traditional datacenters?</li>
+<li>Explain what are the different modes of software as a service</li>
+<li>How important is the platform as a service?</li>
+<li>What is a cloud service?</li>
+<li>As a infrastructure as a service what are the resources that are provided by it?</li>
+<li>What are the business benefits involved in cloud architecture?</li>
+<li>Mention what is the difference between elasticity and scalability in cloud computing?</li>
+<li>Explain hybrid and community cloud?</li>
+<li>Have you used Amazon AWS?</li>
+<li>How GOOGLE CLOUD ENGINE is different from Amazon AWS?</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>
+_ CLOUD COMPUTING *
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+CLOUD COMPUTING *
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ CLOUD COMPUTING
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+CLOUD COMPUTING
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ CLOUD *
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+CLOUD *
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+_ CLOUD
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+
+<category>
+<pattern>
+CLOUD
+</pattern>
+<template>
+<srai>
+CC1
+</srai>
+</template></category>
+<!-- CLOUD COMPUTING -->
 <!-- This will be included -->
 <category>
 <pattern>ASK QUESTION</pattern>

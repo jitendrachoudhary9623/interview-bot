@@ -195,6 +195,9 @@ def pdf_template():
 			return response
 	abort(404)
 
+@app.route("/trial")
+def trial():
+	return render_template("trial.html")
 
 #error handlers
 @app.errorhandler(404)
