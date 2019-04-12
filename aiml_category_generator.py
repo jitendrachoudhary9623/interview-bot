@@ -1,14 +1,19 @@
+import os
+category=input(" Enter Category")
+current_directory=os.getcwd()
+path="{}/aiml/{}".format(current_directory,category)
+print(current_directory)
 
-pattern=input("Enter Pattern").upper()
+if not os.path.exists(path):
+	os.makedirs(path)
 
-srai=input("Enter SRAI").upper()
-y=input("You you want to generate Random generator?")
-if y=="y":
-	print("<category>\n<pattern>\n{}\n</pattern>\n<template>\n<random>\n<li></li>\n</random>\n</template>\n</category>\n".format(srai))
-
-
-print("<category>\n<pattern>\n_ {} *\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template></category>\n".format(pattern,srai))
-print("<category>\n<pattern>\n{} *\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template></category>\n".format(pattern,srai))
-print("<category>\n<pattern>\n_ {}\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template></category>\n".format(pattern,srai))
-print("<category>\n<pattern>\n{}\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template></category>\n".format(pattern,srai))
+pattern=input(" Enter Pattern").upper()
+srai=input(" Enter SRAI").upper()
+with open("{}/{}.aiml".format(path,pattern), "+w") as f:
+	f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<aiml>\n\n<category>\n<pattern>\n{}\n</pattern>\n<template>\n<random>\n<li></li>\n</random>\n</template>\n</category>\n\n".format(srai))
+	
+	f.write("<category>\n<pattern>\n{}\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template>\n</category>\n\n".format(pattern,srai))
+	f.write("<category>\n<pattern>\n_ {}\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template>\n</category>\n\n".format(pattern,srai))
+	f.write("<category>\n<pattern>\n{} *\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template>\n</category>\n\n".format(pattern,srai))
+	f.write("<category>\n<pattern>\n_ {} *\n</pattern>\n<template>\n<srai>\n{}\n</srai>\n</template>\n</category>\n\n</aiml>".format(pattern,srai))
 

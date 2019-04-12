@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+<category>
+<pattern>
+TEACHER1
+</pattern>
+<template>
+<random>
+<li>Tell me about your teachers</li>
+<li>What Role teachers have played in your life?</li>
+<li>Give me a scenario when you have taught someone</li>
+<li>Why not teaching as a career option</li>
+<li>Do you always require a teacher with you? or you can self learn</li>
+<li>What did you learn from your teachers?</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>
+TEACHER
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ TEACHER
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+TEACHER *
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ TEACHER *
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+INSTRUCTOR
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ INSTRUCTOR
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+INSTRUCTOR *
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ INSTRUCTOR *
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+
+<category>
+<pattern>
+INSTRUCTOR
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ INSTRUCTOR
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+INSTRUCTOR *
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ INSTRUCTOR *
+</pattern>
+<template>
+<srai>
+TEACHER1
+</srai>
+</template>
+</category>
+</aiml>

@@ -4,8 +4,15 @@
 <category>
 <pattern>LOAD AIML B</pattern>
 <template>
+	<learn>aiml/General/RQUESTION.aiml</learn>
 	<learn>aiml/computer.aiml</learn>
 
+	<learn>aiml/PASS-TIME/HOBBY.aiml</learn>
+	<learn>aiml/ACADEMIC/INTERNSHIP.aiml</learn>
+	<learn>aiml/ACADEMIC/PROJECT.aiml</learn>
+	<learn>aiml/People/friend.aiml</learn>
+	<learn>aiml/People/TEACHER.aiml</learn>
+	<learn>aiml/People/FATHER.aiml</learn>
 </template>
 </category>
 

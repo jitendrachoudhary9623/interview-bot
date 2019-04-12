@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+
+<category>
+<pattern>FAMILY</pattern>
+<template>
+<random>
+<li>Tell me more about your family</li>
+<li>Tell me more about your parents</li>
+<li>Tell me about your siblings</li>
+<li>Why family is important for you?</li> 
+</random>
+</template>
+</category>
+
+<category>
+<pattern>_ FAMILY</pattern>
+<template>
+<srai>FAMILY</srai>
+</template>
+</category>
+
+<category>
+<pattern>FAMILY * </pattern>
+ <template>
+ <srai>FAMILY</srai>
+ </template>
+ </category>
+ <category>
+ <pattern>_ FAMILY *</pattern>
+ <template>
+ <srai>FAMILY</srai>
+ </template>
+</category>
+
+
+</aiml>
