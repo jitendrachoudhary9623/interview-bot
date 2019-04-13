@@ -8,11 +8,23 @@
 	<learn>aiml/computer.aiml</learn>
 
 	<learn>aiml/PASS-TIME/HOBBY.aiml</learn>
+
 	<learn>aiml/ACADEMIC/INTERNSHIP.aiml</learn>
 	<learn>aiml/ACADEMIC/PROJECT.aiml</learn>
+
 	<learn>aiml/People/friend.aiml</learn>
 	<learn>aiml/People/TEACHER.aiml</learn>
 	<learn>aiml/People/FATHER.aiml</learn>
+
+	<learn>aiml/Technical/AI.aiml</learn>
+	<learn>aiml/Technical/ML.aiml</learn>
+	<learn>aiml/Technical/CV.aiml</learn>
+	<learn>aiml/Technical/DL.aiml</learn>
+	<learn>aiml/Technical/NLP.aiml</learn>
+	<learn>aiml/Technical/BIGDATA.aiml</learn>
+	<learn>aiml/Technical/BLOCKCHAIN.aiml</learn>
+	<learn>aiml/Technical/CLOUD.aiml</learn>
+	<learn>aiml/Technical/DA.aiml</learn>
 </template>
 </category>
 

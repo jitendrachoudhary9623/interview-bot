@@ -26,8 +26,14 @@ var userTranscript={
 	username:"",
 	interviewTime:"",
 	transcript:[],
-	
+
 };
+var userSentiment={
+"positive":0,
+"negative":0,
+"neutral":0,
+"answerCount":0
+}
 var script="";
 var rdata="";
 var sentimentFlag=false;
@@ -95,7 +101,7 @@ const confidence = Array.from(e.results)
 $('#confidenceS').val((confidence*100)+" %");         
 $('#messageText').val(script);
 if (e.results[0].isFinal) {
-  console.log("event interpretation :  - "+e.interpretation);
+  //console.log("event interpretation :  - "+e.interpretation);
 
 //$('#messageText').val(text);
 $('#messageText').val(script);
@@ -133,6 +139,7 @@ $('#timerText').hide();
 $('#timerText').prop( "disabled", false );
 userTranscript.transcript.push("You : END INTERVIEW.")
 userTranscript.emotion=emotionDisplay;
+userTranscript.sentiment=userSentiment;
 userTranscript.interviewTime=$('#timerText').text();
 $('#data').val(JSON.stringify(userTranscript));
 $("#finishForm").submit();
@@ -251,7 +258,7 @@ console.log(error);
 questionlist=[]         
 //on submit button
 $('#chatbot-form').submit(function(e) {
-console.log(userTranscript);
+//console.log(userTranscript);
 e.preventDefault();
 var message = $('#messageText').val().toUpperCase();
 var message_validation=message.split(" ");
@@ -277,8 +284,8 @@ success: function(response) {
 	
 	//console.log(answer);
 	if(questionlist.includes(answer)){
-	console.log(questionlist)
-	console.log("Already asked");
+	//console.log(questionlist)
+	//console.log("Already asked");
 	$('#messageText').val('ASK QUESTION');
 	e.preventDefault();
 	$('#chatbot-form').submit();
@@ -324,6 +331,12 @@ success: function(response) {
 var positive=response.sentiment_positive;
 var negative=response.sentiment_negative;
 var neutral=response.sentiment_neutral;
+userSentiment.positive=userSentiment.positive+positive;
+userSentiment.negative=userSentiment.negative+negative;
+userSentiment.neutral=userSentiment.neutral+neutral;
+userSentiment.answerCount=userSentiment.answerCount+1;
+console.log(userSentiment);
+//userTranscript.sentiment.push(response.overall_sentiment);
 //console.log(positive,negative,neutral);
 if (sentimentFlag){
 		schart.destroy()

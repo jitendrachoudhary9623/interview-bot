@@ -7,8 +7,8 @@ import pdfkit
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session,sessionmaker
 import json
-
 from passlib.hash import sha256_crypt
+from chartGenerators import generateChartsForPDF
 
 engine=create_engine("mysql+pymysql://root:root@localhost/register") 
 kernel = aiml.Kernel()
@@ -117,8 +117,8 @@ def ask():
 	message = str(request.form['messageText'])
 	print(message)
 	if message == "save":
-	    	kernel.saveBrain("bot_brain.brn")
-	    	return jsonify({"status":"ok", "answer":"Brain Saved"})
+			kernel.saveBrain("bot_brain.brn")
+			return jsonify({"status":"ok", "answer":"Brain Saved"})
 	elif message == "reload":
 		load_kern(True)
 		return jsonify({"status":"ok", "answer":"Brain Reloaded"})
@@ -164,7 +164,7 @@ def text_analysis():
 		myText = TextAnalyser(userText, language)
 		myText.preprocessText(lowercase = userText,removeStopWords = userText,stemming = stemmingType)
 		if myText.uniqueTokens() == 0:
-	       		uniqueTokensText = 1
+		   		uniqueTokensText = 1
 		else:
 			uniqueTokensText = myText.uniqueTokens()
 		#print('calls text analysis'+userText)
@@ -183,11 +183,10 @@ def pdf_template():
 	if 'log' in session:
 		if request.method == 'POST':
 			message = str(request.form['data'])
-			#print(message)
-			message=d = json.loads(message)
-			#message.username="OKsy"
-			#print(message['transcript'])
-			rendered=render_template("pdf_template.html",transcript=message['transcript'],emotion=message["emotion"],totalDuration=message["interviewTime"])
+			message=json.loads(message)
+			echart,schart=generateChartsForPDF(message["emotion"],message["sentiment"],session["username"])
+			print(echart)
+			rendered=render_template("pdf_template.html",transcript=message['transcript'],emotion=message["emotion"],totalDuration=message["interviewTime"],echart=echart,schart=schart)
 			pdf=pdfkit.from_string(rendered,False)#true for client sending
 			response=make_response(pdf)
 			response.headers['Content-Type']="application/pdf"
@@ -208,5 +207,5 @@ def error404(error):
 def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
-    app.secret_key="interviewbot"
-    app.run(debug=True,port=8242)
+	app.secret_key="interviewbot"
+	app.run(debug=True,port=4114,host="localhost")

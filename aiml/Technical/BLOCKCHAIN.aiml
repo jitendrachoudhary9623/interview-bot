@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+<category>
+<pattern>
+BLC
+</pattern>
+<template>
+<random>
+<li>What is blockchain</li>
+<li>Is blockchain and bitcoin one and the same thing.</li>
+<li>How blockchain can bring revolution</li>
+<li>Any projects or ideas you have implemented based on blockchain.</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>
+BLOCKCHAIN
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ BLOCKCHAIN
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+BLOCKCHAIN *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ BLOCKCHAIN *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+ETHEREUM
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ ETHEREUM
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+ETHEREUM *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ ETHEREUM *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+DISTRIBUTED SHARED LEDGER
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ DISTRIBUTED SHARED LEDGER
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+DISTRIBUTED SHARED LEDGER *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ DISTRIBUTED SHARED LEDGER *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+HYPER LEDGER
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ HYPER LEDGER
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+HYPER LEDGER *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ HYPER LEDGER *
+</pattern>
+<template>
+<srai>
+BLC
+</srai>
+</template>
+</category>
+
+</aiml>
