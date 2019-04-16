@@ -16,15 +16,75 @@
 	<learn>aiml/People/TEACHER.aiml</learn>
 	<learn>aiml/People/FATHER.aiml</learn>
 
-	<learn>aiml/Technical/AI.aiml</learn>
-	<learn>aiml/Technical/ML.aiml</learn>
-	<learn>aiml/Technical/CV.aiml</learn>
-	<learn>aiml/Technical/DL.aiml</learn>
-	<learn>aiml/Technical/NLP.aiml</learn>
-	<learn>aiml/Technical/BIGDATA.aiml</learn>
-	<learn>aiml/Technical/BLOCKCHAIN.aiml</learn>
-	<learn>aiml/Technical/CLOUD.aiml</learn>
-	<learn>aiml/Technical/DA.aiml</learn>
+	<learn>aiml/Technical/Advance/AI.aiml</learn>
+	<learn>aiml/Technical/Advance/ML.aiml</learn>
+	<learn>aiml/Technical/Advance/CV.aiml</learn>
+	<learn>aiml/Technical/Advance/DL.aiml</learn>
+	<learn>aiml/Technical/Advance/NLP.aiml</learn>
+	<learn>aiml/Technical/Advance/BIGDATA.aiml</learn>
+	<learn>aiml/Technical/Advance/BLOCKCHAIN.aiml</learn>
+	<learn>aiml/Technical/Advance/CLOUD.aiml</learn>
+	<learn>aiml/Technical/Advance/DA.aiml</learn>
+	<learn>aiml/Technical/Advance/IOT.aiml</learn>
+	<learn>aiml/Technical/Advance/VR.aiml</learn>
+	<learn>aiml/Technical/Advance/AR.aiml</learn>
+
+	<learn>aiml/Technical/Advance/Clouds/OPENSTACK.aiml</learn>
+
+	<learn>aiml/Technical/Core/LINUX.aiml</learn>
+	<learn>aiml/Technical/Core/UNIX.aiml</learn>
+	<learn>aiml/Technical/Core/DS.aiml</learn>
+
+	<learn>aiml/Technical/DBMS/SQL.aiml</learn>
+	<learn>aiml/Technical/DBMS/SQLITE.aiml</learn>
+	<learn>aiml/Technical/DBMS/MYSQL.aiml</learn>
+	<learn>aiml/Technical/DBMS/POSTGRESQL.aiml</learn>
+	<learn>aiml/Technical/DBMS/ORACLE.aiml</learn>
+	<learn>aiml/Technical/DBMS/MONGODB.aiml</learn>
+
+	<learn>aiml/Technical/Language/C.aiml</learn>
+	<learn>aiml/Technical/Language/CPP.aiml</learn>
+	<learn>aiml/Technical/Language/PYTHON.aiml</learn>
+	<learn>aiml/Technical/Language/GOLANG.aiml</learn>
+	<learn>aiml/Technical/Language/DOTNET.aiml</learn>
+	<learn>aiml/Technical/Language/R.aiml</learn>
+
+	<learn>aiml/Technical/Frameworks/HIBERNATE.aiml</learn>
+	<learn>aiml/Technical/Frameworks/SPRING.aiml</learn>
+	<learn>aiml/Technical/Frameworks/SCALA.aiml</learn>
+	<learn>aiml/Technical/Frameworks/STRUTS.aiml</learn>
+	<learn>aiml/Technical/Frameworks/SPARK.aiml</learn>
+
+	<learn>aiml/Technical/WebTech/HTML.aiml</learn>
+	<learn>aiml/Technical/WebTech/CSS.aiml</learn>
+	<learn>aiml/Technical/WebTech/AJAX.aiml</learn>
+	<learn>aiml/Technical/WebTech/ANGULAR.aiml</learn>
+	<learn>aiml/Technical/WebTech/XML.aiml</learn>
+	<learn>aiml/Technical/WebTech/JQUERY.aiml</learn>
+	<learn>aiml/Technical/WebTech/SEO.aiml</learn>
+	<learn>aiml/Technical/WebTech/BACKBONE.JS.aiml</learn>
+	<learn>aiml/Technical/WebTech/BACKBONE.JS.aiml</learn>
+	<learn>aiml/Technical/WebTech/EMBER.aiml</learn>
+	<learn>aiml/Technical/WebTech/REACTJS.aiml</learn>
+	<learn>aiml/Technical/WebTech/PHP.aiml</learn>
+	<learn>aiml/Technical/WebTech/NODEJS.aiml</learn>
+
+	<learn>aiml/Technical/WebTech/Python/DJANGO.aiml</learn>
+
+	<learn>aiml/Technical/WebTech/PHP/WORDPRESS.aiml</learn>
+	<learn>aiml/Technical/WebTech/PHP/DRUPAL.aiml</learn>
+	<learn>aiml/Technical/WebTech/PHP/JOOMLA.aiml</learn>
+
+	<learn>aiml/Technical/SoftwareEngg/AGILE.aiml</learn>
+	
+	<learn>aiml/Technical/Mobile/ANDROID.aiml</learn>
+	<learn>aiml/Technical/Mobile/IOS.aiml</learn>
+
+	<learn>aiml/Technical/Tools/JENKINS.aiml</learn>
+	<learn>aiml/Technical/Tools/DOCKER.aiml</learn>
+
+	<learn>aiml/Technical/others/HADOOP.aiml</learn>
+
 </template>
 </category>
 

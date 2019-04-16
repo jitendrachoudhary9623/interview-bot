@@ -1,0 +1,1541 @@
+who is your best friend?,friend,People
+what do you admire about your friend,friend,People
+what do you hate about your friend,friend,People
+have you ever cheated on your friend,friend,People
+what is the craziest thing you have done with your friend,friend,People
+college friends or school friends which one do you think are best?,friend,People
+Tell me about your teachers,TEACHER,People
+What Role teachers have played in your life?,TEACHER,People
+Give me a scenario when you have taught someone,TEACHER,People
+Why not teaching as a career option,TEACHER,People
+Do you always require a teacher with you? or you can self learn,TEACHER,People
+What did you learn from your teachers?,TEACHER,People
+Tell me more about your father,FATHER,People
+Tell me more about your father's profession,FATHER,People
+What would you like to full fill  your dream or your fathers dream?,FATHER,People
+What did you have as a child that kids today don’t have?,FATHER,People
+Which family member has been your greatest coach in life? How have they coached you? What has made them good at it?,FATHER,People
+When you were a teenager which family member did you go to for advice? Looking back was it good advice?,FATHER,People
+Tell me a story about a family reunion or family party that you remember attending as a child.,FATHER,People
+ What is the most embarrassing thing your mother or father ever did to you?,FATHER,People
+What are your best memories of holidays or family gatherings as a child?,FATHER,People
+Describe your father is 3 words,FATHER,People
+ If you could go back to one day in your childhood which day would that be? Why?,FATHER,People
+Tell me more about your family,FAMILY,People
+Tell me more about your parents,FAMILY,People
+Tell me about your siblings,FAMILY,People
+Why family is important for you?,FAMILY,People
+college friends or school friends,friend,aiml
+Tell me more about your hobby,HOBBY,PASS-TIME
+Do you have any other hobbies?,HOBBY,PASS-TIME
+ Mention what is Jenkins?,JENKINS,Tools
+ Explain what is continuous integration?,JENKINS,Tools
+ What is the requirement for using Jenkins?,JENKINS,Tools
+ Mention what are the advantages of Jenkins?,JENKINS,Tools
+ Explain how you can move or copy Jenkins from one server to another?,JENKINS,Tools
+ Mention what are the commands you can use to start Jenkins manually?,JENKINS,Tools
+ Mention some of the useful plugins in Jenkin?,JENKINS,Tools
+ Explain how you can deploy a custom build of a core plugin?,JENKINS,Tools
+ Explain how can create a backup and copy files in Jenkins?,JENKINS,Tools
+ Explain how you can clone a Git repository via Jenkins?,JENKINS,Tools
+ Explain how you can set up Jenkins job?,JENKINS,Tools
+ Mention what are the two components Jenkins is mainly integrated with?,JENKINS,Tools
+ What are the differences between Docker and Hypervisors?,DOCKER,Tools
+ What is Docker?,DOCKER,Tools
+ What is Docker image?,DOCKER,Tools
+ What is Docker container?,DOCKER,Tools
+ What is Dockerfile used for?,DOCKER,Tools
+ How to create Docker container?,DOCKER,Tools
+ How to stop and restart the Docker container?,DOCKER,Tools
+ Do I lose my data when the Docker container exits?,DOCKER,Tools
+ Mention some commonly used Docker command?,DOCKER,Tools
+What is AR?,AR,Advance
+How AR is different than VR?,AR,Advance
+HOW AR is changing the world?,AR,Advance
+Any AR Application you developed in AR?,AR,Advance
+Which tools are used to develop AR Applications,AR,Advance
+Will augmented reality help in the field of  marketing?,AR,Advance
+ Where is augmented reality being used?,AR,Advance
+ Is augmented reality expensive?,AR,Advance
+Where is augmented reality heading?,AR,Advance
+Explain what is OpenStack?,OPENSTACK,Clouds
+Mention what are the three components that make modular architecture of OpenStack?,OPENSTACK,Clouds
+Give an overview of OpenStack Services?,OPENSTACK,Clouds
+What does “role” and “tenant” indicates in OpenStack?,OPENSTACK,Clouds
+Explain what hypervisor is and what type of hypervisor does OpenStack supports?,OPENSTACK,Clouds
+What are the two types of storage does OpenStack Compute provides?,OPENSTACK,Clouds
+What are the basic functions of Identity Service in OpenStack?,OPENSTACK,Clouds
+What are the main components of identity user management?,OPENSTACK,Clouds
+What is the meaning of term “Cinder” in OpenStack service?,OPENSTACK,Clouds
+List out the storage locations for VM images in OpenStack?,OPENSTACK,Clouds
+Explain what is Cells in OpenStack?,OPENSTACK,Clouds
+For networking what hardware is used in OpenStack? ,OPENSTACK,Clouds
+Explain how you can transfer volume from one owner to another in OpenStack?,OPENSTACK,Clouds
+What is bare-metal node and what does it comprised of?,OPENSTACK,Clouds
+Mention what is the command to remove network interface from bare-metal node?,OPENSTACK,Clouds
+Explain what is the function of Cinder Scheduler?,OPENSTACK,Clouds
+Explain what is Token in OpenStack?,OPENSTACK,Clouds
+Explain about OpenStack Python SDK?,OPENSTACK,Clouds
+What is the command used for pause and unpause an instance?,OPENSTACK,Clouds
+What is the command used to list IP address information?,OPENSTACK,Clouds
+What is the meaning of term “flavor” in OpenStack? ,OPENSTACK,Clouds
+<get name="USERNAME"></get> What is Artificial Intelligence?,AI,Advance
+How AI is been utilized in your daily life?,AI,Advance
+List some applications of AI.,AI,Advance
+What is Turing test?,AI,Advance
+<get name="USERNAME"></get> What is Deep learning?,AI,Advance
+can you differentiate between supervised unsupervised and reinforcement learning.,AI,Advance
+Name few Machine Learning algorithms you know.,AI,Advance
+<get name="USERNAME"></get> Tell me any project you have done in AI.,AI,Advance
+What are the advantages of using cloud computing?,CLOUD,Advance
+Mention platforms which are used for large scale cloud computing?,CLOUD,Advance
+Explain different models for deployment in cloud computing?,CLOUD,Advance
+What is the difference in cloud computing and computing for mobiles?,CLOUD,Advance
+For a transport in cloud how you can secure your data?,CLOUD,Advance
+Mention some open source cloud computing platform databases?,CLOUD,Advance
+Explain the difference between cloud and traditional datacenters?,CLOUD,Advance
+Explain what are the different modes of software as a service,CLOUD,Advance
+How important is the platform as a service?,CLOUD,Advance
+What is a cloud service?,CLOUD,Advance
+As a infrastructure as a service what are the resources that are provided by it?,CLOUD,Advance
+What are the business benefits involved in cloud architecture?,CLOUD,Advance
+Mention what is the difference between elasticity and scalability in cloud computing?,CLOUD,Advance
+Explain hybrid and community cloud?,CLOUD,Advance
+Have you used Amazon AWS?,CLOUD,Advance
+How GOOGLE CLOUD ENGINE is different from Amazon AWS?,CLOUD,Advance
+What do you know about the term Big Data?,BIGDATA,Advance
+What are the five V’s of Big Data?,BIGDATA,Advance
+Tell us how big data and Hadoop are related to each other.,BIGDATA,Advance
+How is big data analysis helpful in increasing business revenue?,BIGDATA,Advance
+Explain the steps to be followed to deploy a Big Data solution.,BIGDATA,Advance
+Define respective components of HDFS and YARN,BIGDATA,Advance
+Why is Hadoop used for Big Data Analytics?,BIGDATA,Advance
+What are the main differences between NAS (Network-attached storage) and HDFS?,BIGDATA,Advance
+ Which technique is used to predict categorical responses?,DA,Advance
+What is logistic regression? Or State an example when you have used logistic regression recently.,DA,Advance
+What are Recommender Systems?,DA,Advance
+Why data cleaning plays a vital role in analysis?,DA,Advance
+Differentiate between univariate bivariate and multivariate analysis,DA,Advance
+ What do you understand by the term Normal Distribution?,DA,Advance
+ What is Linear Regression?,DA,Advance
+What is K-means? How can you select K for K-means?,DA,Advance
+Are expected value and mean value different?,DA,Advance
+What is the goal of A/B Testing?,DA,Advance
+What is Virtual Reality?,VR,Advance
+How do you develop an application using VR?,VR,Advance
+How VR is different than AR?,VR,Advance
+Can you name few companies which are working on product related to VR?,VR,Advance
+What are the applications of VR in healthcare?,VR,Advance
+What are the applications of VR in education?,VR,Advance
+What Are The Major Trends Driving The Introduction Of Virtual Reality Systems?,VR,Advance
+What Is Google Cardboard And How Does It Fit Into The Vr World?,VR,Advance
+How HOLOLENS is different than other VR devices?,VR,Advance
+How Might The Virtual World Change The World Of Work?,VR,Advance
+Explain Named entity recognition (NER)?,NLP,Advance
+What is Lemmatization in NLP?,NLP,Advance
+List some Components of NLP?,NLP,Advance
+List some OpenSource Libraries for NLP?,NLP,Advance
+What is latent semantic indexing? Where it is applied.,NLP,Advance
+List some areas of NLP?,NLP,Advance
+List some tools for training NLP models?,NLP,Advance
+What is NLTK?,NLP,Advance
+What is tokenization in NLP?,NLP,Advance
+What is stemming in NLP?,NLP,Advance
+What is part of speech (POS) tagging?,NLP,Advance
+List few differences between AI Machine Learning and NLP?,NLP,Advance
+What is the significance of TF-IDF?,NLP,Advance
+What is blockchain,BLOCKCHAIN,Advance
+Is blockchain and bitcoin one and the same thing.,BLOCKCHAIN,Advance
+How blockchain can bring revolution,BLOCKCHAIN,Advance
+Any projects or ideas you have implemented based on blockchain.,BLOCKCHAIN,Advance
+ What do you know about Blockchain? What is the difference between Bitcoin blockchain and Ethereum blockchain?,BLOCKCHAIN,Advance
+ What is the principle on which blockchain technology is based on?,BLOCKCHAIN,Advance
+ What are the different types of Blockchains?,BLOCKCHAIN,Advance
+ Why is Blockchain a trusted approach?,BLOCKCHAIN,Advance
+ Name the two types of records that are present in the blockchain database?,BLOCKCHAIN,Advance
+ What are the properties of Blockchain?,BLOCKCHAIN,Advance
+ What is encryption? What is its role in Blockchain?,BLOCKCHAIN,Advance
+ What do you mean by blocks in the blockchain technology?,BLOCKCHAIN,Advance
+ How does a block is recognized in the Blockchain approach?,BLOCKCHAIN,Advance
+ Is it possible to modify the data once it is written in a block?,BLOCKCHAIN,Advance
+ What are Block Identifiers?,BLOCKCHAIN,Advance
+ Is it possible in Blockchain to remove one or more block from the networks?,BLOCKCHAIN,Advance
+ What exactly do you know about the security of a block?,BLOCKCHAIN,Advance
+ What are Merkle trees? How important are Merkle trees in Blockchains?,BLOCKCHAIN,Advance
+ What is a ledger? Is Blockchain an incorruptible ledger?,BLOCKCHAIN,Advance
+ Name the common type of ledgers that can be considered by users in Blockchain?,BLOCKCHAIN,Advance
+ How is a blockchain ledger different from an ordinary one?,BLOCKCHAIN,Advance
+ What type of records can be kept in a Blockchain? Is there any restriction on same?,BLOCKCHAIN,Advance
+ A distributed digital ledger is used for recording transaction in Blockchain,BLOCKCHAIN,Advance
+ Can You explain the components of Blockchain Ecosystem?,BLOCKCHAIN,Advance
+ State difference between proof-of-work and; proof-of-stake?,BLOCKCHAIN,Advance
+ Name some popular platforms for developing blockchain applications,BLOCKCHAIN,Advance
+ What is Double Spending? Is it possible to double spend in a Blockchain system?,BLOCKCHAIN,Advance
+ What are the benefits of Blockchain that you know?,BLOCKCHAIN,Advance
+ Each block of a Blockchain consists of which of the following?,BLOCKCHAIN,Advance
+ Which of the following is first distributed blockchain implementation?,BLOCKCHAIN,Advance
+ Bitcoin is based on which blockchain?,BLOCKCHAIN,Advance
+ Hash identifying each block in the Blockchain is generated using which of the following cryptographic algorithm?,BLOCKCHAIN,Advance
+ A block in the blockchain can never have more than one parent block?,BLOCKCHAIN,Advance
+ Blockchain forks can result in which of the following?,BLOCKCHAIN,Advance
+ Which of the following is asymmetric encryption Algorithm?,BLOCKCHAIN,Advance
+ Can you tell me some of the widely used cryptographic algorithms?,BLOCKCHAIN,Advance
+ Tell me more about RSA algorithm? How secure is this algorithm?,BLOCKCHAIN,Advance
+ Explain the significance of blind signature and how it is useful?,BLOCKCHAIN,Advance
+ What is Secret Sharing? Does it have any benefit in Blockchain technology?,BLOCKCHAIN,Advance
+ Can you explain what are off-chain transactions?,BLOCKCHAIN,Advance
+ What exactly do you know about executive accounting? Does Blockchain support the same?,BLOCKCHAIN,Advance
+ What are the threats to the information you are familiar with?,BLOCKCHAIN,Advance
+ How will you handle the risk management when it comes to securing the transactions records?,BLOCKCHAIN,Advance
+ What is 51% attack? ,BLOCKCHAIN,Advance
+ What challenges information leak can impose on an organization?,BLOCKCHAIN,Advance
+ What is information processing according to you? What are the key challenges that are associated with it?,BLOCKCHAIN,Advance
+ Name organizations that can use Blockchain technology?,BLOCKCHAIN,Advance
+ What are the core requirements for a Business Blockchain?,BLOCKCHAIN,Advance
+ What are the key principles in Blockchain that are helpful in eliminating the security threats that needs to be followed?,BLOCKCHAIN,Advance
+ What is a security policy?,BLOCKCHAIN,Advance
+  Is the Blockchain Different from Banking Ledgers?,BLOCKCHAIN,Advance
+  Can you list some of the popular consensus algorithms? Why we need different consensus mechanisms?<br/>
+,BLOCKCHAIN,Advance
+ Is there any network specific conditions for using Blockchain technology in an organization?,BLOCKCHAIN,Advance
+ Name the steps that are involved in the Blockchain project implementation?,BLOCKCHAIN,Advance
+ Explain a real-life use-case where Blockchain is being used?,BLOCKCHAIN,Advance
+What is deep learning?,DL,Advance
+What is a Neural Network,DL,Advance
+How deep learning is different than machine learning,DL,Advance
+What projects you have done in DEEP LEARNING?,DL,Advance
+Do you know how to take neural network in production,DL,Advance
+Which Deep Learning Libraries you have USED,DL,Advance
+What is the cost function?,DL,Advance
+What is mean by gradient descent?,DL,Advance
+ What is meant by a backpropagation?,DL,Advance
+What is means by auto-encoder?,DL,Advance
+What are the roles of activation function?,DL,Advance
+What is Machine Learning?,ML,Advance
+Why is naive Bayes so naive ?,ML,Advance
+How AI is different from Machine Learning?,ML,Advance
+Do you know any company which have a product based on Machine Learning,ML,Advance
+How to handle unbalanced databases?,ML,Advance
+Is It the Most Important For You Model Model Accuracy or Model Performance?,ML,Advance
+What is the forward selection of data pre-processing?,ML,Advance
+What are the different Algorithm techniques in Machine Learning?,ML,Advance
+Difference between supervised and unsupervised machine learning?,ML,Advance
+What is Overfitting in Machine Learning?,ML,Advance
+What are the advantages of decision trees?,ML,Advance
+What are the three stages to build the hypotheses or model in machine learning?,ML,Advance
+What are some different cases uses of machine learning algorithms can be used?,ML,Advance
+What is computer vision,CV,Advance
+Is Computer vision or pattern recognition or image processing is all same thing.,CV,Advance
+Any projects related to computer vision?,CV,Advance
+What are the main parts of IoT systems?,IOT,Advance
+What is Internet of things?,IOT,Advance
+Have you done anything or any project related to IOT?,IOT,Advance
+Can you name few companies who are working IOT based products?,IOT,Advance
+How IOT is changing or revolutionizing our world?,IOT,Advance
+What are security concerns related to IoT?,IOT,Advance
+What is meant by a smart city regarding the Internet of Things?,IOT,Advance
+Name some of the sectors where IOT played a major role?,IOT,Advance
+What are the challenges in IOT?,IOT,Advance
+Can IOT take over human mind?,IOT,Advance
+What is the scope of IOT devices in the future?,IOT,Advance
+What is the big IOT implementation so far?,IOT,Advance
+What are Android things?,IOT,Advance
+What are the most used sensors types in iot?,IOT,Advance
+What is common uses of IoT?,IOT,Advance
+What is application of IoT in Environmental Monitoring?,IOT,Advance
+What is application of IoT in Transportation?,IOT,Advance
+What is application of IoT in Government?,IOT,Advance
+What is application of IoT in Law enforcement?,IOT,Advance
+What is IoT Cloud?,IOT,Advance
+How does the Internet of Everything relate to the Internet of Things?,IOT,Advance
+What is the difference between the Internet of Things (IoT) and the Sensors?,IOT,Advance
+Why Internet of Things will be successful in the coming years?,IOT,Advance
+What are the important Components of Internet of Things?,IOT,Advance
+What impacts will the Internet of Things (IoT) have on Energy Sector?,IOT,Advance
+What impacts will the Internet of Things (IoT) have on Agriculture Sector?,IOT,Advance
+What is application of IoT in Healthcare?,IOT,Advance
+How will the Internet of Things affect the manageability of the business and will it have any effect on the earth?,IOT,Advance
+What kind of data does Internet of Things objects convey?,IOT,Advance
+Why will the Internet of Things be effective in the coming years?,IOT,Advance
+ What is the effect of the Internet of Things have on Healthcare segment?,IOT,Advance
+ what are the fundamental difficulties of the Internet of Things usage?,IOT,Advance
+When you state Internet of Things I am not catching your meaning by the thing?,IOT,Advance
+What is Agile Methology?,AGILE,Technical
+What is the duration of a scrum sprint?,AGILE,Technical
+What do you know about impediments in Scrum? Give some examples of impediments.,AGILE,Technical
+What is the difference and similarity between Agile and Scrum?,AGILE,Technical
+State some of the Agile quality strategies.,AGILE,Technical
+Do you know about Agile Manifesto and its Principles? Explain in brief.,AGILE,Technical
+Is there any drawback of the Agile model? If yes explain.,AGILE,Technical
+What do you understand by the term Agile testing?,AGILE,Technical
+State some major principles of Agile testing.,AGILE,Technical
+Scrum is an Agile framework right? Name a few other Agile frameworks.,AGILE,Technical
+Name some methodologies and development where you have used the Agile model.,AGILE,Technical
+What is the difference between the agile and traditional way of working?,AGILE,Technical
+How is an agile testing methodology different from other testing methodologies?,AGILE,Technical
+What is the description for Kernel?,UNIX,Core
+What are the main features of UNIX?,UNIX,Core
+What is called Shell?,UNIX,Core
+What are the responsibilities of a shell?,UNIX,Core
+Describe the term directory in UNIX?,UNIX,Core
+Describe fork() system call?,UNIX,Core
+What is meant by Super User in unix?,UNIX,Core
+What are the different file types available with UNIX?,UNIX,Core
+Discuss the difference between swapping and paging?,UNIX,Core
+What do you understand by UNIX shell?,UNIX,Core
+What do you understand by shell variables?,UNIX,Core
+Define piping in unix,UNIX,Core
+What do you understand by terms system calls and library functions with respect to UNIX command?,UNIX,Core
+Explain pid in unix systems.,UNIX,Core
+ What is chmod command?,UNIX,Core
+Differentiate Swapping and Paging.,UNIX,Core
+What is data structure?,DS,Core
+ Differentiate between file and structure storage structure.,DS,Core
+When is a binary search best applied?,DS,Core
+What is a linked list?,DS,Core
+In what areas do data structures are applied?,DS,Core
+What is a queue?,DS,Core
+What are binary trees?,DS,Core
+Which data structures are applied when dealing with a recursive function?,DS,Core
+What is a stack?,DS,Core
+Explain Binary Search Tree,DS,Core
+Are linked lists considered linear or non-linear data structures?,DS,Core
+What is merge sort?,DS,Core
+What is the primary advantage of a linked list?,DS,Core
+What is a linear search?,DS,Core
+What is a postfix expression?,DS,Core
+How do signed and unsigned numbers affect memory?,DS,Core
+ What are dynamic data structures?,DS,Core
+In what data structures are pointers applied?,DS,Core
+What are ARRAYs?,DS,Core
+What is the minimum number of queues needed when implementing a priority queue?,DS,Core
+Which sorting algorithm is considered the fastest?,DS,Core
+Differentiate STACK from ARRAY.,DS,Core
+What is a bubble sort and how do you perform it?,DS,Core
+What is an AVL tree?,DS,Core
+What is Fibonacci search?,DS,Core
+Briefly explain recursive algorithm.,DS,Core
+Differentiate between file and structure storage structure.,DS,Core
+How do you reference all the elements in a one-dimension array?,DS,Core
+In what areas do data structures are applied?,DS,Core
+What is LIFO?,DS,Core
+What are multidimensional arrays?,DS,Core
+How does dynamic memory allocation help in managing data?,DS,Core
+What is FIFO?,DS,Core
+What is an ordered list?,DS,Core
+Differentiate NULL and VOID,DS,Core
+What is the difference between a PUSH and a POP?,DS,Core
+How does variable declaration affect memory allocation?,DS,Core
+What is the advantage of the heap over a stack?,DS,Core
+What is Data abstraction?,DS,Core
+How do you insert a new item in a binary search tree?,DS,Core
+How does a selection sort work for an array?,DS,Core
+What is the minimum number of nodes that a binary tree can have?,DS,Core
+What are dynamic data structures?,DS,Core
+Do all declaration statements result in a fixed reservation in memory?,DS,Core
+Give a basic algorithm for searching a binary search tree.,DS,Core
+What is a dequeue?,DS,Core
+What are the parts of a linked list?,DS,Core
+How does selection sort work?,DS,Core
+What is a graph?,DS,Core
+Differentiate linear from a nonlinear data structure.,DS,Core
+What are doubly linked lists?,DS,Core
+What is Huffman’s algorithm?,DS,Core
+How do you search for a target key in a linked list?,DS,Core
+What is Linux?,LINUX,Core
+What is the difference between UNIX and LINUX?,LINUX,Core
+What is BASH?,LINUX,Core
+ What is Linux Kernel?,LINUX,Core
+What is LILO? (in linux (its a bootloader)) ,LINUX,Core
+What is the advantage of open source?,LINUX,Core
+What are the basic components of Linux?,LINUX,Core
+Does it help for a Linux system to have multiple desktop environments installed?,LINUX,Core
+What is the basic difference between BASH and DOS?,LINUX,Core
+Describe the root account.,LINUX,Core
+What is CLI?,LINUX,Core
+How do you change permissions under Linux?,LINUX,Core
+What is the maximum length for a filename under Linux?,LINUX,Core
+What are daemons?,LINUX,Core
+What are the kinds of permissions under Linux?,LINUX,Core
+What is grep command?,LINUX,Core
+What is the difference between Linux and Unix?,LINUX,Core
+What is Linux Kernel? Is it legal to edit Linux Kernel?,LINUX,Core
+What is LILO?,LINUX,Core
+Which are the Shells used in Linux?,LINUX,Core
+What is Swap Space?,LINUX,Core
+What is the difference between BASH and DOS?,LINUX,Core
+What command would you use to check how much memory is being used by Linux?,LINUX,Core
+Explain file permission in Linux.,LINUX,Core
+What are inode and process id?,LINUX,Core
+Which are the Linux Directory Commands?,LINUX,Core
+What is Virtual Desktop?,LINUX,Core
+Which are the different modes of vi editor?,LINUX,Core
+What are the process states in Linux?,LINUX,Core
+Explain grep command.,LINUX,Core
+Explain Process Management System Calls in Linux,LINUX,Core
+Explain the ‘ls’ command in Linux,LINUX,Core
+Why is the tar command used?,LINUX,Core
+What is a Latch?,LINUX,Core
+What is a Microprocessor?,LINUX,Core
+Explain Regular Expressions and Grep,LINUX,Core
+What is the minimum number of disk partitions required to install Linux?,LINUX,Core
+How to copy a file in Linux?,LINUX,Core
+How to terminate a running process in Linux?,LINUX,Core
+How to rename a file in Linux?,LINUX,Core
+How to write the output of a command to a file?,LINUX,Core
+How to see the list of mounted devices on Linux?,LINUX,Core
+How to find where a file is stored in Linux?,LINUX,Core
+How to find the difference in two configuration files?,LINUX,Core
+Write a bash script to delete all the files in the current directory that contains the word “linux”.,LINUX,Core
+How would you create a text file without opening it?,LINUX,Core
+How would you delete a directory in Linux?,LINUX,Core
+How would you schedule a task in Linux?,LINUX,Core
+Suppose you try to delete a file using the rm command and the deletion fails,LINUX,Core
+How do you look at the contents of a file named sample.z?,LINUX,Core
+How to copy files to a Floppy Disk safely?,LINUX,Core
+How to identify which shell you are using?,LINUX,Core
+How can you login to another system in your network from your system?,LINUX,Core
+How would you open a file in read-only mode using the vim editor?,LINUX,Core
+How would you search for a specific Employee ID in a file using the vim editor?,LINUX,Core
+How to jump to a particular line in a file using vim editor?,LINUX,Core
+How do you sort the entries in a text file in ascending order?,LINUX,Core
+What is the export command used for?,LINUX,Core
+How do you check if a particular service in running?,LINUX,Core
+How do you check the status of all the services?,LINUX,Core
+How do you start and stop a service?,LINUX,Core
+Explain the free command.,LINUX,Core
+What is Struts2?,STRUTS,Frameworks
+What are the differences between Struts1 and Struts2 or how Struts2 is better than Struts1?,STRUTS,Frameworks
+What are Struts2 core components?,STRUTS,Frameworks
+What is interceptor in Struts2?,STRUTS,Frameworks
+Which design pattern is implemented by Struts2 interceptors?,STRUTS,Frameworks
+What are different ways to create Action classes in Struts2?,STRUTS,Frameworks
+Does Struts2 action and interceptors are thread safe?,STRUTS,Frameworks
+Name some useful annotations introduced in Struts2?,STRUTS,Frameworks
+Provide some important Struts2 constants that you have used?,STRUTS,Frameworks
+How can we upload files in Struts2 application?,STRUTS,Frameworks
+What are best practices to follow while developing Struts2 application?,STRUTS,Frameworks
+What is Spring Framework?,SPRING,Frameworks
+What are some of the important features and advantages of Spring Framework?,SPRING,Frameworks
+What do you understand by Dependency Injection?,SPRING,Frameworks
+How do we implement Dependency Injection in Spring Framework?,SPRING,Frameworks
+What do you understand by Aspect Oriented Programming?,SPRING,Frameworks
+Name some of the important Spring Modules?,SPRING,Frameworks
+What is a Spring Bean?,SPRING,Frameworks
+What is a Controller in Spring MVC?,SPRING,Frameworks
+How Spring is different than STRUTS?,SPRING,Frameworks
+What is a difference between SPRING and HIBERNATE?,SPRING,Frameworks
+How would you relate Spring MVC Framework to MVC architecture?,SPRING,Frameworks
+What are some of the important Spring annotations you have used?,SPRING,Frameworks
+How to integrate Spring and Hibernate Frameworks?,SPRING,Frameworks
+What are some of the best practices for Spring Framework?,SPRING,Frameworks
+What are other java frameworks you know other than Spring?,SPRING,Frameworks
+Name some of the design patterns used in Spring Framework?,SPRING,Frameworks
+What are the major features in different versions of Spring Framework?,SPRING,Frameworks
+List the advantages of Spring Framework.,SPRING,Frameworks
+What are the different features of Spring Framework?,SPRING,Frameworks
+How many modules are there in Spring Framework and what are they?,SPRING,Frameworks
+What is a Spring configuration file?,SPRING,Frameworks
+What is Spring IOC Container?,SPRING,Frameworks
+What do you mean by Dependency Injection? ,SPRING,Frameworks
+Differentiate between BeanFactory and ApplicationContext.,SPRING,Frameworks
+What do you mean by  Annotation-based container configuration?,SPRING,Frameworks
+ What do you understand by @RequestMapping annotation?,SPRING,Frameworks
+Describe Spring DAO support?,SPRING,Frameworks
+ Which classes are present in spring JDBC API?,SPRING,Frameworks
+What are the ways by which Hibernate can be accessed using Spring?,SPRING,Frameworks
+Name the types of transaction management that Spring supports.,SPRING,Frameworks
+What do you mean by Aspect?,SPRING,Frameworks
+Explain JoinPoint in SPRING?.,SPRING,Frameworks
+What do you mean by Spring MVC framework?,SPRING,Frameworks
+What is HIBERNATE?,HIBERNATE,Frameworks
+What is an ORM?,HIBERNATE,Frameworks
+How HIBERNATE fastens the application development?,HIBERNATE,Frameworks
+Have you used hibernate in any project?,HIBERNATE,Frameworks
+What are the important benefits of using Hibernate Framework?,HIBERNATE,Frameworks
+What are the advantages of Hibernate over JDBC?,HIBERNATE,Frameworks
+Name some important interfaces of Hibernate framework?,HIBERNATE,Frameworks
+What is Hibernate Session and how to get it?,HIBERNATE,Frameworks
+What is Named SQL Query?,HIBERNATE,Frameworks
+What is Scala? Is it a Language or Platform? Does it support OOP or FP? Who is the father of Scala?,SCALA,Frameworks
+Is Scala Statically-Typed Language? What is Statically-Typed Language and What is Dynamically-Typed Language?,SCALA,Frameworks
+What is the difference between statically typed and dynamically typed languages?,SCALA,Frameworks
+Is Scala a Pure OOP Language? Is Java a Pure OOP Language?,SCALA,Frameworks
+Does Scala support all Functional Programming concepts? Does Java 8 support all Functional Programming concepts?,SCALA,Frameworks
+What are the major advantages of Scala Language? Are there any drawbacks of Scala Language?,SCALA,Frameworks
+What is the Main drawback of Scala Language?,SCALA,Frameworks
+What is the main motto of Scala Language?,SCALA,Frameworks
+What are the popular JVM Languages available now?,SCALA,Frameworks
+Like Java’s java.lang.Object class what is the super class of all classes in Scala?,SCALA,Frameworks
+What is default access modifier in Scala?Does Scala have “public” keyword?,SCALA,Frameworks
+Is Scala an Expression-Based Language or Statement-Based Language? Is Java an Expression-Based Language or Statement-Based Language?,SCALA,Frameworks
+Tell me some features which are supported by Java but not by Scala and Vice versa?,SCALA,Frameworks
+Mention Some keywords which are used by Java and not required in Scala? Why Scala does not require them?,SCALA,Frameworks
+ Compare Hadoop and Spark Hadoop,SPARK,Frameworks
+ What is Apache Spark?,SPARK,Frameworks
+ Explain the key features of Apache Spark,SPARK,Frameworks
+ What are the languages supported by Apache Spark and which is the most popular one?,SPARK,Frameworks
+ What are benefits of Spark over MapReduce?,SPARK,Frameworks
+ What is YARN?,SPARK,Frameworks
+ Do you need to install Spark on all nodes of YARN cluster?,SPARK,Frameworks
+ Is there any benefit of learning MapReduce if Spark is better than MapReduce?,SPARK,Frameworks
+ Explain the concept of Resilient Distributed Dataset (RDD),SPARK,Frameworks
+ How do we create RDDs in Spark?,SPARK,Frameworks
+ What is Executor Memory in a Spark application?,SPARK,Frameworks
+ Define Partitions in Apache Spark,SPARK,Frameworks
+ What operations does RDD support?,SPARK,Frameworks
+ What do you understand by Transformations in Spark?,SPARK,Frameworks
+ Define Actions in Spark,SPARK,Frameworks
+ Define functions of SparkCore,SPARK,Frameworks
+ What do you understand by Pair RDD?,SPARK,Frameworks
+ Name the components of Spark Ecosystem,SPARK,Frameworks
+ How is Streaming implemented in Spark? Explain with examples,SPARK,Frameworks
+ Is there an API for implementing graphs in Spark?,SPARK,Frameworks
+ What is PageRank in GraphX?,SPARK,Frameworks
+ How is machine learning implemented in Spark?,SPARK,Frameworks
+ Is there a module to implement SQL in Spark? How does it work?,SPARK,Frameworks
+ How can Apache Spark be used alongside Hadoop?,SPARK,Frameworks
+ What is RDD Lineage?,SPARK,Frameworks
+ What is Spark Driver?,SPARK,Frameworks
+ What file systems does Spark support?,SPARK,Frameworks
+ List the functions of Spark SQL,SPARK,Frameworks
+ What is Spark Executor?,SPARK,Frameworks
+ Name types of Cluster Managers in Spark,SPARK,Frameworks
+ What do you understand by worker node?,SPARK,Frameworks
+ Illustrate some demerits of using Spark,SPARK,Frameworks
+ List some use cases where Spark outperforms Hadoop in processing,SPARK,Frameworks
+ What is a Sparse Vector?,SPARK,Frameworks
+ Can you use Spark to access and analyze data stored in Cassandra databases?,SPARK,Frameworks
+ Is it possible to run Apache Spark on Apache Mesos?,SPARK,Frameworks
+ How can Spark be connected to Apache Mesos?,SPARK,Frameworks
+ How can you minimize data transfers when working with Spark?,SPARK,Frameworks
+ What are broadcast variables?,SPARK,Frameworks
+ Why is there a need for broadcast variables when working with Apa,SPARK,Frameworks
+ How can you trigger automatic clean-ups in Spark to handle accumulated metadata?,SPARK,Frameworks
+ What is the significance of Sliding Window operation?,SPARK,Frameworks
+ When running Spark applications, is it necessary to install Spark on all the nodes of YARN cluster?,SPARK,Frameworks
+ What are the various data sources available in Spark SQL?,SPARK,Frameworks
+ What are the various levels of persistence in Apache Spark?,SPARK,Frameworks
+ Does Apache Spark provide checkpoints?,SPARK,Frameworks
+ How Spark uses Akka?,SPARK,Frameworks
+ What do you understand by Lazy Evaluation?,SPARK,Frameworks
+ Explain a scenario where you will be using Spark Streaming,SPARK,Frameworks
+What is CSS?,CSS,WebTech
+What are the different variations of CSS?,CSS,WebTech
+How can you integrate CSS on a web page?,CSS,WebTech
+What are the advantages of CSS?,CSS,WebTech
+What are the limitations of CSS?,CSS,WebTech
+What are the CSS frameworks?,CSS,WebTech
+Why background and color are the separate properties if they should always be set together?,CSS,WebTech
+What is Embedded Style Sheet?,CSS,WebTech
+What is a CSS selector?,CSS,WebTech
+Name some CSS style components.,CSS,WebTech
+What are the advantages of External Style Sheets?,CSS,WebTech
+What is the difference between inline embedded and external style sheets?,CSS,WebTech
+What is the difference between CSS2 and CSS3?,CSS,WebTech
+What is AJAX?,AJAX,WebTech
+What are the advantages of AJAX?,AJAX,WebTech
+What are the disadvantages of AJAX?,AJAX,WebTech
+What are the real web applications of AJAX currently running in the market?,AJAX,WebTech
+What are the security issues with AJAX?,AJAX,WebTech
+What is the difference between synchronous and asynchronous requests?,AJAX,WebTech
+What are the technologies used by AJAX?,AJAX,WebTech
+What is the purpose of XMLHttpRequest?,AJAX,WebTech
+What are the properties of XMLHttpRequest?,AJAX,WebTech
+What is the role of the callback function in AJAX?,AJAX,WebTech
+What is JSON in AJAX?,AJAX,WebTech
+What are the tools for debugging AJAX applications?,AJAX,WebTech
+What is the difference between JavaScript and AJAX?,AJAX,WebTech
+What is Node.js?,NODEJS,WebTech
+What is the fundamental difference between Node.js and Ajax?,NODEJS,WebTech
+Explain the term I/O in the context of Node.js.,NODEJS,WebTech
+State where Node.js can be used.,NODEJS,WebTech
+List the tools and IDEs that are used for Node.js.,NODEJS,WebTech
+What is an error-first callback?,NODEJS,WebTech
+In the context of Node.js differentiate between operational and programmer errors.,NODEJS,WebTech
+Which is the framework that is most commonly used in Node.js?,NODEJS,WebTech
+Define “event-driven programming.,NODEJS,WebTech
+What are the two sections of event-driven programming?,NODEJS,WebTech
+List some of the big advantages of using Node.js.,NODEJS,WebTech
+List the steps involved in the Control Flow function.,NODEJS,WebTech
+Can a user access DOM in a Node?,NODEJS,WebTech
+In Node.js how do you access the last expression?,NODEJS,WebTech
+In Node.js which command is used to import external libraries?,NODEJS,WebTech
+What is the biggest drawback of Node.js?,NODEJS,WebTech
+  Differentiate between Real DOM and Virtual DOM,REACTJS,WebTech
+ What is React?,REACTJS,WebTech
+ What are the features of React?,REACTJS,WebTech
+ List some of the major advantages of React,REACTJS,WebTech
+ What are the limitations of React?,REACTJS,WebTech
+ What is JSX?,REACTJS,WebTech
+ What do you understand by Virtual DOM? Explain its working,REACTJS,WebTech
+ Why can’t browsers read JSX?,REACTJS,WebTech
+ How different is React’s ES6 syntax when compared to ES5?,REACTJS,WebTech
+ How is React different from Angular?,REACTJS,WebTech
+ What do you understand from “In React everything is a component,REACTJS,WebTech
+ Explain the purpose of render() in React,REACTJS,WebTech
+ How can you embed two or more components into one?,REACTJS,WebTech
+ What is Props?,REACTJS,WebTech
+ What is a state in React and how is it used?,REACTJS,WebTech
+ Differentiate between states and props,REACTJS,WebTech
+ How can you update the state of a component?,REACTJS,WebTech
+ What is arrow function in React? How is it used?,REACTJS,WebTech
+ Differentiate between stateful and stateless components,REACTJS,WebTech
+ What are the different phases of React component’s lifecycle?,REACTJS,WebTech
+ Explain the lifecycle methods of React components in detail,REACTJS,WebTech
+ What is an event in React?,REACTJS,WebTech
+ How do you create an event in React?,REACTJS,WebTech
+ What are synthetic events in React?,REACTJS,WebTech
+ What do you understand by refs in React?,REACTJS,WebTech
+ List some of the cases when you should use Refs,REACTJS,WebTech
+ How do you modularize code in React?,REACTJS,WebTech
+ What do you know about controlled and uncontrolled components?,REACTJS,WebTech
+ What are Higher Order Components(HOC)?,REACTJS,WebTech
+ What can you do with HOC?,REACTJS,WebTech
+ What are Pure Components?,REACTJS,WebTech
+ What is the significance of keys in React?,REACTJS,WebTech
+ What were the major problems with MVC framework?,REACTJS,WebTech
+ Explain Flux in react?,REACTJS,WebTech
+ What are the three principles that Redux follows?,REACTJS,WebTech
+ What do you understand by “S,REACTJS,WebTech
+ List down the components of Redux,REACTJS,WebTech
+ Show how the data flows through Redux?,REACTJS,WebTech
+ How are Actions defined in Redux?,REACTJS,WebTech
+ Explain the role of Reducer,REACTJS,WebTech
+ What is the significance of Store in Redux?,REACTJS,WebTech
+ How is Redux different from Flux?,REACTJS,WebTech
+ What are the advantages of Redux?,REACTJS,WebTech
+ What is React Router?,REACTJS,WebTech
+ Why do we need a Router in React?,REACTJS,WebTech
+ List down the advantages of React Router,REACTJS,WebTech
+ How is React Router different from conventional routing?,REACTJS,WebTech
+Explain what is Django?,DJANGO,Python
+Mention what are the features available in Django?,DJANGO,Python
+Mention the architecture of Django architecture?,DJANGO,Python
+Why Django should be used for web-development?,DJANGO,Python
+Explain how you can create a project in Django?,DJANGO,Python
+Explain how you can set up the Database in Django?,DJANGO,Python
+Give an example how you can write a VIEW in Django?,DJANGO,Python
+Explain how you can setup static files in Django?,DJANGO,Python
+Mention what does the Django templates consists of?,DJANGO,Python
+Explain the use of session framework in Django?,DJANGO,Python
+Explain how you can use file based sessions?,DJANGO,Python
+Explain the migration in Django and how you can do in SQL?,DJANGO,Python
+Mention what command line can be used to load data into Django?,DJANGO,Python
+Explain what does django-admin.py makemessages command is used for?,DJANGO,Python
+List out the inheritance styles in Django?,DJANGO,Python
+Mention what does the Django field class types?,DJANGO,Python
+What are the building blocks of Angular?,ANGULAR,WebTech
+Can you give us an overview of Angular architecture?,ANGULAR,WebTech
+What is Angular Material?,ANGULAR,WebTech
+ What is AOT (Ahead-Of-Time) Compilation?,ANGULAR,WebTech
+ What is Data Binding? How many ways it can be done?,ANGULAR,WebTech
+What is SPA (Single Page Application) in Angular?,ANGULAR,WebTech
+ Contrast SPA technology with traditional web technology?,ANGULAR,WebTech
+What is the process called by which TypeScript code is converted into JavaScript code?,ANGULAR,WebTech
+What is Angular?,ANGULAR,WebTech
+What is the difference between AngularJS and Angular?,ANGULAR,WebTech
+What is TypeScript?,ANGULAR,WebTech
+What are the key components of Angular?,ANGULAR,WebTech
+What are directives in Angular?,ANGULAR,WebTech
+What are components in Angular?,ANGULAR,WebTech
+What are the differences between Component and Directive in Angular?,ANGULAR,WebTech
+What is a template in Angular?,ANGULAR,WebTech
+What is a module in Angular?,ANGULAR,WebTech
+What are lifecycle hooks available in Angular?,ANGULAR,WebTech
+What is a data binding in Angular?,ANGULAR,WebTech
+What is metadata in Angular?,ANGULAR,WebTech
+What is Angular CLI?,ANGULAR,WebTech
+What is a service in ANGULAR?,ANGULAR,WebTech
+What is dependency injection in Angular?,ANGULAR,WebTech
+How is Dependency Hierarchy formed in ANGULAR?,ANGULAR,WebTech
+What is the purpose of async pipe in ANGULAR?,ANGULAR,WebTech
+What happens if you use script tag inside template in ANGULAR?,ANGULAR,WebTech
+What is interpolation in ANGULAR?,ANGULAR,WebTech
+What are template statements in ANGULAR?,ANGULAR,WebTech
+How do you categorize data binding types in ANGULAR?,ANGULAR,WebTech
+What are pipes in ANGULAR?,ANGULAR,WebTech
+What are observables in ANGULAR?,ANGULAR,WebTech
+What is HttpClient and its benefits in ANGULAR?,ANGULAR,WebTech
+Explain on how to use HttpClient with an example in ANGULAR?,ANGULAR,WebTech
+How can you read full response in ANGULAR?,ANGULAR,WebTech
+What is RxJS in ANGULAR?,ANGULAR,WebTech
+What is subscribing in ANGULAR?,ANGULAR,WebTech
+What is an observable in ANGULAR?,ANGULAR,WebTech
+What is an observer in ANGULAR?,ANGULAR,WebTech
+What is the difference between promise and observable in ANGULAR?,ANGULAR,WebTech
+What is multicasting in ANGULAR?,ANGULAR,WebTech
+ What is jQuery?,JQUERY,WebTech
+ Why jQuery is needed?,JQUERY,WebTech
+ Whether jQuery HTML work for both HTML and XML documents?,JQUERY,WebTech
+ What are the methods used to provide effects?,JQUERY,WebTech
+ What is the advantage of using minimized version of jQuery?,JQUERY,WebTech
+ Is jQuery is a JavaScript or JSON library file?,JQUERY,WebTech
+ Which operating system is more compatible with jQuery?,JQUERY,WebTech
+ How can we include jQuery library in ASP,JQUERY,WebTech
+ Which command will give a version of jQuery?,JQUERY,WebTech
+ In what scenarios jQuery can be used?,JQUERY,WebTech
+ What is the difference between find and children methods?,JQUERY,WebTech
+ What is jQuery connect?,JQUERY,WebTech
+ How to use connect?,JQUERY,WebTech
+ What are the features of jQuery has been used in web applications?,JQUERY,WebTech
+ What are the browser related issues for jQuery?,JQUERY,WebTech
+ Whether we need to add jQuery file in both Master and Content page?,JQUERY,WebTech
+ What are the basic selectors in jQuery?,JQUERY,WebTech
+ Can we call C# code behind using jQuery?,JQUERY,WebTech
+ What is the use jQuery,JQUERY,WebTech
+ What is the use of each function in jQuery?,JQUERY,WebTech
+ What is the difference between size and length of jQuery?,JQUERY,WebTech
+ Can we add more than one ‘document,JQUERY,WebTech
+ What is the use of jQuery load method?,JQUERY,WebTech
+ Whether our own specific characters are used in place of $ in jQuery?,JQUERY,WebTech
+ What are the four parameters used for jQuery Ajax method?,JQUERY,WebTech
+ What is the use of jQuery filter?,JQUERY,WebTech
+ Which program is useful for testing jQuery?,JQUERY,WebTech
+ What is CDN?,JQUERY,WebTech
+ What are the two types of CDNs?,JQUERY,WebTech
+ Which sign is used as a shortcut for jQuery?,JQUERY,WebTech
+ Is jQuery is a client or server scripting?,JQUERY,WebTech
+ What is the script build up by jQuery?,JQUERY,WebTech
+ How can we debug jQuery?,JQUERY,WebTech
+ What are all the ways to include jQuery in a page?,JQUERY,WebTech
+ What is the use of jQuery,JQUERY,WebTech
+ Where can we download JQuery?,JQUERY,WebTech
+ Is jQuery is a replacement of JavaScript?,JQUERY,WebTech
+ What is called chaining?,JQUERY,WebTech
+ What are the advantages of jQuery?,JQUERY,WebTech
+ Whether C# code behind can be called from jQuery?,JQUERY,WebTech
+ What is the difference between onload() and document,JQUERY,WebTech
+ What is the use of jQuery each function?,JQUERY,WebTech
+ How method can be called inside code behind using jQuery?,JQUERY,WebTech
+ Which is the fastest selector in jQuery?,JQUERY,WebTech
+ What is the slowest selector in jQuery?,JQUERY,WebTech
+ Where jQuery code is getting executed?,JQUERY,WebTech
+ What is the method used to define the specific character in place of $ sign?,JQUERY,WebTech
+ Why jQuery is better than JavaScript?,JQUERY,WebTech
+ What are the types of selectors in jQuery?,JQUERY,WebTech
+ Explain what is backbone.js ?,BACKBONE,WebTech
+ What are the main components of Backbone.js ?,BACKBONE,WebTech
+ Explain what is Backbone.js collections ?,BACKBONE,WebTech
+ Explain what is Backbone.js router is used for ?,BACKBONE,WebTech
+ What is Backbone events ?,BACKBONE,WebTech
+ What are the keypoints of Backbone ?,BACKBONE,WebTech
+ Why you have to use Backbone ? Advantages ?,BACKBONE,WebTech
+ What are the three js files that you require to setup a working environment for backbone?,BACKBONE,WebTech
+ Explain when you require Backbone.js ?,BACKBONE,WebTech
+ Explain what is view in Backbone.js?,BACKBONE,WebTech
+ Explain what is Backbone.js Models?,BACKBONE,WebTech
+ Explain how you can use backbone.js for multiple page web app ?,BACKBONE,WebTech
+ Explain what is Modelbinder in Backbone.js ?,BACKBONE,WebTech
+ What is the most powerful capabilities of the ModelBinder ?,BACKBONE,WebTech
+ Explain what is Converter in Backbone.js ?,BACKBONE,WebTech
+ What is model.attributes ?,BACKBONE,WebTech
+ What is the function of toJSON ?,BACKBONE,WebTech
+ Explain when you can use Unbinding function in Backbone.js ?,BACKBONE,WebTech
+ What are the configuration options available ?,BACKBONE,WebTech
+ Mention what are the typical problems you might face with the Backbone view code ?,BACKBONE,WebTech
+ What is the function of escape ?,BACKBONE,WebTech
+ Explain what is the function of parse ?,BACKBONE,WebTech
+  What is Backbone.sync is used for ?,BACKBONE,WebTech
+ In Backbone View, what is the use of setElement ?,BACKBONE,WebTech
+  Explain what is model.cid ?,BACKBONE,WebTech
+What are the common uses of PHP?,PHP,WebTech
+What is PEAR in PHP?,PHP,WebTech
+What is the difference between static and dynamic websites?,PHP,WebTech
+How to execute a PHP script from the command line?,PHP,WebTech
+Is PHP a case sensitive language?,PHP,WebTech
+What is the meaning of ‘escaping to PHP’?,PHP,WebTech
+What are the characteristics of PHP variables?,PHP,WebTech
+What are the different types of PHP variables?,PHP,WebTech
+What are the rules for naming a PHP variable?,PHP,WebTech
+What is NULL?,PHP,WebTech
+How do you define a constant in PHP?,PHP,WebTech
+What is the purpose of constant() function?,PHP,WebTech
+What are the differences between PHP constants and variables?,PHP,WebTech
+Name some of the constants  in PHP and their purpose.,PHP,WebTech
+What is the purpose of break and continue statement?,PHP,WebTech
+What is the difference between PHP4 and PHP5?,PHP,WebTech
+How can PHP and HTML interact?,PHP,WebTech
+Name some of the popular frameworks in PHP.,PHP,WebTech
+What are the data types in PHP?,PHP,WebTech
+What are constructor and destructor in PHP?,PHP,WebTech
+What are include() and require() functions?,PHP,WebTech
+Explain the syntax for ‘foreach’ loop with example.,PHP,WebTech
+What are the different types of Array in PHP?,PHP,WebTech
+What is the difference between single quoted string and double quoted string?,PHP,WebTech
+How to concatenate two strings in PHP?,PHP,WebTech
+Name some of the functions in PHP.,PHP,WebTech
+What is the use of session and cookies in PHP?,PHP,WebTech
+What is GET and POST method in PHP?,PHP,WebTech
+What is the difference between GET and POST method?,PHP,WebTech
+What is the use of callback in PHP?,PHP,WebTech
+ What is HTML?,HTML,WebTech
+ What are tags?,HTML,WebTech
+ Do all HTML tags come in a pair?,HTML,WebTech
+ What are some of the common lists that can be used when designing a page?,HTML,WebTech
+ How do you create links to sections within the same page?,HTML,WebTech
+ Is there any way to keep list elements straight in an HTML file?,HTML,WebTech
+ What is the use of alternative text in image mapping?,HTML,WebTech
+ Do older HTML files work on newer browsers?,HTML,WebTech
+ Does a hyperlink apply to text only?,HTML,WebTech
+ If the user’s operating system does not support the needed character, how can the symbol be represented?,HTML,WebTech
+ How do you change the number type in the middle of a list?,HTML,WebTech
+ What are style sheets?,HTML,WebTech
+ State  bullet types available in HTML ,HTML,WebTech
+ How do you create multicolored text in a webpage?,HTML,WebTech
+ Why are there both numerical and named character entity values?,HTML,WebTech
+ What is the advantage of grouping several checkboxes together?,HTML,WebTech
+ What will happen if you overlap sets of tags?,HTML,WebTech
+ What are applets?,HTML,WebTech
+ What if there is no text between the tags or if a text was omitted by mistake? Will it affect the display of the HTML file?,HTML,WebTech
+ Is it possible to set specific colors for table borders?,HTML,WebTech
+ How do you create a link that will connect to another web page when clicked?,HTML,WebTech
+ What other ways can be used to align images and wrap text?,HTML,WebTech
+ Can a single text link point to two different web pages?,HTML,WebTech
+ What is the difference between the directory and menu lists and the unordered list?,HTML,WebTech
+ Can you change the color of bullets?,HTML,WebTech
+ What are the limits of the text field size?,HTML,WebTech
+ What is the relationship between the border and rule attributes?,HTML,WebTech
+ What is a marquee?,HTML,WebTech
+ How do you create text on a webpage that will allow you to send an email when clicked?,HTML,WebTech
+ Are there instances where the text will appear outside of the browser?,HTML,WebTech
+ How are active links different from normal links?,HTML,WebTech
+ Do style sheets limit the number of new style definitions that can be included within the brackets?,HTML,WebTech
+ What is the hierarchy that is being followed when it comes to style sheets?,HTML,WebTech
+ Can several selectors with class names be grouped together?,HTML,WebTech
+ What happens if you open the external CSS file in a browser?,HTML,WebTech
+ How do you make a picture into a background image of a web page?,HTML,WebTech
+ What happens if the list-style-type property is used on a non-list element like a paragraph?,HTML,WebTech
+ When is it appropriate to use frames?,HTML,WebTech
+ What happens if the number of values in the rows or cols attribute doesn’t add up to 100 percent?,HTML,WebTech
+ Which browsers support HTML5?,HTML,WebTech
+ Name two new tags included in the HTML 5,HTML,WebTech
+ Do you know which are two semantic tags are included in HTML5 version?,HTML,WebTech
+ What is the use of Canvas element?,HTML,WebTech
+ What are the new FORM elements which are available in HTML5?,HTML,WebTech
+ Tell me two benefits of HTML5 Web Storage,HTML,WebTech
+ What are two types of Web Storage in HTML5?,HTML,WebTech
+ What is the Application Cache in HTML5 and why it is used? ,HTML,WebTech
+ Explain five new input types provided by HTML5 for forms?,HTML,WebTech
+ What is WordPress?,WORDPRESS,PHP
+ How safe is a website on WordPress?,WORDPRESS,PHP
+ Are there any limitations to a WordPress website?,WORDPRESS,PHP
+ Do you need to have a blog in order to use WordPress for a site?,WORDPRESS,PHP
+ From SEO point of view is WordPress helpful? Will it show the website on Google?,WORDPRESS,PHP
+ What is the current version of WordPress?,WORDPRESS,PHP
+ What are the types of hooks in WordPress and mention their functions?,WORDPRESS,PHP
+ What do you mean by a custom field in WordPress?,WORDPRESS,PHP
+ What are the positive aspects of WordPress?,WORDPRESS,PHP
+ What are the rules that you have to follow for WordPress plugin development?,WORDPRESS,PHP
+ What is the prefix of WordPress tables by default? ,WORDPRESS,PHP
+ Why does WordPress use MySQL?,WORDPRESS,PHP
+ Is it possible to rename the WordPress folder?,WORDPRESS,PHP
+ How many tables are there in WordPress by default?,WORDPRESS,PHP
+ What is WordPress loop?,WORDPRESS,PHP
+ How can you disable the WordPress comment?,WORDPRESS,PHP
+ What are the steps you can take if your WordPress file is hacked?,WORDPRESS,PHP
+ What are the template tags in WordPress?,WORDPRESS,PHP
+ Does WordPress have cookies?,WORDPRESS,PHP
+ In which cases you don’t see plugin menu?,WORDPRESS,PHP
+ At what instance you get locked out of your WordPress admin and look at your website as a blank screen?,WORDPRESS,PHP
+ Why you use a static front page in WordPress?,WORDPRESS,PHP
+ What are the plugins you can use to create a contact form in WordPress?,WORDPRESS,PHP
+ Why does widget not show up in the sidebar?,WORDPRESS,PHP
+ Is there any limitation for using WordPress?,WORDPRESS,PHP
+ How is creating a site on wordpress.org different from wordpress.com?,WORDPRESS,PHP
+ Why is wordpress.com considered more secure than wordpress.org?,WORDPRESS,PHP
+ Do de-activated plugins slow down a WordPress site?,WORDPRESS,PHP
+ In what case we cannot recommend WordPress to our client?,WORDPRESS,PHP
+ What are the essential features you look for a theme?,WORDPRESS,PHP
+ What is a Child Theme?,WORDPRESS,PHP
+ How can you create a static page with WordPress?,WORDPRESS,PHP
+ Is there any other CMS better WordPress?,WORDPRESS,PHP
+ Which is the best multilingual plugin for WordPress?,WORDPRESS,PHP
+ Can you update your own content on the site?,WORDPRESS,PHP
+ What are meta-tags?,WORDPRESS,PHP
+ What should one use for plugin development — custom post types or custom database tables?,WORDPRESS,PHP
+ Can you host WordPress using  Amazon web services such as EC2 RDS EBS etc.?,WORDPRESS,PHP
+ Is there any way to write series in WordPress?,WORDPRESS,PHP
+ What are the reasons why one should not hack WordPress core file?,WORDPRESS,PHP
+Explain what is Drupal?,DRUPAL,PHP
+Why Drupal is considered powerful CMS compare to other CMS system?,DRUPAL,PHP
+Mention what are the key features of Drupal?,DRUPAL,PHP
+Explain how caching work in Drupal?,DRUPAL,PHP
+Explain how database system of Drupal works?,DRUPAL,PHP
+ Name some of the most commonly used PHP based CMSs?,DRUPAL,PHP
+What is DRUSH in Drupal?,DRUPAL,PHP
+Explain what is module in Drupal? List out some of the modules used in Drupal?,DRUPAL,PHP
+Explain what Drupal distributions is and when to use?,DRUPAL,PHP
+List out the SEO modules available in Drupal?,DRUPAL,PHP
+ Why Drupal needs database? What databases are supported?,DRUPAL,PHP
+ Explain what is the use of Ctools in Drupal?,DRUPAL,PHP
+  Does Drupal provides support?,DRUPAL,PHP
+Explain what is Joomla?,JOOMLA,PHP
+List out the benefits of using Joomla?,JOOMLA,PHP
+What is the position in Joomla?,JOOMLA,PHP
+Explain what are Joomla Modules?,JOOMLA,PHP
+Where can you see the use of Joomla frequently?,JOOMLA,PHP
+Explain what are components in Joomla?,JOOMLA,PHP
+ Explain what is the difference between Drupal and Joomla?,JOOMLA,PHP
+What are the advanced features or add-ons in Joomla that can be useful for the developer?,JOOMLA,PHP
+ Is there any possibility with Joomla to control a desktop application?,JOOMLA,PHP
+ Explain what are content items section and categories in Joomla?,JOOMLA,PHP
+What database system does Joomla supports?,JOOMLA,PHP
+Explain what are the drawbacks of Joomla?,JOOMLA,PHP
+ In Joomla what determines the homepage?,JOOMLA,PHP
+Is Joomla a Blog?,JOOMLA,PHP
+What web services does Joomla Support?,JOOMLA,PHP
+ What is a markup language?,XML,WebTech
+ What is XML?,XML,WebTech
+ What are the features of XML?,XML,WebTech
+ What are the differences between HTML and XML?,XML,WebTech
+ Which tag is used to find the version of XML and the syntax?,XML,WebTech
+ What is XML DOM Document?,XML,WebTech
+ What is XPath?,XML,WebTech
+ What is an attribute?,XML,WebTech
+ Can we have empty XML tags?,XML,WebTech
+ What are the advantages of XML DOM Document?,XML,WebTech
+ What are the basic rules while writing XML?,XML,WebTech
+ What is XML Element?,XML,WebTech
+ What is CDATA?,XML,WebTech
+ How comment can be represented in XML?,XML,WebTech
+ What are XML Namespaces?,XML,WebTech
+ What is XML Parser?,XML,WebTech
+ What is XSL?,XML,WebTech
+ Who is responsible for XML?,XML,WebTech
+ What is an XML Schema?,XML,WebTech
+ What is well formed XML document?,XML,WebTech
+ Why XML has been used for development?,XML,WebTech
+ What is SGML?,XML,WebTech
+Can I execute a XML?,XML,WebTech
+ What are the special characters used in XML?,XML,WebTech
+ What software is available for XML?,XML,WebTech
+ Whether graphics can be used in XML? If so How?,XML,WebTech
+ Can I replace HTML with XML?,XML,WebTech
+ How can I include conditional statements in XML?,XML,WebTech
+ What are the benefits of XML?,XML,WebTech
+ What are the disadvantages of XML?,XML,WebTech
+ What is DTD?,XML,WebTech
+ Why XSLT is important for XML?,XML,WebTech
+ What are nested elements in XML?,XML,WebTech
+ What is XQuery?,XML,WebTech
+ What is XLink and XPointer?,XML,WebTech
+ Why XML editor is needed instead of Notepad?,XML,WebTech
+ What is XML Encoding?,XML,WebTech
+ Which XML is set to be valid XML?,XML,WebTech
+ What is Simple Element?,XML,WebTech
+ What is Complex Element?,XML,WebTech
+ Is there a way to describe XML data?,XML,WebTech
+ What are the three parts of XSL?,XML,WebTech
+ What is the correct syntax when we define XML version?,XML,WebTech
+ If XML attribute name itself has double quotes then how it can be represented?,XML,WebTech
+ What are the types of XML Parsers?,XML,WebTech
+ Whether root element is required for XML? If so how many root elements are required?,XML,WebTech
+ What is XML Signature?,XML,WebTech
+ What is Data Island?,XML,WebTech
+How many characters limits in Meta Description tag? ,SEO,WebTech
+What is Google Sandbox?,SEO,WebTech
+Tell me something about Black Hat SEO?,SEO,WebTech
+Name few Black Hat SEO techniques?,SEO,WebTech
+Can you differentiate between ‘nofollow’ and ‘dofollow’ link?,SEO,WebTech
+What is the difference between PR (page rank,SEO,WebTech
+Why the Title Tag in website is valuable?,SEO,WebTech
+What is considered as more significant creating content or building backlinks?,SEO,WebTech
+Can you mention the difference between SEO and SEM?,SEO,WebTech
+What do you know about LSI?,SEO,WebTech
+How will you cross-check whether your SEO campaign is working or not?,SEO,WebTech
+What is the meaning of competitive analysis?,SEO,WebTech
+What will be your next steps if your SEO methods or technique does not work?,SEO,WebTech
+What is PPC?,SEO,WebTech
+What is 301 redirect?,SEO,WebTech
+What are Webmaster tools?,SEO,WebTech
+What is keyword density and what is the formula for knowing keyword density?,SEO,WebTech
+What is robots.txt?  ,SEO,WebTech
+What will you do for the company website you are working for decides to move all the contents to new domain?,SEO,WebTech
+Can you optimize the website which has pages in millions?,SEO,WebTech
+What is the latest update in SEO?,SEO,WebTech
+What are the key aspects of Panda update?,SEO,WebTech
+What are the key aspects of Penguin update?,SEO,WebTech
+How will you neutralize a toxic link to your site?,SEO,WebTech
+Mention how can you check if someone is not building or re-directing a low-quality backlink to your site?,SEO,WebTech
+How backlink tools work?,SEO,WebTech
+Mention how often should you perform a link audit?,SEO,WebTech
+Mention what do you understand by Frames in HTML?,SEO,WebTech
+Mention which is the most important area to include your keywords?,SEO,WebTech
+What if your website is banned by the search engines for black hat practices?,SEO,WebTech
+Mention what will be your approach if your SEO method don’t work?,SEO,WebTech
+ Explain what Ember.js is and how it works?,EMBER,WebTech
+ List out main components of Ember.js?,EMBER,WebTech
+ Explain what is model in Ember.js?,EMBER,WebTech
+ Explain how ember applications are structured? ,EMBER,WebTech
+ What controller does in Ember.js?,EMBER,WebTech
+ Explain how is ember.js is different than traditional web application?,EMBER,WebTech
+ Explain how Router and {{outlet}} tag can be useful in ember.js?,EMBER,WebTech
+ Explain what is the difference between Router and Route in ember.js ?,EMBER,WebTech
+   Explain what is Ember-data ? ,EMBER,WebTech
+ Explain the role of adapter and types of adapters ?,EMBER,WebTech
+ Explain what are the two ways of defining and inserting a view?,EMBER,WebTech
+ Explain what is controller in ember.js ?                   ,EMBER,WebTech
+ Mention the template components used in ember.js ?,EMBER,WebTech
+ Explain what is serializer?,EMBER,WebTech
+ How you can define a new ember class?,EMBER,WebTech
+ Explain how you can create an Ember. handlebars  template ?,EMBER,WebTech
+ Explain how you can add data using fixture into an application?,EMBER,WebTech
+ Mention some of the functions used in ember packages/ember run-time/lib and packages/ember metal/lib/utils.js ?,EMBER,WebTech
+ Explain what is Enumerables in ember.js ?,EMBER,WebTech
+ Explain what is Ember.ArrayController and what is the advantage of it ?,EMBER,WebTech
+ Explain Application Template ?,EMBER,WebTech
+ Explain what is ember.mixin class ?,EMBER,WebTech
+ What is Ember.Namespace.Class ?,EMBER,WebTech
+ When Ember.TrackedArray can be useful ?,EMBER,WebTech
+ Explain how you can create instances in ember.js ?,EMBER,WebTech
+ Explain what is the use Ember.SortableMixin ?,EMBER,WebTech
+What is SQLite?,SQLITE,DBMS
+What are the most important features of SQLite?,SQLITE,DBMS
+What are the advantages of using SQLite?,SQLITE,DBMS
+What is the difference between SQL and SQLite?,SQLITE,DBMS
+What is SQLite Transactions?,SQLITE,DBMS
+In which areas SQLite is preferred most?,SQLITE,DBMS
+ What Is An Oracle Database?,ORACLE,DBMS
+What Are The Components Of Physical Database Structure Of Oracle Database?,ORACLE,DBMS
+What Are The Components Of Logical Database Structure Of Oracle Database?,ORACLE,DBMS
+What Is A View ?,ORACLE,DBMS
+Can One Import/export Between Different Versions Of Oracle?,ORACLE,DBMS
+Explain what is MongoDB?,MONGODB,DBMS
+What is “Namespace” in MongoDB?,MONGODB,DBMS
+What is sharding in MongoDB?,MONGODB,DBMS
+How can you see the connection used by Mongos?,MONGODB,DBMS
+Explain what is a replica set in mongodb?,MONGODB,DBMS
+How replication works in MongoDB?,MONGODB,DBMS
+While creating Schema in MongoDB what are the points need to be taken in consideration?,MONGODB,DBMS
+ What is the syntax to create a collection and to drop a collection in MongoDB?,MONGODB,DBMS
+ Explain what is the role of profiler in MongoDB?,MONGODB,DBMS
+Explain can you move old files in the moveChunk directory?,MONGODB,DBMS
+To do safe backups what is the feature in MongoDB that you can use?,MONGODB,DBMS
+Mention what is Objecld composed of in mongodb?,MONGODB,DBMS
+Mention what is the command syntax for inserting a document?,MONGODB,DBMS
+Mention how you can inspect the source code of a function?,MONGODB,DBMS
+What is the command syntax that tells you whether you are on the master server or not? And how many master does MongoDB allow?,MONGODB,DBMS
+Explain what are indexes in MongoDB?,MONGODB,DBMS
+Explain what is GridFS in MongoDB?,MONGODB,DBMS
+What are alternatives to MongoDB?,MONGODB,DBMS
+What Is Postgresql?,POSTGRESQL,DBMS
+State Some Of The Advanced Features Of Postgresql?,POSTGRESQL,DBMS
+What Are The Languages Which Postgresql Supports?,POSTGRESQL,DBMS
+Explain About Functions In Postgresql?,POSTGRESQL,DBMS
+Explain About Indices Of Postgresql?,POSTGRESQL,DBMS
+What Are The Different Data Types Supported By Postgresql?,POSTGRESQL,DBMS
+. How Does Postgresql Compare To Oracle/Mysql?,POSTGRESQL,DBMS
+What is SQL?,SQL,DBMS
+What is the difference between SQL and NOSQL?,SQL,DBMS
+Give me a scenario when you could use NOSQL instead of SQL?,SQL,DBMS
+Which databases you know?,SQL,DBMS
+Tell me the difference between SQL and PLSQL,SQL,DBMS
+What is normalization in database,SQL,DBMS
+Explain Joins in databases,SQL,DBMS
+Explain ACID Properties in databases,SQL,DBMS
+What is Atomicity property in DBMS?,SQL,DBMS
+What is Consistency property in DBMS?,SQL,DBMS
+What is Isolation property in DBMS?,SQL,DBMS
+What is Durablity property in DBMS?,SQL,DBMS
+What is the difference between primary key and candidate key?,SQL,DBMS
+What is MySQL? ,MYSQL,DBMS
+What are the technical features of MySQL? ,MYSQL,DBMS
+Why MySQL is used?,MYSQL,DBMS
+What are the advantages of MySQL when compared with Oracle? ,MYSQL,DBMS
+What are the drivers in MySQL?,MYSQL,DBMS
+What is IOS?,IOS,Mobile
+How IOS is better than ANDROID?,IOS,Mobile
+Why IOS IOS development is costlier?,IOS,Mobile
+Any Projects you have done on IOS?,IOS,Mobile
+IOS development requires an APPLE ECOSYSTEM what are your views regarding the same.,IOS,Mobile
+The consumer base of IOS is small compared to ANDROID so don't you think ANDROID is better?,IOS,Mobile
+What is ANDROID?,ANDROID,Mobile
+How ANDROID is different than IOS?,ANDROID,Mobile
+Which language you use for Android Application development JAVA or KOTLIN?,ANDROID,Mobile
+How KOTLIN speeds up android development?,ANDROID,Mobile
+Why ANDROID?,ANDROID,Mobile
+How can security of android can be improved?,ANDROID,Mobile
+Which libraries you have used in ANDROID?,ANDROID,Mobile
+What projects you have done in android?,ANDROID,Mobile
+Android users generally do not buy any application instead they want application which are free What are your views regarding this?,ANDROID,Mobile
+IS ANDROID ONLY LIMITED TO MOBILE PHONES?,ANDROID,Mobile
+Which is the Best Android Phone?,ANDROID,Mobile
+What is stock Android?,ANDROID,Mobile
+IS ANDROID OPEN SOURCE,ANDROID,Mobile
+What is gradle?,ANDROID,Mobile
+What is the Android Application Architecture?,ANDROID,Mobile
+In an Android App what is difference between Fragment and Activity?,ANDROID,Mobile
+What is Android Architecture Components?,ANDROID,Mobile
+ What is an Android Framework?,ANDROID,Mobile
+ What is the Android Architecture?,ANDROID,Mobile
+ What is the difference between File Class and Activity in android?,ANDROID,Mobile
+ What is APK format?,ANDROID,Mobile
+ What is Google Android SDK?,ANDROID,Mobile
+ What is an ANR? How can ANR be prevented?,ANDROID,Mobile
+ How do you launch an activity in your application?,ANDROID,Mobile
+ What is the use of WebView in Android?,ANDROID,Mobile
+ What are the different kinds of context in Android?,ANDROID,Mobile
+ What are the different storage methods in Android,ANDROID,Mobile
+ What are the tools required to develop Android Apps?  ,ANDROID,Mobile
+ What is Intent?,ANDROID,Mobile
+ What is a Sticky Intent?,ANDROID,Mobile
+ Explain Folder File &amp; Description of Android Apps,ANDROID,Mobile
+ How to ‘Start Another Activity’? ,ANDROID,Mobile
+ What is AAPT?,ANDROID,Mobile
+ What are containers?,ANDROID,Mobile
+ What are some of the disadvantages of Android?,ANDROID,Mobile
+ Name the four essential states of an activity,ANDROID,Mobile
+ What is the difference between a regular bitmap and a nine-patch image?,ANDROID,Mobile
+ Which language is supported by Android for application development?,ANDROID,Mobile
+ What are the dialog boxes that are supported in Android? ,ANDROID,Mobile
+ Give an example for sticky broadcast,ANDROID,Mobile
+ What is DDMS?,ANDROID,Mobile
+ Name some exceptions in android?,ANDROID,Mobile
+What are the different data structures in R? Briefly explain about them.,R,Language
+How can you load a .csv file in R?,R,Language
+What are the different components of grammar of graphics?,R,Language
+What is Rmarkdown? What is the use of it?,R,Language
+How do you install a package in R?,R,Language
+What are the steps to build and evaluate a linear regression model in R?,R,Language
+Name some packages in R which can be used for data imputation?,R,Language
+Explain about confusion matrix in R?,R,Language
+How would you write a custom function in R? Give an example.,R,Language
+Name some functions available in “dplyr” package.,R,Language
+How would you create a new R6 Class?,R,Language
+What is a Random Forest? How do you build and evaluate a Random Forest in R?,R,Language
+Tell me something about shinyR.,R,Language
+What is advantage of using apply family of functions in R?,R,Language
+What packages are used for data mining in R?,R,Language
+What is clustering? What is the difference between kmeans clustering and hierarchical clustering?,R,Language
+Give examples of “rbind()” and “cbind()” functions in R,R,Language
+Give examples of while and for loop in R.,R,Language
+Give examples of “select” and “filter” functions from “dplyr” package.,R,Language
+What is the use of stringR package,R,Language
+What do you know about the rattle package in R?,R,Language
+How would you make multiple plots onto a single page in R?,R,Language
+How would you create a scatterplot using ggplot2 package?,R,Language
+How would you facet the data using ggplot2 package?,R,Language
+Given a vector of values how would you convert it into a time series object?,R,Language
+What is a White Noise model and how can you simulate it using R?,R,Language
+What is a Random Walk model and how can you simulate it using R?,R,Language
+What is Principal Component Analysis and how can you create a PCA model in R?,R,Language
+How would you find out the mean of one column w.r.t another?,R,Language
+Explain about “initialize()” function in R?,R,Language
+How would you fit a linear model over a scatter-plot?,R,Language
+What do you know about the evaluate_model() function from “statisticalModeling” Package,R,Language
+How would you build a Scatter-plot using plotly?,R,Language
+What is the difference between a bar-chart and a histogram? Where would you use a bar-chart and where would you use a histogram?,R,Language
+How would you create a box-plot using “plotly”?,R,Language
+How would you do a left and right join in R?,R,Language
+What is a factor? How would you create a factor in R?,R,Language
+Given a vector of numbers how would you turn the values into scientific notation?,R,Language
+How would you join multiple strings together?,R,Language
+Write a custom function which will replace all the missing values in a vector with the mean of values.,R,Language
+What are the different import functions in R?,R,Language
+Name some functions which can be used for debugging in R?,R,Language
+How would you check the distribution of a categorical variable in R?,R,Language
+How would you find the number of missing values in a dataset and remove all of them? ,R,Language
+What is correlation? How would you measure correlation in R?,R,Language
+How would you extract one particular word from a string?,R,Language
+From the below data-set extract only those values where Age&gt;60 and Sex=”F”.,R,Language
+You have an employee data-set which comprises of two columns-&gt;”name” and “designation” add a third column which would indicate the current date and time.,R,Language
+How would you do a cross-product of two tables in R?,R,Language
+What is the difference between declaration and definition of a variable/function?,C,Language
+What are different storage class specifiers in C?,C,Language
+What is scope of a variable? How are variables scoped in C?,C,Language
+When should we use pointers in a C program?,C,Language
+What is NULL pointer? ,C,Language
+What is Dangling pointer?,C,Language
+What is memory leak? Why it should be avoided,C,Language
+What are local static variables? What is their use?,C,Language
+What are static functions? What is their use?,C,Language
+ What is the difference between list and tuples in python?,PYTHON,Language
+What are the key features of Python?,PYTHON,Language
+What is the difference between deep and shallow copy in python?,PYTHON,Language
+How is Multithreading achieved in Python?,PYTHON,Language
+Whenever Python exits why isn’t all the memory de-allocated?,PYTHON,Language
+What is dictionary in Python?,PYTHON,Language
+What is monkey patching in Python?,PYTHON,Language
+ What is the process of compilation and linking in python?,PYTHON,Language
+Explain split() method in Python.,PYTHON,Language
+Explain sub() methods  in Python.,PYTHON,Language
+Explain subn() methods in Python.,PYTHON,Language
+What is the difference between range and xrange in python?,PYTHON,Language
+What is pickling and unpickling in python?,PYTHON,Language
+Difference between python and java,PYTHON,Language
+Difference between python and cpp,PYTHON,Language
+Difference between python and c,PYTHON,Language
+Is Python object oriented?,PYTHON,Language
+How we can use python for web development,PYTHON,Language
+Is python scalable for enterprise?,PYTHON,Language
+Difference between python2 and python3?,PYTHON,Language
+ Explain what is GO?,GOLANG,Language
+ What is syntax like in GO?,GOLANG,Language
+ Explain what is string literals?,GOLANG,Language
+ Explain packages in Go program?,GOLANG,Language
+ Explain workspace in GO?,GOLANG,Language
+ Explain how to use custom packages in GO language?,GOLANG,Language
+ Explain what is GOPATH environment variable?,GOLANG,Language
+ Explain how you can do testing in GO?,GOLANG,Language
+ Explain what is string types?,GOLANG,Language
+ What are the advantages of GO?,GOLANG,Language
+ List out the built in support in GO?,GOLANG,Language
+ Explain what is go routine in GO? How you can stop go routine?,GOLANG,Language
+ Explain how you can write multiline strings in GO?,GOLANG,Language
+ Explain how you to access command line arguments passed to a GO program?,GOLANG,Language
+ Explain how pointer is represented in GO?,GOLANG,Language
+ How you can format a string without printing?,GOLANG,Language
+ Explain how arrays in GO works differently then C ?,GOLANG,Language
+ Explain GO Interfaces ?,GOLANG,Language
+ Explain what Type assertion is used for and how it does it?,GOLANG,Language
+ In GO language how you can check variable type at runtime?,GOLANG,Language
+What are the differences between C and C++?,CPP,Language
+What are the differences between references and pointers?,CPP,Language
+What are virtual functions?,CPP,Language
+What is this pointer?,CPP,Language
+ Major Differences between JAVA and C++ ,CPP,Language
+What are C++ access specifiers ?,CPP,Language
+Tell me Major C++ features,CPP,Language
+What are  Inline Functions?,CPP,Language
+What does .NET Framework provides?,DOTNET,Language
+Mention what are main components of .Net framework?,DOTNET,Language
+Mention key characteristics of .NET ?,DOTNET,Language
+Mention what are the languages that .NET supports?,DOTNET,Language
+Mention how big is the datatype int in .NET?,DOTNET,Language
+Mention what is .Net Namespaces?,DOTNET,Language
+Mention what is MSIL in .NET ?,DOTNET,Language
+Mention what are the functions .NET Assembly performs?,DOTNET,Language
+Mention what is .Net Assembly Manifest?,DOTNET,Language
+Explain what is PE (Portable Executable,DOTNET,Language
+Mention what is the difference between Assembly and Namespace?,DOTNET,Language
+List out the namespace provided by .net for data management?,DOTNET,Language
+Mention what is GAC in .net ?,DOTNET,Language
+Mention what is STA in .NET?,DOTNET,Language
+Mention what is data access modifier in .NET?,DOTNET,Language
+Mention what are the types of access modifier in .NET?,DOTNET,Language
+Mention the type of code security available in .NET?,DOTNET,Language
+Explain how you can implement singleton pattern in .NET?,DOTNET,Language
+Explain how the exception is handled in .NET?,DOTNET,Language
+Explain how can you create and use an array in .NET?,DOTNET,Language
+Mention what is user-defined data type?,DOTNET,Language
+List out few of the .Net base class library namespace?,DOTNET,Language
+Mention what is the difference between structures and classes in .NET?,DOTNET,Language
+Mention the types of multidimensional arrays used in .NET ?,DOTNET,Language
+Explain how to add properties in.NET?,DOTNET,Language
+Mention what is event bubbling in .NET?,DOTNET,Language
+Mention what are the debugging windows available?,DOTNET,Language
+Explain what is Microsoft Silverlight?,DOTNET,Language
+What Silverlight is composed of?,DOTNET,Language
+Explain what is .xap file?,DOTNET,Language
+List out the tools required to build Silverlight applications?,DOTNET,Language
+Mention whether Silverlight allows MPEG4 and H.264 videos or AAC (advanced audio coding,DOTNET,Language
+Explain how you can host a Silverlight Applications?,DOTNET,Language
+Mention what is the difference between WPF (Windows Presentation Foundation,DOTNET,Language
+Explain how you can pass parameters to silver light controls from ASP.NET pages?,DOTNET,Language
+Explain how Silverlight and ASP.NET AJAX can be used by consumers?,DOTNET,Language
+Explain how you can check the internet connection status in Silverlight?,DOTNET,Language
+Explain what is RIA?,DOTNET,Language
+Mention what are the different layout controls available in Silverlight?,DOTNET,Language
+What is the syntax for Net?,DOTNET,Language
+ What are the basic differences between relational database and HDFS?,HADOOP,Others
+Explain “Big Data” and what are five V’s of Big Data?,HADOOP,Others
+What is Hadoop and its components. ,HADOOP,Others
+What are HDFS and YARN?,HADOOP,Others
+Tell me about the various Hadoop daemons and their roles in a Hadoop cluster.,HADOOP,Others
+Compare HDFS with Network Attached Storage (NAS).
+,HADOOP,Others
+List the difference between Hadoop 1 and Hadoop 2.,HADOOP,Others
+What are active and passive “NameNodes”? ,HADOOP,Others
+ Why does one remove or add nodes in a Hadoop cluster frequently?,HADOOP,Others
+What happens when two clients try to access the same file in the HDFS?,HADOOP,Others
+How does NameNode tackle DataNode failures?,HADOOP,Others
+What will you do when NameNode is down?,HADOOP,Others
+ How is HDFS fault tolerant? ,HADOOP,Others
+Can NameNode and DataNode be a commodity hardware? ,HADOOP,Others
+ Why do we use HDFS for applications having large data sets and not when there are a lot of small files? ,HADOOP,Others
+How can I restart “NameNode” or all the daemons in Hadoop? ,HADOOP,Others
+What is the difference between an “HDFS Block” and an “Input Split”?,HADOOP,Others
+Name the three modes in which Hadoop can run.,HADOOP,Others
+What is “MapReduce”? What is the syntax to run a “MapReduce” program? ,HADOOP,Others
+State the reason why we can’t perform “aggregation” (addition) in mapper? Why do we need the “reducer” for this?,HADOOP,Others
+What does a “MapReduce Partitioner” do?,HADOOP,Others
+What are the benefits of Apache Pig over MapReduce? ,HADOOP,Others
+What are the different data types in Pig Latin?,HADOOP,Others
+ What is Apache HBase?,HADOOP,Others
+What are the components of Apache HBase?,HADOOP,Others
+. Mention the differences between “HBase” and “Relational Databases”?,HADOOP,Others
+What is Apache Spark?,HADOOP,Others
+What is Apache ZooKeeper and Apache Oozie?,HADOOP,Others
+Introduce yourself,RQUESTION,General
+What is your weakness?,RQUESTION,General
+What is your strength?,RQUESTION,General
+Tell me something which is not on your resume?,RQUESTION,General
+What if we hire you for development and ask you to do testing or support work?,RQUESTION,General
+What do know about our company?,RQUESTION,General
+Why should we hire you?,RQUESTION,General
+Why aren't you opting for hire studies?,RQUESTION,General
+tell me something about your family?,RQUESTION,General
+How you feel about working late or during the weekends?,RQUESTION,General
+Have you faced any challenging situation? How did you handle it?,RQUESTION,General
+Where do you see yourself in the next five years?,RQUESTION,General
+What are your hobbies and interests?,RQUESTION,General
+Do you lie?,RQUESTION,General
+How much salary are you expecting?,RQUESTION,General
+Do you have any questions for me?,RQUESTION,General
+You have not done your PG yet. This is not a drawback but don’t you think you should get a PG degree asap?,RQUESTION,General
+What are your strong points? or What are your strengths?,RQUESTION,General
+What is your greatest fear?,RQUESTION,General
+If I call up your current or previous reporting manager now what will be their opinion about you? What will they say that you need to work on?,RQUESTION,General
+Do you have any serious medical issues?,RQUESTION,General
+Did you ever have a conflict with your current/previous boss or professor?,RQUESTION,General
+What do your friends/co-workers say about you?,RQUESTION,General
+What did you do in the last year to improve your knowledge?,RQUESTION,General
+Explain the difference between group and team. Are you a team player?,RQUESTION,General
+What is your ideal company or workplace?,RQUESTION,General
+Have you ever had to fire anyone? How did you feel about that?,RQUESTION,General
+What is the most difficult thing that you’ve ever accomplished? or What is the most difficult thing you have ever done?,RQUESTION,General
+What is the difference between hard work and smart work?,RQUESTION,General
+How do you feel about working weekends and night shifts?,RQUESTION,General
+Where do you see yourself 3 years from now? or Where do you see yourself in 5 years?,RQUESTION,General
+Give an example of a time you had to respond to an unhappy manager/ customer/ colleague/ professor/ friend.,RQUESTION,General
+How quickly do you adapt to new technology?,RQUESTION,General
+What software packages are you familiar with?,RQUESTION,General
+On a scale of 1 to 10 how would you rate yourself as a leader?,RQUESTION,General
+What makes you angry?,RQUESTION,General
+Are you open to take risks? or Do you like experimenting?,RQUESTION,General
+What are your future goals? Tell me about your short term and long-term goals.,RQUESTION,General
+What motivates you?,RQUESTION,General
+What are your hobbies? or What are you passionate about?,RQUESTION,General
+What are your biggest achievements till date?,RQUESTION,General
+What are you most proud of?,RQUESTION,General
+What has been your greatest failure?,RQUESTION,General
+What do you always regret? or Do you have any regrets?,RQUESTION,General
+How do you respond to change?,RQUESTION,General
+Are you demanding as a boss?,RQUESTION,General
+Are you an organized person?,RQUESTION,General
+Can you describe your time management skills?,RQUESTION,General
+Are you reliable? or Can I trust you with responsibilities?,RQUESTION,General
+What are the three things that are most important for you in a job?,RQUESTION,General
+What was the toughest decision you ever had to make?,RQUESTION,General
+If you won a Rs.10-crore lottery would you still work?,RQUESTION,General
+Give me an example of your creativity.,RQUESTION,General
+What makes you happy?,RQUESTION,General
+How do you work under pressure? Can you handle the pressure?,RQUESTION,General
+Are you willing to relocate or travel?,RQUESTION,General
+What do you know about us or our company?,RQUESTION,General
+How long do you think you will work for us after we hire you?,RQUESTION,General
+Are you applying for other jobs? Do you have any other offer in hand?,RQUESTION,General
+Why do you want to work for us or our company? or Why do you want this job?,RQUESTION,General
+Do you know anyone who works for us?,RQUESTION,General
+Why should we hire you? or Why should I hire you?,RQUESTION,General
+What are your salary expectations?,RQUESTION,General
+Share an experience you had in dealing with a difficult person and how you handled the situation.,RQUESTION,General
+Share an effective method you have used to enforce rules and regulations.,RQUESTION,General
+Name a time when your advice to management led to an improvement in your company or otherwise helped your employer.,RQUESTION,General
+Please share with me an example of how you helped coach or mentor someone. What improvements did you see in the person's knowledge or skills?,RQUESTION,General
+Provide an example of a time when you successfully organized a diverse group of people to accomplish a task.,RQUESTION,General
+Tell me how you organize plan and prioritize your work.,RQUESTION,General
+Share an experience when you applied new technology or information in your job. How did it help your company or project?,RQUESTION,General
+Tell me about an experience in which you analyzed information and evaluated results to choose the best solution to a problem.,RQUESTION,General
+Name a time when you identified strengths and weaknesses of alternative solutions to problems. What was the impact?,RQUESTION,General
+Provide an example of a time when you were able to demonstrate excellent listening skills. What was the situation and outcome?,RQUESTION,General
+Please share an experience in which you presented to a group. What was the situation and how did it go?,RQUESTION,General
+Share an example of when you went above and beyond the "call of duty".,RQUESTION,General
+In your experience what is the key to developing a good team?,RQUESTION,General
+Provide a time when you dealt calmly and effectively with a high-stress situation.,RQUESTION,General
+What have you found to be the best way to monitor the performance of your work and/or the work of others? Share a time when you had to take correctiv,RQUESTION,General
+Provide a time when you worked in a rapidly evolving workplace. How did you deal with the change?,RQUESTION,General
+Name a time when your patience was tested. How did you keep your emotions in check?,RQUESTION,General
+Provide an example when your ethics were tested.,RQUESTION,General
+Provide an experience in which you were sensitive to somone's needs or feelings. How did your helpfulness affect your work environment?,RQUESTION,General
+Provide an example when you were able to prevent a problem because you foresaw the reaction of another person.,RQUESTION,General
+Share an experience in which you successfully coordinated with others. How about a coordination effort that was not as successful?,RQUESTION,General
+Tell me about a time when you developed your own way of doing things or were self-motivated to finish an important task.,RQUESTION,General
+How do you balance cooperation with others and independent thinking? Share an example. ,RQUESTION,General
+Provide an example of when you were persistent in the face of obstacles,RQUESTION,General
+Describe your ability to deal with conflict. ,RQUESTION,General
+Tell me your three weaknesses. ,RQUESTION,General
+What are your three greatest strengths? ,RQUESTION,General
+Where do you see yourself in  years? ,RQUESTION,General
+Tell me about your ability to work under pressure. ,RQUESTION,General
+Why do you apply for this position? ,RQUESTION,General
+What has been your greatest accomplishment? ,RQUESTION,General
+Why did you leave your previous job? ,RQUESTION,General
+How would you deal with this kind of situation? ,RQUESTION,General
+Are you a team player? ,RQUESTION,General
+How would your friends or coworkers describe you? ,RQUESTION,General
+What are your salary requirements? ,RQUESTION,General
+What are your short-term goals? Long-term? ,RQUESTION,General
+How do you motivate people? ,RQUESTION,General
+How do you manage multiple tasks/projects? ,RQUESTION,General
+What is your definition of great customer service? ,RQUESTION,General
+How do you define success? ,RQUESTION,General
+Tell me three books you have read recently. ,RQUESTION,General
+What kind of experience did you gain from your previous job/internship/etc? ,RQUESTION,General
+May me check your reference? ,RQUESTION,General
+Do you have an upcoming interview?,RQUESTION,General
+When can you start to work if hired? ,RQUESTION,General
+describe a situation you took full responsibility for actions and outcome ,RQUESTION,General
+How do you think you will compensate for your lack of experience? ,RQUESTION,General
+Briefly describe the type of career opportunity you are seeking. ,RQUESTION,General
+In what kind of work environment are you comfortable in? ,RQUESTION,General
+Tell me about your proudest achievement. ,RQUESTION,General
+What is your philosophy towards work? ,RQUESTION,General
+Describe work-related problems and how you solved them. ,RQUESTION,General
+What are your career goals? ,RQUESTION,General
+Briefly describe your ideal job? ,RQUESTION,General
+Describe your work ethic. ,RQUESTION,General
+how do you plan to achieve these goals? ,RQUESTION,General
+What kinds of situations put you under stress? How do you handle that stress? ,RQUESTION,General
+How do you solve problems ,RQUESTION,General
+If hired how long do you expect to work for us? ,RQUESTION,General
+Describe yourself mentioning three of your characterristics. ,RQUESTION,General
+Tell me about your dream job. ,RQUESTION,General
+Describe a situation where you had an irate customer and how did you handle it ,RQUESTION,General
+What motivates you to do your best on the job? ,RQUESTION,General
+If you have a customer in front of you a client on the phone and a boss who wants to see you what do you do? ,RQUESTION,General
+What do you know about our company? ,RQUESTION,General
+If you disagree with your supervisor on an important issue of the job what will you do?,RQUESTION,General
+How do you establish a working relationship with new people? ,RQUESTION,General
+Tell me about a time where you faced an ethical dilemma. How did you handle it?,RQUESTION,General
+How would you adapt to a new work environment? ,RQUESTION,General
+What have you done to improve your skills/knowledge from last year? ,RQUESTION,General
+Why did you choose your major? ,RQUESTION,General
+How do you evaluate yourself? ,RQUESTION,General
+Explain how you would be an asset to this company. ,RQUESTION,General
+What irritates you about coworkers? ,RQUESTION,General
+How do you handle an important assignment? ,RQUESTION,General
+How did you prepare for this interview? ,RQUESTION,General
+Describe what qualities would you like to see in a supervisor? ,RQUESTION,General
+Dscribe an experience that you think out of the box. ,RQUESTION,General
+what do you like most and least about your last or current job ,RQUESTION,General
+What two or three things are most important to you in your job? ,RQUESTION,General
+Please describe your experience working with people of different socio-economically and culturally diverse group. ,RQUESTION,General
+Why did you choose this industry? ,RQUESTION,General
+What are some of your expectations of your future employer? ,RQUESTION,General
+Please explain the gap on your resume? ,RQUESTION,General
+Are you willing to travel (for the job)? ,RQUESTION,General
+How long would it take for you to make a meaningful contribution to our company? ,RQUESTION,General
+Can you work well under deadlines or pressure? ,RQUESTION,General
+What are you expectations regarding promotions and salary increases? ,RQUESTION,General
+How do you relate to your boss? ,RQUESTION,General
+Do you consider yourself successful? ,RQUESTION,General
+Tell me about a project you initiated. ,RQUESTION,General
+MENTION THE EXPERIENCE YOU HAVE RELATED TO THIS POSITION AND YEARS OF EXPERIENCE? ,RQUESTION,General
+What do you feel about diversity in the workplace? Do you think it is important? ,RQUESTION,General
+Where else have you applied? ,RQUESTION,General
+How would you describe the pace at which you work? ,RQUESTION,General
+What was the most useful criticism you received? Who was it from? ,RQUESTION,General
+Will you take a drug/psychological examination as a condition of employment? ,RQUESTION,General
+How do you handle rejection? ,RQUESTION,General
+What were your favorite classes or activities during school? ,RQUESTION,General
+What kind of job are you looking for? ,RQUESTION,General
+Is there anyone you could not work with? ,RQUESTION,General
+How do you think your education has prepared you for this type of position? ,RQUESTION,General
+Do you consider yourself overqualified for this position? ,RQUESTION,General
+Tell me about a suggestion you have made. ,RQUESTION,General
+How do you handle dishonesty? ,RQUESTION,General
+What is more important to you the money or the work? ,RQUESTION,General
+Do you know anyone who works for us? ,RQUESTION,General
+What would you like to accomplish through this position that you were not able ,RQUESTION,General
+Tell me about an assignment that was too difficult for you. How did you handle ,RQUESTION,General
+What did you do when you had a deadline and didn't make it? ,RQUESTION,General
+Tell me about any issues with any previous bosses. ,RQUESTION,General
+What is your GPA? How does your GPA reflect your abilities? ,RQUESTION,General
+Would you rather work with information or people? ,RQUESTION,General
+What would your previous supervisor say your strongest point is? ,RQUESTION,General
+How do you relate to your co-workers? ,RQUESTION,General
+What new skills have you developed recently? ,RQUESTION,General
+What kind of personal goals have you set for yourself? ,RQUESTION,General
+Would you consider yourself an organized person? ,RQUESTION,General
+How long have you been looking for a job? ,RQUESTION,General
+What position do you prefer when working on a team? ,RQUESTION,General
+If hired will you work full/part-time? Nights? Weekends? ,RQUESTION,General
+If you were hiring someone for this job what would you look for? ,RQUESTION,General
+How would you tackle the first  days at this job? ,RQUESTION,General
+Describe a typical work day. ,RQUESTION,General
+Tell me about the most fun you had on the job. ,RQUESTION,General
+Have you ever been fired? ,RQUESTION,General
+What makes this position different from your last employed standing? ,RQUESTION,General
+Site an example from your personal life when you were dishonest to someone? ,RQUESTION,General
+How do you typically confront subordinates when results are unacceptale? ,RQUESTION,General
+Describe what you would classify as a crisis? ,RQUESTION,General
+Do you set goals for yourself? ,RQUESTION,General
+What has disappointed you in a job? ,RQUESTION,General
+Tell me about a time that you successfully dealt with a person when that person did not like you or vice-versa. ,RQUESTION,General
+In hindsight how could you have improved your performance at previous jobs? ,RQUESTION,General
+What significant trends do you see in our industry? ,RQUESTION,General
+Do you plan to get a graduate degree in the future? ,RQUESTION,General
+What would you do if your employer instructed you to do something that was unethical or illegal? ,RQUESTION,General
+Why did you stay at this position for such a short time? ,RQUESTION,General
+What were the most important decisions you made in your last job? ,RQUESTION,General
+Tell me about an instance where you have failed and what you learned from it. ,RQUESTION,General
+Are you looking for a permanent or temporary position at the company? ,RQUESTION,General
+Would you rather be feared or liked? ,RQUESTION,General
+How do you feel about taking 'no' for an answer? ,RQUESTION,General
+What do you know about this industry? ,RQUESTION,General
+Have you ever had to fire anyone? How did you feel about that? ,RQUESTION,General
+How do you understand your job duties? ,RQUESTION,General
+In the last three years what have you done to develop professionally? ,RQUESTION,General
+Are you reapplying for this position? ,RQUESTION,General
+Can you relocate either now or in the future? ,RQUESTION,General
+How do you incorporate fun into your day? ,RQUESTION,General
+If you could start your life over what would you change? ,RQUESTION,General
+What do you know about our company ,RQUESTION,General
+Tell me the difference between good and exceptional. ,RQUESTION,General
+If you inherited a lot of money say $ or $ million what would you do? ,RQUESTION,General
+What changes would you have made at your college? ,RQUESTION,General
+Who or what has had the greatest impact in the development of your career plans/interests? ,RQUESTION,General
+What gives you the most satisfaction during free/vacation time?,RQUESTION,General
+Name reasons why you would leave a job? ,RQUESTION,General
+Careful listening and effective communication go together. Tell me about a specific time when your skill in listening helped you communicate better... ,RQUESTION,General
+What do you like best about your school?,RQUESTION,General
+What do you think of your current/former boss? ,RQUESTION,General
+what is the typical work week? is overtime expacted? ,RQUESTION,General
+what has been your greatest acomplishment ,RQUESTION,General
+What would you do to deal with office gossip? ,RQUESTION,General
+Describe a situation in which you were able to use personneol successfully convince someone to see things your way. ,RQUESTION,General
+Why should I hire an outsider when I could fill the job with someone inside the company? ,RQUESTION,General
+How do you priortize your work to meet deadlines? ,RQUESTION,General
+What do your colleagues say about you? ,RQUESTION,General
+Can you explain how you contact or initiate communications with customers? ,RQUESTION,General
+what is customer service for you? ,RQUESTION,General
+what are the type of career opportunity you are seeking? ,RQUESTION,General
+How can you contribute to our company? ,RQUESTION,General
+when applying for a job and they ask if you have been fired what is a professional why of putting it down. ,RQUESTION,General
+Why did you choose this career? ,RQUESTION,General
+wht did u enjoy the most and least about ur last job? ,RQUESTION,General
+Who could be an inspiration to you? ,RQUESTION,General
+how do you handle rejections? ,RQUESTION,General
+what makes you the best candidate for the job ,RQUESTION,General
+why do you want to work in our company ,RQUESTION,General
+Why are you interested in working for company ,RQUESTION,General
+Briefly describe your career history and your special traits and abilities. ,RQUESTION,General
+Please briefly describe your career history and your special traits and abilities ,RQUESTION,General
+WHY DO YOU THINK YOU'RE THE BEST PERSON FOR THIS POSITION? ,RQUESTION,General
+Briefly describe your strengths that would be attractive to a potential employer?,RQUESTION,General
+What would you consider your greatest strengths and weaknesses? ,RQUESTION,General
+Why should I pick you for this position? ,RQUESTION,General
+tell me something about yourself? ,RQUESTION,General
+Why am I the best person for this position ,RQUESTION,General
+why are you applying here? ,RQUESTION,General
+What made you apply in the call center? ,RQUESTION,General
+what are your expectations? ,RQUESTION,General
+What does co creation means to you ,RQUESTION,General
+what is your principal shortcoming? ,RQUESTION,General
+Why do you think you're the best candiate for this position? ,RQUESTION,General
+How do you keep up to date with recent developments in your field,RQUESTION,General
+Tell me more about your internship,INTERNSHIP,ACADEMIC
+What did you learn from your internship?,INTERNSHIP,ACADEMIC
+What was your internship project?,INTERNSHIP,ACADEMIC
+Which technology stack did you used in your internship project?,INTERNSHIP,ACADEMIC
+Tell me your internship experience?,INTERNSHIP,ACADEMIC
+Tell me more about your project,PROJECT,ACADEMIC
+What is the use case for your project?,PROJECT,ACADEMIC
+What is the future scope of the project?,PROJECT,ACADEMIC
+What was your role in the project?,PROJECT,ACADEMIC
+What did you learn during the project?,PROJECT,ACADEMIC
+
+how did you decided your stream after your 12th exam?
+,HSC,ACADEMIC

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+<category>
+<pattern>
+MYSQL1
+</pattern>
+<template>
+<random>
+<li>What is MySQL? </li>
+<li>What are the technical features of MySQL? </li>
+<li>Why MySQL is used?</li>
+<li>What are the advantages of MySQL when compared with Oracle? </li>
+<li>What are the drivers in MySQL?</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>
+MYSQL
+</pattern>
+<template>
+<srai>
+MYSQL1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ MYSQL
+</pattern>
+<template>
+<srai>
+MYSQL1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+MYSQL *
+</pattern>
+<template>
+<srai>
+MYSQL1
+</srai>
+</template>
+</category>
+
+<category>
+<pattern>
+_ MYSQL *
+</pattern>
+<template>
+<srai>
+MYSQL1
+</srai>
+</template>
+</category>
+</aiml>

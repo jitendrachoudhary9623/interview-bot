@@ -1,0 +1,80 @@
+AWS
+Azure
+Babel
+Backend
+Blockchain
+C Sharp (C#)
+Chrome DevTools
+CMS
+Core Data
+CSS
+Dart и Flutter
+Docker
+Drupal
+Elasticsearch
+Electron
+Elm
+Ember
+Firebase
+Flux
+Frontend
+Gamedev
+Gatsby
+Git
+GitHub
+Gitlab
+Golang (Google Go)
+Graphic
+GraphQL
+Grep
+Grunt
+Gulp
+HTML
+Ionic
+Java
+JavaScript
+Joomla
+JQuery
+Kubernetes
+Laravel
+Marketing
+MODX
+NativeScript
+Next.js
+Node.js
+NPM
+OpenCart
+OpenCV
+PHP
+Postman
+Progressive Web App (PWA)
+Python
+React Native
+React.js
+Ruby
+Ruby on Rails
+Salt
+Selenium
+SEO
+Silex
+Slim
+Sql
+SVN
+Swift
+Symfony
+System programming
+Tools
+TypeScript
+Video/3D
+VIM
+Visual Studio Code
+Vue
+Webpack
+Wordpress
+Xamarin
+Yarn
+Yii
+Другое
+Криптовалюты
+Разработка мобильных приложений
+Тестирование / Quality Assurance (QA)
