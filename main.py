@@ -9,7 +9,7 @@ from sqlalchemy.orm import scoped_session,sessionmaker
 import json
 from passlib.hash import sha256_crypt
 from chartGenerators import generateChartsForPDF
-
+from score import calculateScore
 engine=create_engine("mysql+pymysql://root:root@localhost/register") 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
@@ -20,7 +20,7 @@ def load_kern(forcereload):
 	else:
 		kernel.bootstrap(learnFiles = os.path.abspath("aiml/std-startup.xml"), commands = "load aiml b")
 		kernel.saveBrain("bot_brain.brn")
-
+load_kern(False)
 db=scoped_session(sessionmaker(bind=engine))
 app = Flask(__name__)
 
@@ -105,7 +105,6 @@ def ppt():
 @app.route("/chatbot")
 def chatbot():
 	if 'log' in session:
-		load_kern(False)
 		return render_template('chat.html') #chatbot.html
 	return render_template('notallowed.html')
 
@@ -115,6 +114,7 @@ asked=[]
 def ask():
 	print("Hello")
 	message = str(request.form['messageText'])
+	print(request.form['escore'])
 	print(message)
 	if message == "save":
 			kernel.saveBrain("bot_brain.brn")
@@ -136,6 +136,7 @@ def ask():
 def sentiments():
 	#print("sentiment")
 	message = str(request.form['messageText'])
+	emotion=json.loads(request.form['escore'])
 	print(message)
 	if message != "ask question" and message !="ASK QUESTION":
 		scores = sid.polarity_scores(message)
@@ -145,10 +146,15 @@ def sentiments():
 			sentiment='Negative'
 		else:
 			sentiment='Neutral'
+		
+		sentiments={'sentiment_positive':scores['pos'],'sentiment_negative':scores['neg'],
+'sentiment_neutral':scores['neu']}
+		score=calculateScore(emotion,sentiments)
 		return jsonify({'status':'OK','sentiment_positive':scores['pos'],
 	'sentiment_negative':scores['neg'],
 	'sentiment_neutral':scores['neu'],
-	'overall_sentiment':sentiment})	
+	'overall_sentiment':sentiment,
+	'score':score})	
 	else:
 		return jsonify({'status':'NOT PK'})		
 
@@ -177,6 +183,7 @@ def text_analysis():
 		return jsonify({'status':200,'numChars': numChars,'numSentences':myText.getSentences(),'numTokens': myText.getTokens(),'uniqueTokens':uniqueTokensText,'topwords':top,'Lexical':lexical})
 	else:
 		return jsonify({'status':500,'numChars': 0,'numSentences':0,'numTokens': 0,'uniqueTokens':0,'topwords':0,'Lexical':0})
+
 
 @app.route('/generate',methods=['POST'])
 def pdf_template():
@@ -208,4 +215,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 	app.secret_key="interviewbot"
-	app.run(debug=True,port=4114,host="localhost")
+	app.run(debug=True,port=4119,host="localhost")

@@ -49,7 +49,7 @@ SPARK1
 <li> Why is there a need for broadcast variables when working with Apa</li>
 <li> How can you trigger automatic clean-ups in Spark to handle accumulated metadata?</li>
 <li> What is the significance of Sliding Window operation?</li>
-<li> When running Spark applications, is it necessary to install Spark on all the nodes of YARN cluster?</li>
+<li> When running Spark applications is it necessary to install Spark on all the nodes of YARN cluster?</li>
 <li> What are the various data sources available in Spark SQL?</li>
 <li> What are the various levels of persistence in Apache Spark?</li>
 <li> Does Apache Spark provide checkpoints?</li>

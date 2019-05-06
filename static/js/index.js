@@ -105,8 +105,7 @@ if (e.results[0].isFinal) {
 
 //$('#messageText').val(text);
 $('#messageText').val(script);
-	$( ".p1" ).append("<p><b>Transcript : &nbsp;&nbsp;</b>"+script+"</p>");
-	$(".p1").stop().animate({ scrollTop: $(".p1")[0].scrollHeight}, 1000);
+	
 $("#s_status").val("You / Bot Are Not Speaking");
 }
 else{
@@ -209,6 +208,7 @@ player.on('finishRecord', function() {
 
 $('#chatbot-form-btn').click(function(e) {
 e.preventDefault();
+$('#escore').val(JSON.stringify(emotionDisplay))
 $('#chatbot-form').submit();
 });
 //clear chat history
@@ -279,6 +279,7 @@ url: "/ask",
 data: $(this).serialize(),
 success: function(response) {
 	//$('#messageText').val('');
+
 	var answer = response.answer.toUpperCase();
 	previousQuestion=answer;
 	
@@ -327,7 +328,9 @@ type: "POST",
 url: "/sentiment",
 data: $(this).serialize(),
 success: function(response) {
-
+	console.log("Response is "+response['score'])
+	$( ".p1" ).append("<p><b>Score for your answer is : &nbsp;&nbsp;</b>"+response['score']*2+"</p>");
+	$(".p1").stop().animate({ scrollTop: $(".p1")[0].scrollHeight}, 1000);
 var positive=response.sentiment_positive;
 var negative=response.sentiment_negative;
 var neutral=response.sentiment_neutral;

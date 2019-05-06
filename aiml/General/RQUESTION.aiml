@@ -36,16 +36,15 @@ So lets get started.
 
 <category>
 <pattern>INTRO</pattern>
-<template><get name="USERNAME"></get> Introduce yourself?
-</template>
+<template><get name="USERNAME"></get> Introduce yourself?</template>
 </category>
+
 
 
 <category>
 <pattern>ASK QUESTION</pattern>
 <template>
 <random>
-<li>Introduce yourself</li>
 <li>What is your weakness?</li>
 <li>What is your strength?</li>
 <li>Tell me something which is not on your resume?</li>
@@ -305,6 +304,25 @@ So lets get started.
 <li>what is your principal shortcoming? </li>
 <li>Why do you think you're the best candiate for this position? </li>
 <li>How do you keep up to date with recent developments in your field</li>
+<li>Can you talk about three names you go by?</li>
+<li>Can you talk about three things you like about yourself?</li>
+<li>Can you talk about three things you dislike about yourself?</li>
+<li>Can you talk about three parts of your heritage?</li>
+<li>Can you talk about three things that scare you?</li>
+<li>Can you talk about three things you need to do everyday?</li>
+<li>Can you talk about three things you are wearing now?</li>
+<li>Can you talk about three of your favorite band that you listen to now?</li>
+<li>Can you talk about three of your favorite songs?</li>
+<li>Can you talk about three things you want to do in the next twelve months?</li>
+<li>Can you talk about three things you want in a relationship?</li>
+<li>Can you talk about three things you can't do?</li>
+<li>Can you talk about three of your hobbies?</li>
+<li>Can you talk about three things you want to do right now?</li>
+<li>Can you talk about three things you want to do before the end of the year?</li>
+<li>Can you talk about three cities you would like to visit?</li>
+<li>Can you talk about three of your favorite things to eat?</li>
+<li>Can you talk three people who have influenced your life?</li>
+<li>Can you talk about three of your most prized possessions?</li>
 </random>
 </template>
 </category>

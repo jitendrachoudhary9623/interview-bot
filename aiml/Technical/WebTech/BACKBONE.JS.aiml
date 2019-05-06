@@ -31,7 +31,7 @@ BACKBONEJS1
 <li> What is the function of escape ?</li>
 <li> Explain what is the function of parse ?</li>
 <li>  What is Backbone.sync is used for ?</li>
-<li> In Backbone View, what is the use of setElement ?</li>
+<li> In Backbone View what is the use of setElement ?</li>
 <li>  Explain what is model.cid ?</li>
 
 </random>

@@ -1,26 +1,114 @@
 import aiml
 import os
+from db import *
+from nlp import TextAnalyser
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from score import calculateScore
 
-kernel = aiml.Kernel()
+class Chatbot():
+	def __init__(self):
+			self.kernel = aiml.Kernel()
+			if os.path.isfile("bot_brain.brn"):
+				self.kernel.bootstrap(brainFile= "bot_brain.brn")
+			else:
+				self.kernel.bootstrap(learnFiles = os.path.abspath("aiml/std-startup.xml"), commands = "load aiml b")
+				self.kernel.saveBrain("bot_brain.brn")
+			self.sid=SentimentIntensityAnalyzer()
+				
+	
+	def interact(self,username=None,interviewId=None,mode=0,emotion={}):
+		'''
+		mode determines where to run the chatbot on the console or the as web api
+		mode=0 web
+		mode=1 console
+		'''
+		beginInterview(username,interviewId)
+		previousQuestion="" #session
+		
+		if mode==0:
+			answer=input("user :")
+			question = self.kernel.respond(answer)
+			self.sentiment(answer)
+			self.textAnalysis(answer)
+			print("Bot: ",question)
+			saveInterview(interviewId,previousQuestion,answer,0.5)
+			previousQuestion=question
+		else:
+			while True:
+				answer=input("user :")
+				question = self.kernel.respond(answer)
+				sentiment=self.sentiment(answer)
+				emotion={"neutral":random.randint(1,1000),
+				"sad":random.randint(1,100),
+				"fear":random.randint(1,100),
+				"disgust":random.randint(1,100),
+				"anger":random.randint(1,100),
+				"happy":random.randint(1,500),
+				"suprise":random.randint(1,100)}
+				textAnalysis=self.textAnalysis(answer)
+				score=calculateScore(emotion=emotion,sentiment=sentiment,lexical=textAnalysis["Lexical"])
+				print(score)
+				print("Bot: ",question)
+				getQuestionDetails(question)
+				saveInterview(interviewId,
+				previousQuestion,
+				answer,
+				score=score,
+				emotion=emotion,
+				sentiment=sentiment,
+				textAnalysis=textAnalysis)
 
-def load_kern(forcereload):
-	if os.path.isfile("bot_brain.brn") and not forcereload:
-		kernel.bootstrap(brainFile= "bot_brain.brn")
-	else:
-		kernel.bootstrap(learnFiles = os.path.abspath("aiml/std-startup.xml"), commands = "load aiml b")
-		kernel.saveBrain("bot_brain.brn")
+				previousQuestion=question			
+	
+	def sentiment(self,answer):
+		sentiment=''
+		scores = self.sid.polarity_scores(answer)
+		if scores['compound'] > 0:
+			sentiment='Positive'
+		elif scores['compound']< 0:
+			sentiment='Negative'
+		else:
+			sentiment='Neutral'
+		sentiments={'sentiment_positive':scores['pos'],'sentiment_negative':scores['neg'],
+'sentiment_neutral':scores['neu']}
+		return sentiments
+	
+	def textAnalysis(self,userText):
+		stemmingType = TextAnalyser.STEM
+		language = "EN"
+		myText = TextAnalyser(userText, language)
+		myText.preprocessText(lowercase = userText,removeStopWords = userText,stemming = stemmingType)
+		if myText.uniqueTokens() == 0:
+		   		uniqueTokensText = 1
+		else:
+			uniqueTokensText = myText.uniqueTokens()
+		numChars=myText.length()
+		numSentences=myText.getSentences()
+		numTokens=myText.getTokens()
+		top=myText.getMostCommonWords(10)
+		try:
+			lexical=uniqueTokensText/myText.getTokens()
+		except:
+			lexical=0
+		return {'numTokens': myText.getTokens(),'uniqueTokens':uniqueTokensText,'topwords':top,'Lexical':lexical}
 
-load_kern(True)
+			
 
-while True:	
-	message=input("Enter Message : ")
-	if message == "save":
-	    	kernel.saveBrain("bot_brain.brn")
-	elif message == "reload":
-		load_kern(True)
-	elif message == "quit":
-		exit()
-	else:		
-		bot_response = kernel.respond(message)
+		
 
-	print(bot_response)
+
+chatbot=Chatbot()
+chatbot.interact(username="jitendra",
+				interviewId=generateInterviewId(),
+				mode=1,
+				emotion={"neutral":random.randint(1,1000),
+				"sad":random.randint(1,100),
+				"fear":random.randint(1,100),
+				"disgust":random.randint(1,100),
+				"anger":random.randint(1,100),
+				"happy":random.randint(1,500),
+				"suprise":random.randint(1,100)}
+)
+
+
+

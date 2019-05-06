@@ -1,6 +1,5 @@
 <aiml version="1.0">
 
-<!-- This category works with the standard AIML Set -->
 <category>
 <pattern>LOAD AIML B</pattern>
 <template>
@@ -8,14 +7,35 @@
 	<learn>aiml/computer.aiml</learn>
 
 	<learn>aiml/PASS-TIME/HOBBY.aiml</learn>
-
+	<learn>aiml/PASS-TIME/HOBBY/TRAVELLING.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/PHOTOGRAPHY.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/COOKING.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/EATING.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/HEALTH.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/MUSIC.aiml</learn>		
+	<learn>aiml/PASS-TIME/HOBBY/SPORTS.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/PAINTING.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/MOTIVATE.aiml</learn>
+	<learn>aiml/PASS-TIME/HOBBY/DANCE.aiml</learn>
+	
 	<learn>aiml/ACADEMIC/INTERNSHIP.aiml</learn>
 	<learn>aiml/ACADEMIC/PROJECT.aiml</learn>
 
 	<learn>aiml/People/friend.aiml</learn>
 	<learn>aiml/People/TEACHER.aiml</learn>
 	<learn>aiml/People/FATHER.aiml</learn>
-
+	<learn>aiml/People/PET.aiml</learn>
+	<learn>aiml/People/FAMILY.aiml</learn>
+	<learn>aiml/People/MOTHER.aiml</learn>
+	
+	<learn>aiml/Emotion/FEAR.aiml</learn>
+	<learn>aiml/Emotion/ANGER.aiml</learn>
+			
+	<learn>aiml/Others/SUPERNATURAL.aiml</learn>
+	<learn>aiml/Others/MOTIVATE.aiml</learn>
+	<learn>aiml/Others/PERSONALITY.aiml</learn>
+	<learn>aiml/Others/SHOPPING.aiml</learn>
+	
 	<learn>aiml/Technical/Advance/AI.aiml</learn>
 	<learn>aiml/Technical/Advance/ML.aiml</learn>
 	<learn>aiml/Technical/Advance/CV.aiml</learn>
@@ -48,7 +68,11 @@
 	<learn>aiml/Technical/Language/GOLANG.aiml</learn>
 	<learn>aiml/Technical/Language/DOTNET.aiml</learn>
 	<learn>aiml/Technical/Language/R.aiml</learn>
-
+	<learn>aiml/Technical/Language/JAVA.aiml</learn>
+	<learn>aiml/Technical/Language/JAVAMULTITHREADING.aiml</learn>	
+	<learn>aiml/Technical/Language/HASKELL.aiml</learn>	
+	<learn>aiml/Technical/Language/RUBY.aiml</learn>
+		
 	<learn>aiml/Technical/Frameworks/HIBERNATE.aiml</learn>
 	<learn>aiml/Technical/Frameworks/SPRING.aiml</learn>
 	<learn>aiml/Technical/Frameworks/SCALA.aiml</learn>
@@ -70,11 +94,16 @@
 	<learn>aiml/Technical/WebTech/NODEJS.aiml</learn>
 
 	<learn>aiml/Technical/WebTech/Python/DJANGO.aiml</learn>
-
+	
+	<learn>aiml/Technical/WebTech/PHP/LARAVEL.aiml</learn>
 	<learn>aiml/Technical/WebTech/PHP/WORDPRESS.aiml</learn>
 	<learn>aiml/Technical/WebTech/PHP/DRUPAL.aiml</learn>
 	<learn>aiml/Technical/WebTech/PHP/JOOMLA.aiml</learn>
-
+	<learn>aiml/Technical/WebTech/PHP/YII.aiml</learn>
+	<learn>aiml/Technical/WebTech/PHP/CAKEPHP.aiml</learn>
+	<learn>aiml/Technical/WebTech/PHP/CODEIGNITER.aiml</learn>
+	<learn>aiml/Technical/WebTech/PHP/SYMFONY.aiml</learn>	
+		
 	<learn>aiml/Technical/SoftwareEngg/AGILE.aiml</learn>
 	
 	<learn>aiml/Technical/Mobile/ANDROID.aiml</learn>
@@ -84,7 +113,15 @@
 	<learn>aiml/Technical/Tools/DOCKER.aiml</learn>
 
 	<learn>aiml/Technical/others/HADOOP.aiml</learn>
+	<learn>aiml/ACADEMIC/COLLEGE.aiml</learn>
+	
+	<learn>aiml/Technical/OS/UBUNTU.aiml</learn>
 
+	<learn>aiml/Technical/OS/WINDOWS.aiml</learn>
+	<!--	
+	<learn>aiml/Technical/Testing/TESTING.aiml</learn>
+	<learn>aiml/Technical/Testing/SELENIUM.aiml</learn>
+	-->
 </template>
 </category>
 

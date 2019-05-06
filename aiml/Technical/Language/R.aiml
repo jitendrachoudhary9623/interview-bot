@@ -53,8 +53,6 @@ R1
 <li>How would you find the number of missing values in a dataset and remove all of them? </li>
 <li>What is correlation? How would you measure correlation in R?</li>
 <li>How would you extract one particular word from a string?</li>
-<li>From the below data-set extract only those values where Age>60 and Sex=”F”.</li>
-<li>You have an employee data-set which comprises of two columns->”name” and “designation” add a third column which would indicate the current date and time.</li>
 <li>How would you do a cross-product of two tables in R?</li>
 
 </random>

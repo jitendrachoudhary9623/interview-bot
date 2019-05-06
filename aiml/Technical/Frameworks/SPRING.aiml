@@ -23,23 +23,23 @@ SPRING1
 <li>What are some of the best practices for Spring Framework?</li>
 <li>What are other java frameworks you know other than Spring?</li>
 <li>Name some of the design patterns used in Spring Framework?</li>
-<li>What are the major features in different versions of Spring Framework?</span></li>
+<li>What are the major features in different versions of Spring Framework?</li>
 <li>List the advantages of Spring Framework.</li>
-<li>What are the different features of Spring Framework?</span></li>
-<li>How many modules are there in Spring Framework and what are they?</span></li>
+<li>What are the different features of Spring Framework?</li>
+<li>How many modules are there in Spring Framework and what are they?</li>
 <li>What is a Spring configuration file?</li>
-<li>What is Spring IOC Container?</span></li>
-<li>What do you mean by Dependency Injection? </span></li>
-<li>Differentiate between BeanFactory and ApplicationContext.</span></li>
-<li>What do you mean by  Annotation-based container configuration?</span></li>
-<li> What do you understand by @RequestMapping annotation?</span></li>
-<li>Describe Spring DAO support?</span></li>
-<li> Which classes are present in spring JDBC API?</span></li>
-<li>What are the ways by which Hibernate can be accessed using Spring?</span></li>
-<li>Name the types of transaction management that Spring supports.</span></li>
-<li>What do you mean by Aspect?</span></li>
+<li>What is Spring IOC Container?</li>
+<li>What do you mean by Dependency Injection? </li>
+<li>Differentiate between BeanFactory and ApplicationContext.</li>
+<li>What do you mean by  Annotation-based container configuration?</li>
+<li> What do you understand by @RequestMapping annotation?</li>
+<li>Describe Spring DAO support?</li>
+<li> Which classes are present in spring JDBC API?</li>
+<li>What are the ways by which Hibernate can be accessed using Spring?</li>
+<li>Name the types of transaction management that Spring supports.</li>
+<li>What do you mean by Aspect?</li>
 <li>Explain JoinPoint in SPRING?.</li>
-<li>What do you mean by Spring MVC framework?</span></li>
+<li>What do you mean by Spring MVC framework?</li>
 
 </random>
 </template>
