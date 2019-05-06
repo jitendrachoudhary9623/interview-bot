@@ -10,6 +10,9 @@ import json
 from passlib.hash import sha256_crypt
 from chartGenerators import generateChartsForPDF
 from score import calculateScore
+from db import *
+
+
 engine=create_engine("mysql+pymysql://root:root@localhost/register") 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
@@ -105,8 +108,18 @@ def ppt():
 @app.route("/chatbot")
 def chatbot():
 	if 'log' in session:
-		return render_template('chat.html') #chatbot.html
+		session["InterviewId"]=generateInterviewId()
+		return render_template('beginInterview.html',username=session["username"],interviewid=session["InterviewId"]) #chatbot.html
 	return render_template('notallowed.html')
+
+
+@app.route("/interview",methods=["POST"])
+def interview():
+	if 'log' in session:
+		beginInterview(session["username"],session["InterviewId"])
+		return render_template('chat.html')
+	return render_template('notallowed.html')
+	
 
 #route for chatbot
 asked=[]
