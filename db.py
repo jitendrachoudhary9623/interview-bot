@@ -4,6 +4,7 @@ import random
 import string
 import csv
 
+from QuestionDetail import QuestionDetail
 connect('interviewbot', host='localhost', port=27017)
 
 class InterviewEvaluation(EmbeddedDocument):
@@ -32,9 +33,14 @@ class Questionset(Document):
 	keywords=ListField()
 	evaluable=BooleanField()
 
+
+		
 def getQuestionDetails(question):
+	print("Inside Question Detail")
 	for q in Questionset.objects(question=question):
-		print(q.category,q.subcategory,q.evaluable,q.questionType,q.questionId)
+		ques= QuestionDetail(q.questionId,q.questionType,q.question,q.category,q.subcategory,q.keywords,q.evaluable)
+		return ques
+
 	
 def questionSet(qid,qtype,question,category,subcategory,keywords,evaluable):
 	'''
@@ -70,21 +76,21 @@ def addQuestions():
 	if typ=="t":
 		evaluable=True
 	with open(filename) as csv_file:
-		csv_reader = csv.reader(csv_file, delimiter=',')
+		csv_reader = csv.reader(csv_file, delimiter='\t')
 		line_count = 0
 		for row in csv_reader:
 			if line_count == 0 or line_count==1:
 			    #print(row[0],row[1],row[2],row[3])
 			    line_count += 1
 			else:
-				
+
 				questionSet(
 				qid=typ+str(line_count-1),
 				qtype=row[1],
 				question=row[0],
 				category=row[2],
 				subcategory=row[3],
-				keywords=None,
+				keywords=row[4:],
 				evaluable=evaluable)
 				line_count += 1
 		print(f'Processed {line_count} lines.')
@@ -115,7 +121,7 @@ def generateInterviewId():
 			return interviewId
 
 		
-
+#addQuestions()
 '''
 print("Hello")
 username=input("enter username\n")

@@ -4,7 +4,7 @@ from db import *
 from nlp import TextAnalyser
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from score import calculateScore
-
+from QuestionDetail import QuestionDetail
 class Chatbot():
 	def __init__(self):
 			self.kernel = aiml.Kernel()
@@ -35,8 +35,10 @@ class Chatbot():
 			previousQuestion=question
 		else:
 			while True:
+				print("=="*10)
 				answer=input("user :")
 				question = self.kernel.respond(answer)
+
 				sentiment=self.sentiment(answer)
 				emotion={"neutral":random.randint(1,1000),
 				"sad":random.randint(1,100),
@@ -46,10 +48,26 @@ class Chatbot():
 				"happy":random.randint(1,500),
 				"suprise":random.randint(1,100)}
 				textAnalysis=self.textAnalysis(answer)
-				score=calculateScore(emotion=emotion,sentiment=sentiment,lexical=textAnalysis["Lexical"])
-				print(score)
+				
+				q=getQuestionDetails(previousQuestion)
+				if q is not None:
+					evaluable=q.evaluable
+					keywords=list(q.keywords)
+					#print("Chatbot ",q.keywords,type(keywords))
+				else:
+					evaluable=False
+					keywords=None
+					
+				score=calculateScore(emotion=emotion,
+				sentiment=sentiment,
+				lexical=textAnalysis["Lexical"],
+				evaluable=evaluable,
+				keywords=keywords,
+				answer=answer
+				)
+				#print(score)
 				print("Bot: ",question)
-				getQuestionDetails(question)
+				
 				saveInterview(interviewId,
 				previousQuestion,
 				answer,
