@@ -116,8 +116,8 @@ def chatbot():
 @app.route("/interview",methods=["POST"])
 def interview():
 	if 'log' in session:
-		beginInterview(session["username"],session["InterviewId"])
-		return render_template('chat.html')
+		#beginInterview(session["username"],session["InterviewId"])
+		return render_template('interview.html')
 	return render_template('notallowed.html')
 	
 
@@ -147,7 +147,7 @@ def ask():
 #Route for sentiment analysis
 @app.route('/sentiment',methods=['POST','GET'])
 def sentiments():
-	#print("sentiment")
+	print("sentiment")
 	message = str(request.form['messageText'])
 	emotion=json.loads(request.form['escore'])
 	print(message)
@@ -162,12 +162,12 @@ def sentiments():
 		
 		sentiments={'sentiment_positive':scores['pos'],'sentiment_negative':scores['neg'],
 'sentiment_neutral':scores['neu']}
-		score=calculateScore(emotion,sentiments)
+		#score=calculateScore(emotion,sentiments)
 		return jsonify({'status':'OK','sentiment_positive':scores['pos'],
 	'sentiment_negative':scores['neg'],
 	'sentiment_neutral':scores['neu'],
 	'overall_sentiment':sentiment,
-	'score':score})	
+	'score':0})	
 	else:
 		return jsonify({'status':'NOT PK'})		
 
@@ -228,4 +228,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 	app.secret_key="interviewbot"
-	app.run(debug=True,port=4119,host="localhost")
+	app.run(debug=True,port=12223,host="localhost")

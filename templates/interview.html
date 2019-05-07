@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chatbot</title>
+        <link href="{{ url_for('static', filename='styles/bootstrap4.min.css') }}" type="text/css" rel="stylesheet" />
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/bootstrap4.min.js') }}"></script>
+        <link href="{{ url_for('static', filename='styles/style.css') }}" type="text/css" rel="stylesheet" />
+        <script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/face-api.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/commons.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/tf.min.js') }}"></script>
+
+        <link href="{{ url_for('static', filename='styles/font-awesome.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ url_for('static',filename ='styles/style.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+                integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+                crossorigin="anonymous" />
+
+        <link href="{{ url_for('static',filename='lib/video-js.min.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static',filename='lib/videojs.wavesurfer.min.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static',filename='lib/videojs.record.css') }}" rel="stylesheet" />
+
+        <script src="{{ url_for('static',filename='lib/video.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='lib/RecordRTC.js') }}"></script>
+        <script src="{{ url_for('static',filename='lib/adapter.js') }}"></script>
+        <script src="{{ url_for('static',filename='lib/wavesurfer.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='lib/wavesurfer.microphone.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='lib/videojs.wavesurfer.min.js') }}"></script>
+
+        <script src="{{ url_for('static',filename='lib/videojs.record.js') }}"></script>
+
+</head>
+
+<body>
+
+        <div class="d-flex" id="wrapper">
+
+                <!-- Sidebar -->
+                <div class="border-right" id="sidebar-wrapper">
+                        <div class="sidebar-heading">Interview Bot</div>
+                        <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                        <button class="btn btn-success" id="startInterviewButton"><i class="fa fa-play"
+                                                        aria-hidden="true"></i> Start
+                                                Interview</button>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                        <i class="fa fa-stop" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Finish Interview
+                                </a>
+                                <form enctype='application/json' id="finishForm" action="/generate" method="post">
+                                        <input type="text" id="data" name="data" value="data" hidden />
+                                        <input type="text" id="iTime" name="iTime" value="hidden value" hidden />
+                                </form>
+
+                                <a href="#" class="list-group-item list-group-item-action">
+                                        <button class="btn btn-info" id="fullScreenMode"> Go Full Screen </button></a>
+
+                        </div>
+                </div>
+                <!-- /#sidebar-wrapper -->
+
+                <!-- Page Content -->
+                <div id="page-content-wrapper">
+
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                                <!--   <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                </button>
+-->
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                                                <li class="nav-item active">
+                                                        <a class="nav-link" href="#">Home <span
+                                                                        class="sr-only">(current)</span></a>
+                                                </li>
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="#">Link</a>
+                                                </li>
+                                                <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                                                role="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                Dropdown
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                                aria-labelledby="navbarDropdown">
+                                                                <a class="dropdown-item" href="#">Action</a>
+                                                                <a class="dropdown-item" href="#">Another action</a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a class="dropdown-item" href="#">Something else
+                                                                        here</a>
+                                                        </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </nav>
+                        <br />
+                        <div class="container-fluid">
+
+                                <div class="row" style="min-height: 100vh">
+                                        <div class="col-md-4 border-right">
+
+                                                <video onplay="onPlay(this)" id="inputVideo" autoplay muted
+                                                        style="border-radius:30px;"></video>
+                                                <audio id="myAudio" class="video-js" autoplay muted></audio>
+                                                <canvas id="overlay" style="border-radius:30px;" />
+
+
+                                        </div>
+                                        <div class="col-md-4 border-right">
+                                                <div class="row" style="min-height: 60vh">
+                                                        <div id="chatPanel" class="panel panel-info">
+                                                                <div class="panel-body fixed-panel">
+                                                                        <ul class="media-list">
+                                                                        </ul>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="row border-top" style="min-height: 30vh">
+                                                        <div class="panel-footer chatbot-background">
+                                                                <!--chat option -->
+                                                                <form method="post" id="chatbot-form"
+                                                                        autocomplete="off">
+                                                                        <textarea class="form-control" rows="5"
+                                                                                placeholder="Enter Message"
+                                                                                name="messageText" id="messageText"
+                                                                                autofocus disabled
+                                                                                required /></textarea>
+                                                                        <!--chat area-->
+                                                                        <input type="hidden" name="escore"
+                                                                                id="escore" /></input>
+                                                                        <br />
+                                                                        <div class="input-group">
+                                                                                <!--chat buttons-->
+                                                                                <span class="input-group-btn">
+                                                                                        <button class="btn"
+                                                                                                style="background:white;color:#4a148c;"
+                                                                                                type="button"
+                                                                                                id="chatbot-form-btn-clear-input"
+                                                                                                disabled>Clear
+                                                                                                input</button>
+                                                                                        <button class="btn"
+                                                                                                style="background:white;color:#4a148c;"
+                                                                                                type="button"
+                                                                                                id="chatbot-form-btn"
+                                                                                                disabled>Submit
+                                                                                                Your
+                                                                                                Answer</button>
+                                                                                        <button class="btn"
+                                                                                                style="background:white;color:#4a148c;"
+                                                                                                type="button"
+                                                                                                id="chatbot-form-btn-clear"
+                                                                                                disabled>Clear</button>
+                                                                                        <!--<button class="btn btn-info" type="button" id="chatbot-form-btn-voice" disabled>Voice</button> -->
+                                                                                </span>
+                                                                        </div>
+                                                                </form>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                                <button class="btn btn-danger" id="timerText"> 0 secs </button>
+
+                                                <canvas id="myChart" width="400" height="170"></canvas>
+                                                <canvas id="myChart2" width="400" height="200"></canvas>
+                                                <canvas id="freqChart" width="300" height="110"></canvas>
+                                                <div class="card card-body">
+
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <label for="fps">Estimated Fps:</label>
+                                                                        <input disabled value="-" id="fps" type="text"
+                                                                                class="bold">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                        <label for="confidenceS">Confidence : </label>
+                                                                        <input disabled value="-" id="confidenceS"
+                                                                                type="text" class="bold">
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <label for="nos">Total unique words</label>
+                                                                        <input disabled value="-" id="nos" type="text"
+                                                                                class="bold">
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                        <label for="ld">Lexical Diversity:</label>
+                                                                        <input disabled value="-" id="ld" type="text"
+                                                                                class="bold">
+                                                                </div>
+                                                        </div>
+
+
+                                                </div>
+                                                <!--emotion-->
+
+
+                                        </div>
+
+                                </div>
+                        </div>
+                        <!-- /#page-content-wrapper -->
+
+                </div>
+
+</body>
+
+<style>
+        body {
+                overflow-x: hidden;
+        }
+
+        #sidebar-wrapper {
+                background-image: linear-gradient(to left bottom, #461f78, #502987, #5a3497, #653ea7, #6f49b7, #7d4fc3, #8b56cf, #9a5cdb, #b25ee5, #ca5fed, #e260f5, #fb5ffb);
+                color: white;
+                min-height: 100vh;
+                margin-left: -5rem;
+                -webkit-transition: margin .25s ease-out;
+                -moz-transition: margin .25s ease-out;
+                -o-transition: margin .25s ease-out;
+                transition: margin .25s ease-out;
+        }
+
+        #sidebar-wrapper .sidebar-heading {
+                padding: 0.875rem 1.25rem;
+                font-size: 1.2rem;
+        }
+
+        #sidebar-wrapper .list-group {
+                width: 10rem;
+        }
+
+        #page-content-wrapper {
+                min-width: 100vw;
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+                margin-left: 0;
+        }
+
+        @media (min-width: 768px) {
+                #sidebar-wrapper {
+                        margin-left: 0;
+                }
+
+                #page-content-wrapper {
+                        min-width: 0;
+                        width: 100%;
+                }
+
+                #wrapper.toggled #sidebar-wrapper {
+                        margin-left: -15rem;
+                }
+        }
+</style>
+
+<style type="text/css">
+        #myAudio {
+                background-color: #4a148c;
+        }
+
+        .fixed-panel {
+                min-height: 60vh;
+                max-height: 60vh;
+                min-width: 53vh;
+                max-width: 53vh;
+                background-color: white;
+                color: black;
+                overflow: auto;
+                padding: 1.5%;
+                border: 1px #4a148c solid;
+        }
+
+        .modal-backdrop {
+                z-index: 0;
+        }
+
+        .user-chat {
+                background: white;
+                padding: 5%;
+                margin-left: 25%;
+                text-align: right;
+                color: #4a148c;
+                border: 1px solid #4a148c;
+                border-radius: 30px;
+                width: 100%;
+        }
+
+        .chat-bot {
+                background: #4a148c;
+                padding: 5%;
+                margin-right: 8%;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                color: white;
+                border-radius: 30px;
+
+        }
+
+        .media-list {
+                overflow: auto;
+                clear: both;
+                display: table;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                word-break: normal;
+                line-break: strict;
+                color: black;
+        }
+
+        .panel {
+                margin-bottom: 20px;
+                background-color: white;
+                border: 6px solid transparent;
+                border-radius: 25px;
+                -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+                box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        }
+
+        .panel-info {
+                border-color: white;
+        }
+
+        .panel-info>.panel-heading {
+                color: black;
+                background-color: white;
+                border-color: #0c2735;
+        }
+
+        .panel-footer {
+                padding: 15px 20px;
+                background-color: white;
+                border-top: 1px solid #0c2735;
+                border-bottom-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+                min-width: 53vh;
+                max-width: 53vh;
+        }
+
+        #demotext {
+                color: black;
+                text-align: center;
+
+        }
+
+        #container2 {
+                margin: 0px auto;
+                width: 500px;
+                height: 375px;
+                border: 10px #333 solid;
+        }
+
+        #videoElement {
+                width: 105%;
+                height: 36%;
+                background-color: #666;
+        }
+
+        #overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                background-color: transparent;
+
+        }
+
+        .chatbot-background {
+                background-image: linear-gradient(to right top, #140d64, #3e1b87, #6729a9, #9336cc, #c143ed);
+        }
+
+        ::backdrop {
+                background-color: white;
+        }
+</style>
+
+
+<script src="{{ url_for('static', filename='js/emotion.js') }}"></script>
+<script>
+
+        //runs tensorflow in browser
+        async function run() {
+
+                const Model_url = "{{url_for('static',filename='js/models/tiny_face_detector_model-weights_manifest.json')}}"
+                await faceapi.loadTinyFaceDetectorModel(Model_url)
+                modelLoaded = true
+
+                navigator.mediaDevices.getUserMedia(constraints)  //change global constraints for height and width
+                        .then(successCallback)
+                        .catch(errorCallback);
+                //passing video id
+                onPlay($('#inputVideo').get(0))
+                //hiding loader
+                $('#loader').hide()
+        }
+        function loadModelFunction() {
+                loadModel("{{url_for('static',filename='model.json')}}")  //https://js.tensorflow.org/api/0.15.3/#loadModel
+        }
+
+        function getReadingTime(text) {
+                console.log('check ' + text)
+                var totalWords,
+                        wordsPerMillisecond,
+                        totalReadingTime,
+                        wordsPerMinute = 250,
+                        wordsPerMillisecond = wordsPerMinute / 60000;
+
+                text = text.replace(/<\/?[^>]+(>|$)/g, ''); // Remove any HTML-tags
+                totalWords = text.split(/\s+/g).length; // Split up in words
+                totalReadingTime = Math.floor(totalWords * 100 / 200);
+
+                return totalReadingTime;
+        }
+</script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script>
+        function invokeGetDisplayMedia(success, error) {
+                var displaymediastreamconstraints = {
+                        video: {
+                                displaySurface: 'monitor', // monitor, window, application, browser
+                                logicalSurface: true,
+                                cursor: 'always' // never, always, motion
+                        }
+                };
+
+                // above constraints are NOT supported YET
+                // that's why overridnig them
+                displaymediastreamconstraints = {
+                        video: true
+                };
+
+                if (navigator.mediaDevices.getDisplayMedia) {
+                        navigator.mediaDevices.getDisplayMedia(displaymediastreamconstraints).then(success).catch(error);
+                }
+                else {
+                        navigator.getDisplayMedia(displaymediastreamconstraints).then(success).catch(error);
+                }
+        }
+
+        function captureScreen(callback) {
+                invokeGetDisplayMedia(function (screen) {
+                        addStreamStopListener(screen, function () {
+                                if (window.stopCallback) {
+                                        window.stopCallback();
+                                }
+
+                        });
+                        callback(screen);
+                }, function (error) {
+                        console.error(error);
+                        alert('Unable to capture your screen. Please check console logs.\n' + error);
+                });
+        }
+
+        function captureCamera(cb) {
+                navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(cb);
+        }
+
+        function keepStreamActive(stream) {
+                var video = document.createElement('video');
+                video.muted = true;
+                video.srcObject = stream;
+                video.style.display = 'none';
+                (document.body || document.documentElement).appendChild(video);
+        }
+</script>
+
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Start Interview - Instructions</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <h3>Welcome to Interview Bot</h3>
+                                <h5> Interviews required practise and this project aims to prepare you for the same.
+                                </h5>
+                                <div style="color:green">
+                                        <ul>
+                                                <li>The Left side of the screen panel have your live stream</li>
+                                                <li>The Center side of the screen is the interviewer</li>
+                                                <li>The Righ side of the screen have the chatbot which will take your
+                                                        interview</li>
+                                                <li>The Bottom of the screen have the various analysis which are done
+                                                        your reponse to the question</li>
+                                        </ul>
+                                </div>
+                                <p>Before starting the interview, please read the following instructions</p>
+                                <ul>
+                                        <li>To begin interview speak "<b><span style="color:red">START
+                                                                INTERVIEW</span></b>"</li>
+                                        <li>After speaking your answer click on the <b>SEND</b> button</li>
+                                        <li>If the bot continously asks the same question or you want to skip the
+                                                question, then speak "<b><span style="color:red">NEXT
+                                                                QUESTION</span></b>"</li>
+                                </ul>
+                        </div>
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                <button type="button" class="btn btn-info" data-dismiss="modal"
+                                        id="continueInterview">Continue</button>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<!-- end modal -->
+<!-- Modal -->
+<div class="modal" id="finishModal" role="dialog">
+        <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" id="instruction_heading">Start Interview - Instructions</h4>
+                        </div>
+                        <div class="modal-body" id="instruction_body">
+                                <h3>Are you sure you want to finish the interview?</h3>
+
+                                </ul>
+
+
+                        </div>
+                        <div class="modal-footer">
+                                <p style="color:green">Finish Interview</p>
+                                <button type="button" class="btn btn-warning" data-dismiss="modal"
+                                        id="finsihModalButton">Finish</button>
+                        </div>
+                </div>
+
+        </div>
+</div>
+
+</html>

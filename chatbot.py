@@ -16,23 +16,53 @@ class Chatbot():
 			self.sid=SentimentIntensityAnalyzer()
 				
 	
-	def interact(self,username=None,interviewId=None,mode=0,emotion={}):
+	def interact(self,username=None,interviewId=None,mode=0,emotion={},previousQuestion=""):
 		'''
 		mode determines where to run the chatbot on the console or the as web api
 		mode=0 web
 		mode=1 console
 		'''
 		beginInterview(username,interviewId)
-		previousQuestion="" #session
+		question=""
 		
 		if mode==0:
 			answer=input("user :")
 			question = self.kernel.respond(answer)
-			self.sentiment(answer)
-			self.textAnalysis(answer)
+			sentiment=self.sentiment(answer)
+			textAnalysis=self.textAnalysis(answer)
 			print("Bot: ",question)
 			saveInterview(interviewId,previousQuestion,answer,0.5)
 			previousQuestion=question
+			
+			q=getQuestionDetails(previousQuestion)
+			if q is not None:
+				evaluable=q.evaluable
+				keywords=list(q.keywords)
+				#print("Chatbot ",q.keywords,type(keywords))
+			else:
+				evaluable=False
+				keywords=None
+				
+			score=calculateScore(emotion=emotion,
+			sentiment=sentiment,
+			lexical=textAnalysis["Lexical"],
+			evaluable=evaluable,
+			keywords=keywords,
+			answer=answer
+			)
+			#print(score)
+			#print("Bot: ",question)
+			
+			saveInterview(interviewId,previousQuestion,answer,score=score,emotion=emotion,sentiment=sentiment,
+			textAnalysis=textAnalysis)
+			
+			response={}
+			response["question"]=question
+			response["sentiment"]=sentiment
+			response["textAnalytics"]=textAnalysis
+			response["score"]=score
+			print(response)
+
 		else:
 			while True:
 				print("=="*10)
@@ -118,15 +148,17 @@ class Chatbot():
 chatbot=Chatbot()
 chatbot.interact(username="jitendra",
 				interviewId=generateInterviewId(),
-				mode=1,
+				mode=0,
 				emotion={"neutral":random.randint(1,1000),
 				"sad":random.randint(1,100),
 				"fear":random.randint(1,100),
 				"disgust":random.randint(1,100),
 				"anger":random.randint(1,100),
 				"happy":random.randint(1,500),
-				"suprise":random.randint(1,100)}
+				"suprise":random.randint(1,100)
+				},
+				previousQuestion="Mention some commonly used Docker command?"
 )
 
 
-
+#answer=microservicesis cloud is docker is ps is pull 
