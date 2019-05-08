@@ -16,28 +16,29 @@ class Chatbot():
 			self.sid=SentimentIntensityAnalyzer()
 				
 	
-	def interact(self,username=None,interviewId=None,mode=0,emotion={},previousQuestion=""):
+	def interact(self,username=None,interviewId=None,answer=None,mode=0,emotion={},previousQuestion=""):
 		'''
 		mode determines where to run the chatbot on the console or the as web api
 		mode=0 web
 		mode=1 console
 		'''
-		beginInterview(username,interviewId)
-		question=""
-		
+		#beginInterview(username,interviewId)
+		#question=""
+		print(emotion)
 		if mode==0:
-			answer=input("user :")
+			#answer=input("user :")
 			question = self.kernel.respond(answer)
 			sentiment=self.sentiment(answer)
 			textAnalysis=self.textAnalysis(answer)
-			print("Bot: ",question)
-			saveInterview(interviewId,previousQuestion,answer,0.5)
-			previousQuestion=question
+			#print("Bot: ",question)
+			#saveInterview(interviewId,previousQuestion,answer,0.5)
+			#previousQuestion=question
 			
 			q=getQuestionDetails(previousQuestion)
 			if q is not None:
 				evaluable=q.evaluable
 				keywords=list(q.keywords)
+				print(q.question)
 				#print("Chatbot ",q.keywords,type(keywords))
 			else:
 				evaluable=False
@@ -61,7 +62,10 @@ class Chatbot():
 			response["sentiment"]=sentiment
 			response["textAnalytics"]=textAnalysis
 			response["score"]=score
-			print(response)
+			response["previousQuestion"]=previousQuestion
+			response["answer"]=answer
+			#print(response)
+			return response
 
 		else:
 			while True:
@@ -145,7 +149,9 @@ class Chatbot():
 		
 
 
-chatbot=Chatbot()
+#chatbot=Chatbot()
+
+'''
 chatbot.interact(username="jitendra",
 				interviewId=generateInterviewId(),
 				mode=0,
@@ -159,6 +165,6 @@ chatbot.interact(username="jitendra",
 				},
 				previousQuestion="Mention some commonly used Docker command?"
 )
-
+'''
 
 #answer=microservicesis cloud is docker is ps is pull 

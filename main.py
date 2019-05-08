@@ -11,12 +11,11 @@ from passlib.hash import sha256_crypt
 from chartGenerators import generateChartsForPDF
 from score import calculateScore
 from db import *
-
+from chatbot import Chatbot
 
 engine=create_engine("mysql+pymysql://root:root@localhost/register") 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
-
 def load_kern(forcereload):
 	if os.path.isfile("bot_brain.brn") and not forcereload:
 		kernel.bootstrap(brainFile= "bot_brain.brn")
@@ -63,7 +62,6 @@ def register():
 				return render_template('register.html')
 		return render_template("register.html")
 
-
 @app.route("/login",methods=["GET","POST"])
 def login():
 	if 'log' in session:
@@ -100,6 +98,7 @@ def logout():
 	else:
 		flash("For logging out you need to login first","danger")
 		return redirect(url_for("index"))
+
 @app.route("/ppt")
 def ppt():
 	return render_template("ppt.html")
@@ -109,6 +108,7 @@ def ppt():
 def chatbot():
 	if 'log' in session:
 		session["InterviewId"]=generateInterviewId()
+		session["previousQuestion"]=""
 		return render_template('beginInterview.html',username=session["username"],interviewid=session["InterviewId"]) #chatbot.html
 	return render_template('notallowed.html')
 
@@ -116,16 +116,32 @@ def chatbot():
 @app.route("/interview",methods=["POST"])
 def interview():
 	if 'log' in session:
-		#beginInterview(session["username"],session["InterviewId"])
+		beginInterview(session["username"],session["InterviewId"])
+		
 		return render_template('interview.html')
 	return render_template('notallowed.html')
 	
+@app.route("/interact",methods=["POST"])
+def interact():
+
+	answer=str(request.form['messageText'])
+	emotion=json.loads(request.form['escore'])
+	chatbot=Chatbot()
+	response=chatbot.interact(username=session["username"],
+				interviewId=session["InterviewId"],
+				answer=answer,
+				mode=0,
+				emotion=emotion,
+				previousQuestion=session["previousQuestion"])
+	session["previousQuestion"]=response["question"]
+	print(response)
+	return jsonify(response)
 
 #route for chatbot
-asked=[]
 @app.route("/ask", methods=['POST','GET'])
 def ask():
 	print("Hello")
+	print(str(request.form))
 	message = str(request.form['messageText'])
 	print(request.form['escore'])
 	print(message)
@@ -160,8 +176,9 @@ def sentiments():
 		else:
 			sentiment='Neutral'
 		
-		sentiments={'sentiment_positive':scores['pos'],'sentiment_negative':scores['neg'],
-'sentiment_neutral':scores['neu']}
+		sentiments={'sentiment_positive':scores['pos'],
+		'sentiment_negative':scores['neg'],
+		'sentiment_neutral':scores['neu']}
 		#score=calculateScore(emotion,sentiments)
 		return jsonify({'status':'OK','sentiment_positive':scores['pos'],
 	'sentiment_negative':scores['neg'],
@@ -228,4 +245,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 	app.secret_key="interviewbot"
-	app.run(debug=True,port=12223,host="localhost")
+	app.run(debug=True,port=12224,host="localhost")
