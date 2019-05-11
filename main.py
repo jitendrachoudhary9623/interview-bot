@@ -12,7 +12,7 @@ from chartGenerators import generateChartsForPDF
 from score import calculateScore
 from db import *
 from chatbot import Chatbot
-from Auth import User
+from Auth import *
 #engine=create_engine("mysql+pymysql://root:root@localhost/register") 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
@@ -105,11 +105,24 @@ def logout():
 @app.route("/ppt")
 def ppt():
 	return render_template("ppt.html")
-
+@app.route("/subscription",methods=["POST","GET"])
+def subscription():
+	availableInterview=getAvailableInterviews(session["username"])
+	if request.method=="POST":
+		no_of_interview=request.form.get("no")
+		print(no_of_interview)
+		addInterviews(session["username"],int(no_of_interview))
+		flash("Interviews added","success")
+		return redirect(url_for("subscription"))
+	return render_template("subscription.html",available=availableInterview)
 #route for main page
 @app.route("/chatbot")
 def chatbot():
+
 	if 'log' in session:
+		if getUserDetails(session["username"]).availableInterview<1:
+			flash("Your interview Limit has been reached, get more from subscription page","danger")
+			return redirect(url_for("home"))
 		session["InterviewId"]=generateInterviewId()
 		session["previousQuestion"]=""
 		session["questionNo"]=0
@@ -121,7 +134,7 @@ def chatbot():
 def interview():
 	if 'log' in session:
 		beginInterview(session["username"],session["InterviewId"])
-
+		updateAvailableInterview(session["username"])
 		return render_template('interview.html',interviewId=session["InterviewId"])
 	return render_template('notallowed.html')
 	
@@ -257,4 +270,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 	app.secret_key="interviewbot"
-	app.run(debug=True,port=12225,host="localhost")
+	app.run(debug=True,port=12225,host="localhost",threaded=True)
