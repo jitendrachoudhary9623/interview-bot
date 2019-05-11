@@ -36,7 +36,7 @@ class Questionset(Document):
 
 		
 def getQuestionDetails(question):
-	print("Inside Question Detail")
+	#print("Inside Question Detail")
 	for q in Questionset.objects(question=question):
 		ques= QuestionDetail(q.questionId,q.questionType,q.question,q.category,q.subcategory,q.keywords,q.evaluable)
 		return ques
@@ -140,3 +140,16 @@ while True:
 		saveInterview(id1,question,answer,0.75)
 		
 '''
+def checkIfQuestionAlreadyAsked(interviewId,question):
+	#i = Interview.objects.filter(interviewId=interviewId).fields(username=1, user_response={'$elemMatch': {'question': "Tell me about an instance where you have failed and what you learned from it."}})
+	
+	#for i in Interview.objects.filter(user_response__match={'answer': "ASK QUESTION"}):
+	for i in Interview.objects(interviewId=interviewId):
+		for j in i.user_response:
+			if j.question==question:
+				return True
+
+	return False	
+
+#c=checkIfQuestionAlreadyAsked(interviewId="MGBFOX8253XVVA1",question="Give an example of a time you had to respond to an unhappy manager/ customer/ colleague/ professor/ friend.")
+#print(c)

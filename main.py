@@ -12,8 +12,8 @@ from chartGenerators import generateChartsForPDF
 from score import calculateScore
 from db import *
 from chatbot import Chatbot
-
-engine=create_engine("mysql+pymysql://root:root@localhost/register") 
+from Auth import User
+#engine=create_engine("mysql+pymysql://root:root@localhost/register") 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
 def load_kern(forcereload):
@@ -23,10 +23,10 @@ def load_kern(forcereload):
 		kernel.bootstrap(learnFiles = os.path.abspath("aiml/std-startup.xml"), commands = "load aiml b")
 		kernel.saveBrain("bot_brain.brn")
 load_kern(False)
-db=scoped_session(sessionmaker(bind=engine))
+#db=scoped_session(sessionmaker(bind=engine))
 app = Flask(__name__)
 
-
+totalQuestionToBeAsked=10
 
 
 @app.route("/")
@@ -36,7 +36,8 @@ def index():
 @app.route("/home")
 def home():
 	if 'log' in session:
-		return render_template("home.html")
+		for user in User.objects.filter(username=session["username"]):
+			return render_template("home.html",user=user)
 	abort(404)
 
 @app.route("/register",methods=["GET","POST"])
@@ -46,15 +47,20 @@ def register():
 		return redirect(url_for("home"))
 	else:
 		if request.method == "POST":
-			name=request.form.get("name")
+			email=request.form.get("email")
 			username=request.form.get("username")
 			password=request.form.get("password")
 			confirm=request.form.get("confirm")
 			secure_password=sha256_crypt.encrypt(str(password))
 			
 			if password == confirm:
-				db.execute("INSERT INTO users(name,username,password) VALUES (:name,:username,:password)",{"name":name,"username":username,"password":secure_password})
-				db.commit()
+
+				user=User(username=username,password=secure_password,email=email)
+				try:
+					user.save()
+				except:
+					flash("Username or Email Id already exists ","danger")
+					return redirect(url_for('register'))
 				flash("Registeration successfull , Please Login ","success")
 				return redirect(url_for('login'))
 			else:
@@ -68,25 +74,22 @@ def login():
 			flash("Already Logged in , To login with another account logout first","danger")
 			return render_template('home.html')
 	if request.method=="POST":
-		uname=request.form.get("username")
+		username=request.form.get("username")
 		password=request.form.get("password")
-		userdata=db.execute("SELECT username FROM users where username=:uname",{"uname":uname}).fetchone()
-		passdata=db.execute("SELECT password FROM users where username=:uname",{"uname":uname}).fetchone()
-
-		if userdata is None:
-			flash("No user found please check your username","danger")
-			return render_template("login.html")
-		else:
-			for pd in passdata:
-				if sha256_crypt.verify(password,pd):
-					session["log"]=True
-					session["username"]=userdata[0]
-					flash("Welcome back {} ".format(userdata[0]),"success")
-					return redirect(url_for("home"))
-				else:
-					flash("Wrong password","danger")
-					return render_template("login.html")
-	return render_template("login.html")
+		for user in User.objects.filter(username=username).fields(username=1,password=1):
+		
+			if sha256_crypt.verify(password,user.password):
+				session["log"]=True
+				session["username"]=user.username
+				flash("Welcome back {} ".format(user.username),"success")
+				return redirect(url_for("home"))
+			else:
+				flash("Wrong password","danger")
+				return render_template("login.html")
+		flash("No user found please check your username","danger")
+		return render_template("login.html")
+	else:	
+		return render_template("login.html")
 
 @app.route("/logout")
 def logout():
@@ -109,6 +112,7 @@ def chatbot():
 	if 'log' in session:
 		session["InterviewId"]=generateInterviewId()
 		session["previousQuestion"]=""
+		session["questionNo"]=0
 		return render_template('beginInterview.html',username=session["username"],interviewid=session["InterviewId"]) #chatbot.html
 	return render_template('notallowed.html')
 
@@ -117,8 +121,8 @@ def chatbot():
 def interview():
 	if 'log' in session:
 		beginInterview(session["username"],session["InterviewId"])
-		
-		return render_template('interview.html')
+
+		return render_template('interview.html',interviewId=session["InterviewId"])
 	return render_template('notallowed.html')
 	
 @app.route("/interact",methods=["POST"])
@@ -126,6 +130,7 @@ def interact():
 
 	answer=str(request.form['messageText'])
 	emotion=json.loads(request.form['escore'])
+	print(session["questionNo"])
 	chatbot=Chatbot()
 	response=chatbot.interact(username=session["username"],
 				interviewId=session["InterviewId"],
@@ -133,18 +138,25 @@ def interact():
 				mode=0,
 				emotion=emotion,
 				previousQuestion=session["previousQuestion"])
+	if session["questionNo"]==0:
+		response["question"]="Introduce Yourself"
+	
+	if session["questionNo"]>totalQuestionToBeAsked:
+		response["question"]="Thank you for giving the interview, you can click on finish interview for generating pdf"
 	session["previousQuestion"]=response["question"]
-	print(response)
+	session["questionNo"]=session["questionNo"]+1
+	response["questionNo"]=session["questionNo"]
+	#print(response)
 	return jsonify(response)
 
 #route for chatbot
 @app.route("/ask", methods=['POST','GET'])
 def ask():
-	print("Hello")
-	print(str(request.form))
+	#print("Hello")
+	#print(str(request.form))
 	message = str(request.form['messageText'])
-	print(request.form['escore'])
-	print(message)
+	#print(request.form['escore'])
+	#print(message)
 	if message == "save":
 			kernel.saveBrain("bot_brain.brn")
 			return jsonify({"status":"ok", "answer":"Brain Saved"})
@@ -163,10 +175,10 @@ def ask():
 #Route for sentiment analysis
 @app.route('/sentiment',methods=['POST','GET'])
 def sentiments():
-	print("sentiment")
+	#print("sentiment")
 	message = str(request.form['messageText'])
 	emotion=json.loads(request.form['escore'])
-	print(message)
+	#print(message)
 	if message != "ask question" and message !="ASK QUESTION":
 		scores = sid.polarity_scores(message)
 		if scores['compound'] > 0:
@@ -200,7 +212,7 @@ def text_analysis():
 		myText = TextAnalyser(userText, language)
 		myText.preprocessText(lowercase = userText,removeStopWords = userText,stemming = stemmingType)
 		if myText.uniqueTokens() == 0:
-		   		uniqueTokensText = 1
+				uniqueTokensText = 1
 		else:
 			uniqueTokensText = myText.uniqueTokens()
 		#print('calls text analysis'+userText)
@@ -245,4 +257,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 	app.secret_key="interviewbot"
-	app.run(debug=True,port=12224,host="localhost")
+	app.run(debug=True,port=12225,host="localhost")

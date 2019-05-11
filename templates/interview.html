@@ -37,29 +37,34 @@
 </head>
 
 <body>
-
         <div class="d-flex" id="wrapper">
 
                 <!-- Sidebar -->
-                <div class="border-right" id="sidebar-wrapper">
+                <div class="border-right shadow-sm" id="sidebar-wrapper">
                         <div class="sidebar-heading">Interview Bot</div>
                         <div class="list-group list-group-flush">
-                                <a href="#" class="list-group-item list-group-item-action">
-                                        <button class="btn btn-success" id="startInterviewButton"><i class="fa fa-play"
-                                                        aria-hidden="true"></i> Start
-                                                Interview</button>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action">
-                                        <i class="fa fa-stop" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Finish Interview
-                                </a>
+                                <button class=" btn sidebar_button " id="startInterviewButton"><i class="fa fa-play"
+                                                aria-hidden="true"></i>
+                                        Start Interview
+                                </button>
+                                <button class="btn sidebar_button" id="finishInterviewButton">
+                                        <i class="fa fa-stop" aria-hidden="true"></i>
+                                        Finish Interview
+                                </button>
                                 <form enctype='application/json' id="finishForm" action="/generate" method="post">
                                         <input type="text" id="data" name="data" value="data" hidden />
                                         <input type="text" id="iTime" name="iTime" value="hidden value" hidden />
                                 </form>
 
-                                <a href="#" class="list-group-item list-group-item-action">
-                                        <button class="btn btn-info" id="fullScreenMode"> Go Full Screen </button></a>
+                                <button class="btn sidebar_button" id="fullScreenMode">
+                                        <i class="fas fa-compress"></i>
+                                        Go Full Screen </button>
 
+                                <button class=" btn sidebar_button border-right" id="helpTab" style="margin-top:50vh;">
+                                        <i class="fas fa-info-circle" aria-hidden="true"></i> Help</button>
+
+                                <button class="  btn btn-info border-right" id="helpTab" style="">
+                                        <i class="fas fa-cogs"></i> Settings</button>
                         </div>
                 </div>
                 <!-- /#sidebar-wrapper -->
@@ -67,7 +72,8 @@
                 <!-- Page Content -->
                 <div id="page-content-wrapper">
 
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                        <nav
+                                class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow p-3 mb-5 bg-white rounded">
                                 <!--   <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -76,34 +82,46 @@
                                         <span class="navbar-toggler-icon"></span>
                                 </button>
 -->
+                                <a style="color:#6729a9;font-size:24px"><i class="fas fa-bars"></i></a>
+                                &nbsp;&nbsp;<span class="font-weight-bolder">{{interviewId}}</span>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                                <li class="nav-item active">
-                                                        <a class="nav-link" href="#">Home <span
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="/">Home <span
                                                                         class="sr-only">(current)</span></a>
                                                 </li>
                                                 <li class="nav-item">
-                                                        <a class="nav-link" href="#">Link</a>
+                                                        <a class="nav-link" href="/home">Dashboard <span
+                                                                        class="sr-only">(current)</span></a>
                                                 </li>
+                                                <li class="nav-item active">
+                                                        <a class="nav-link" href="/chatbot">Mock Interview <span
+                                                                        class="sr-only">(current)</span></a>
+                                                </li>
+
                                                 <li class="nav-item dropdown">
                                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                                                 role="button" data-toggle="dropdown"
                                                                 aria-haspopup="true" aria-expanded="false">
-                                                                Dropdown
+                                                                User Settings
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right"
                                                                 aria-labelledby="navbarDropdown">
-                                                                <a class="dropdown-item" href="#">Action</a>
-                                                                <a class="dropdown-item" href="#">Another action</a>
+                                                                <a class="dropdown-item" href="#">Profile</a>
                                                                 <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">Something else
-                                                                        here</a>
+                                                                <a class="dropdown-item" href="#">Subscription</a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a class="dropdown-item" href="/logout">Logout</a>
+                                                                <!--<div class="dropdown-divider"></div>
+                                                                <a class="dropdown-item" href="#">
+                                                                        Practise for the interviews
+                                                                </a>
+                                                                -->
                                                         </div>
                                                 </li>
                                         </ul>
                                 </div>
                         </nav>
-                        <br />
                         <div class="container-fluid">
 
                                 <div class="row" style="min-height: 100vh">
@@ -111,6 +129,7 @@
 
                                                 <video onplay="onPlay(this)" id="inputVideo" autoplay muted
                                                         style="border-radius:30px;"></video>
+                                                <br />
                                                 <audio id="myAudio" class="video-js" autoplay muted></audio>
                                                 <br />
                                                 <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -118,8 +137,9 @@
                                                                 <div class="row">
                                                                         <div class="col-md-3 font-weight-bold">Score
                                                                         </div>
-                                                                        <div class="col-md-9" id="answer_score">
-
+                                                                        <div class="col-md-9">
+                                                                                <input disabled value="-" type="text"
+                                                                                        id="answer_score">
                                                                         </div>
                                                                 </div>
                                                                 <br />
@@ -127,7 +147,6 @@
                                                                         <div class="col-md-3 font-weight-bold"> Previous
                                                                                 Question</div>
                                                                         <div class="col-md-9" id="previous_question">
-
                                                                         </div>
 
                                                                 </div>
@@ -136,7 +155,6 @@
                                                                         <div class="col-md-3 font-weight-bold">Your
                                                                                 Answer</div>
                                                                         <div class="col-md-9" id="previous_answer">
-
                                                                         </div>
 
                                                                 </div>
@@ -163,7 +181,7 @@
                                                                 <!--chat option -->
                                                                 <form method="post" id="chatbot-form"
                                                                         autocomplete="off">
-                                                                        <textarea class="form-control" rows="5"
+                                                                        <textarea class="form-control" rows="3"
                                                                                 placeholder="Enter Message"
                                                                                 name="messageText" id="messageText"
                                                                                 autofocus disabled
@@ -202,35 +220,47 @@
                                         </div>
 
                                         <div class="col-md-4">
-                                                <button class="btn btn-danger" id="timerText"> 0 secs </button>
+                                                <div class="card shadow p-3 mb-5 bg-white rounded">
+                                                        <button class="btn btn-danger" id="timerText"> 0 secs </button>
 
-                                                <canvas id="myChart" width="400" height="170"></canvas>
-                                                <canvas id="myChart2" width="400" height="200"></canvas>
-                                                <canvas id="freqChart" width="300" height="110"></canvas>
-                                                <div class="card card-body">
+                                                        <input disabled value="-" id="questionNo" type="text"
+                                                                class="btn btn-info">
+                                                </div>
 
-                                                        <div class="row">
-                                                                <div class="col-md-6">
+                                                <div class="card shadow p-3 mb-5 bg-white rounded"
+                                                        style="margin-left:3%;">
+                                                        <canvas id="myChart" width="400" height="170"></canvas>
+                                                        <canvas id="myChart2" width="400" height="200"></canvas>
+                                                        <canvas id="freqChart" width="300" height="110"></canvas>
+
+                                                </div>
+                                                <div class="card card-body shadow p-3 mb-5 bg-white rounded"
+                                                        style="margin:2%;">
+
+                                                        <div class="row" style="margin:2%;">
+                                                                <div class="col-md-12" style="margin:2%">
                                                                         <label for="fps">Estimated Fps:</label>
-                                                                        <input disabled value="-" id="fps" type="text"
-                                                                                class="bold">
+                                                                        <input disabled value="-" id="fps" type="text">
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                        <label for="confidenceS">Confidence : </label>
+                                                                <!--
+                                                                <div class="col-md-3" style="margin:2%">
+                                                                        <label for="0.08 seconfidenceS">Confidence :
+                                                                        </label>
                                                                         <input disabled value="-" id="confidenceS"
-                                                                                type="text" class="bold">
+                                                                                type="text">
                                                                 </div>
-
+                                                                -->
                                                         </div>
 
-                                                        <div class="row">
+                                                        <div class="row" style="margin:2%">
+                                                                <!--
                                                                 <div class="col-md-6">
                                                                         <label for="nos">Total unique words</label>
                                                                         <input disabled value="-" id="nos" type="text"
                                                                                 class="bold">
                                                                 </div>
-
-                                                                <div class="col-md-6">
+                                                                -->
+                                                                <div class="col-md-12" style="margin:2%;">
                                                                         <label for="ld">Lexical Diversity:</label>
                                                                         <input disabled value="-" id="ld" type="text"
                                                                                 class="bold">
@@ -255,11 +285,22 @@
 <style>
         body {
                 overflow-x: hidden;
+                background-color: #e5e0ff;
+        }
+
+        .sidebar_button {
+                color: white;
+                margin-top: 1%;
+                background-color: #3e1b87;
+        }
+
+        .sidebar_button::hover {
+                color: white;
+                background-color: #c143ed;
         }
 
         #sidebar-wrapper {
-                background-image: linear-gradient(to left bottom, #461f78, #502987, #5a3497, #653ea7, #6f49b7, #7d4fc3, #8b56cf, #9a5cdb, #b25ee5, #ca5fed, #e260f5, #fb5ffb);
-                color: white;
+                background-color: white;
                 min-height: 100vh;
                 margin-left: -5rem;
                 -webkit-transition: margin .25s ease-out;
@@ -271,10 +312,13 @@
         #sidebar-wrapper .sidebar-heading {
                 padding: 0.875rem 1.25rem;
                 font-size: 1.2rem;
+                font-weight: bolder;
         }
 
         #sidebar-wrapper .list-group {
-                width: 10rem;
+                width: 8rem;
+                margin-left: 6vh;
+
         }
 
         #page-content-wrapper {
@@ -649,13 +693,13 @@
                         const chatPanel = document.getElementById("chatPanel");
                         setTimeout(
                                 chatbotInstruction(
-                                        "Hello , I am a interview bot whose task is to ask you interview Questions.To start interview speak START INTERVIEW and submit your response."
+                                        "Hello , I am a interview bot whose task is to ask you interview Questions.You would be graded based on answer you provide , the sentiment of the answer and emotions while giving answer."
                                 ),
                                 1500
                         );
                         setTimeout(
                                 chatbotInstruction(
-                                        "You would be asked to tell your name , please speak in the following format.. My name is XYZ..if bot is not asking you any question please speak NEXT QUESTION..."
+                                        "To start interview speak START INTERVIEW and submit your response."
                                 ),
                                 2000
                         );
@@ -767,74 +811,68 @@
                                         data: $(this).serialize(),
                                         success: function (response) {
                                                 //$('#messageText').val('');
-                                                console.log(response);
-                                                var answer = response.question.toUpperCase();
-                                                previousQuestion = answer;
-                                                $("#answer_score").text(response.score);
-                                                $("#previous_question").text(response.previousQuestion)
-                                                $("#previous_answer").text(response.answer);
-                                                textAnalysis(response.textAnalytics);
-                                                sentimentAnalysis(response.sentiment);
-
-                                                //console.log(answer);
-                                                if (questionlist.includes(answer)) {
-                                                        //console.log(questionlist)
-                                                        //console.log("Already asked");
-                                                        $("#messageText").val("ASK QUESTION");
-                                                        e.preventDefault();
-                                                        $("#chatbot-form").submit();
-                                                } //re ask
-                                                else {
-                                                        //console.log("new 1");
-                                                        questionlist.push(answer);
-                                                        const chatPanel = document.getElementById("chatPanel");
-                                                        $(".media-list").append(
-                                                                '<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' +
-                                                                answer +
-                                                                "</div></div></div></li>"
-                                                        );
-                                                        $(".fixed-panel")
-                                                                .stop()
-                                                                .animate({ scrollTop: $(".fixed-panel")[0].scrollHeight }, 1000);
-                                                        userTranscript.transcript.push("IBot: " + answer);
-                                                        msg.text = "";
-                                                        msg.text = answer;
-                                                        speechSynthesis.speak(msg);
+                                                if (response.questionNo < 12) {
+                                                        console.log(response);
+                                                        var answer = response.question.toUpperCase();
+                                                        previousQuestion = answer;
+                                                        $("#answer_score").val(response.score);
+                                                        $("#previous_question").text(response.previousQuestion)
+                                                        $("#previous_answer").text(response.answer);
+                                                        textAnalysis(response.textAnalytics);
+                                                        sentimentAnalysis(response.sentiment);
+                                                        $("#questionNo").val("Question No. " + response.questionNo);
                                                 }
+                                                else {
+                                                        $("#chatbot-form-btn-clear-input").prop("disabled", true);
+                                                        $("#chatbot-form-btn").prop("disabled", true);
+                                                        $("#chatbot-form-btn-voice").prop("disabled", true);
+                                                        $("#chatbot-form-btn-clear").prop("disabled", true);
+                                                        $("#finishInterviewButton").prop("disabled", false);
+                                                        $("#finishInterviewButton").css("background-color", "red");
+                                                        $("#startInterviewButton").prop("disabled", true);
+                                                        $("#messageText").prop("disabled", true);
+                                                        var answer = response.question.toUpperCase();
+                                                        previousQuestion = answer;
+                                                        $("#answer_score").val(response.score);
+                                                        $("#previous_question").text(response.previousQuestion)
+                                                        $("#previous_answer").text(response.answer);
+                                                        textAnalysis(response.textAnalytics);
+                                                        sentimentAnalysis(response.sentiment);
+                                                        $("#questionNo").val("Question No. " + response.questionNo);
+                                                }
+                                                /*
+                                                                                                //console.log(answer);
+                                                                                                if (questionlist.includes(answer)) {
+                                                                                                        //console.log(questionlist)
+                                                                                                        //console.log("Already asked");
+                                                                                                        $("#messageText").val("ASK QUESTION");
+                                                                                                        e.preventDefault();
+                                                                                                        $("#chatbot-form").submit();
+                                                                                                } //re ask
+                                                                                                else {*/
+                                                //console.log("new 1");
+                                                questionlist.push(answer);
+                                                const chatPanel = document.getElementById("chatPanel");
+                                                $(".media-list").append(
+                                                        '<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' +
+                                                        answer +
+                                                        "</div></div></div></li>"
+                                                );
+                                                $(".fixed-panel")
+                                                        .stop()
+                                                        .animate({ scrollTop: $(".fixed-panel")[0].scrollHeight }, 1000);
+                                                userTranscript.transcript.push("IBot: " + answer);
+                                                msg.text = "";
+                                                msg.text = answer;
+                                                speechSynthesis.speak(msg);
+                                                // }
                                         },
                                         error: function (error) {
                                                 console.log(error);
                                         }
                                 }); //end ajax
-                        } else {
-                                //end if start else
-
-                                $(".media-list").append(
-                                        '<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' +
-                                        "Please give detailed answer " +
-                                        "</div></div></div></li>"
-                                );
-                                $(".media-list").append(
-                                        '<li class="media"><div class="media-body"><div class="media"><div class="media-body chat-bot">' +
-                                        previousQuestion +
-                                        "</div></div></div></li>"
-                                );
-                                var answer =
-                                        "Please provide a detailed answer to the question. This is very important";
-                                $(".fixed-panel")
-                                        .stop()
-                                        .animate({ scrollTop: $(".fixed-panel")[0].scrollHeight }, 1000);
-                                msg.text = "";
-                                var answer_check = previousQuestion.split(".");
-                                msg.text = answer + ". \n" + answer_check.pop();
-                                userTranscript.transcript.push("IBot: " + answer);
-                                speechSynthesis.speak(msg);
                         }
 
-                        if (message.indexOf("ASK QUESTION") == -1) {
-
-
-                        }
                 });
         }); //end onload
 
@@ -911,9 +949,10 @@
                         },
                         options: {
                                 animation: { duration: 0 },
-                                legend: { display: false },
+                                legend: { display: true },
                                 title: {
-                                        display: true
+                                        display: true,
+                                        text: "Text Analysis : Most Frequent Words",
                                 }
                         }
                 });

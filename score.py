@@ -6,22 +6,26 @@ from nltk.tokenize import word_tokenize
 stop_words = set(stopwords.words('english')) 
  
 def minMaxScaler(array):
-	minimum=min(array)
-	maximum=max(array)
-	scaled=[]
-	for elem in array:
-		scaled.append((elem-minimum)/(maximum-minimum))
-	return np.asarray(scaled)
+	try:
+		minimum=min(array)
+		maximum=max(array)
+		scaled=[]
+		for elem in array:
+			scaled.append((elem-minimum)/(maximum-minimum))
+		return np.asarray(scaled)
+	except:
+		return np.asarray([0.,0.,0.,0.,0.,0.,0.,])
 	
 def emotionScore(emotion,scalingFactor):
 	#print(evaluable)
 	emo={"neutral":120,"sad":0,"fear":12,"disgust":0,"anger":10,"happy":70,"suprise":20}
 	emotion_multiplier=np.asarray([1,-0.35,-0.35,-1.4,-1.4,1.4,-0.35])
 	scaled=minMaxScaler(emotion.values())
+	#print("scaled",scaled)
 	#print("SCACLING FACTOR IS ",scalingFactor)
 	score=sum(emotion_multiplier*scaled)*scalingFactor
-	#print("Emotion",score)
-	return score/2
+	print("Emotion",score)
+	return score
 
 
 def sentimentScore(sentiment,scalingFactor):
@@ -72,8 +76,11 @@ def calculateScore(emotion,sentiment,lexical,evaluable=False,keywords=None,answe
 	#print("lexical",l)
 	#score=(s+e)/2
 	score=s+e+l+keyword_score
-	print("actual score ",score)
+	score=score*100
+	#print("actual score ",score)
 
+	if score>100:
+		score=100-random.randint(1,5)
 	if score > 0:
 		return score
 	return -score

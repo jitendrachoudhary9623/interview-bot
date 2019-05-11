@@ -24,10 +24,24 @@ class Chatbot():
 		'''
 		#beginInterview(username,interviewId)
 		#question=""
-		print(emotion)
+		#print(emotion)
 		if mode==0:
 			#answer=input("user :")
-			question = self.kernel.respond(answer)
+			notasked=True
+			times=0
+			question=""
+			while notasked:
+				if times<5:
+					question = self.kernel.respond(answer)
+
+					notasked=checkIfQuestionAlreadyAsked(interviewId,question)
+					times=times+1
+				else:
+					break
+			if times==5:
+				question=self.kernel.respond("ASK QUESTION")
+				print(question)
+
 			sentiment=self.sentiment(answer)
 			textAnalysis=self.textAnalysis(answer)
 			#print("Bot: ",question)
@@ -38,7 +52,8 @@ class Chatbot():
 			if q is not None:
 				evaluable=q.evaluable
 				keywords=list(q.keywords)
-				print(q.question)
+				#print(keywords)
+				#print(q.question)
 				#print("Chatbot ",q.keywords,type(keywords))
 			else:
 				evaluable=False
