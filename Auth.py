@@ -8,6 +8,7 @@ class User(Document):
     created = DateTimeField(default=datetime.utcnow())
     availableInterview=IntField(default=5)
     totalInterviews=IntField(default=0)
+    reportPaths=ListField()
 
 def updateAvailableInterview(username):
     User.objects(username=username).update(dec__availableInterview=1)
@@ -16,6 +17,11 @@ def updateAvailableInterview(username):
 def addInterviews(username,no):
     User.objects(username=username).update(inc__availableInterview=no)
 
+def addReportPath(username,reportname):
+    user = User.objects(username=username).get()
+    print(user.username)
+    user.reportPaths.append(reportname)
+    user.save()
 def getUserDetails(username):
     for user in User.objects(username=username):
         return user

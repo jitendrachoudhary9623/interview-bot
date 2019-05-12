@@ -1,6 +1,9 @@
-Flask==0.12.2
-SQLAlchemy==1.1.13
+mongoengine==0.17.0
+matplotlib==3.0.3
 pdfkit==0.6.1
-nltk==3.2.4
 passlib==1.7.1
-python-aiml==0.9.1
+nltk==3.4
+Flask==1.0.2
+numpy==1.16.2
+beautifulsoup4==4.7.1
+pdfminer==20140328

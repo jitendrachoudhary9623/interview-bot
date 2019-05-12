@@ -2,46 +2,6 @@
 <aiml>
 
 <category>
-<pattern>START INTERVIEW</pattern>
-<template>OK LET'S START THE INTERVIEW.<br/>
-<srai>STEP1</srai>
-</template>
-</category>
-
-<category>
-<pattern>STEP1</pattern>
-<template>What is your name ?</template>
-</category>
-
-<category>
-<pattern>MY NAME IS *</pattern>
-<template><srai>NAME1 <star/></srai></template>
-</category>
-
-<category>
-<pattern>I AM *</pattern>
-<template><srai>NAME1 <star/></srai></template>
-</category>
-
-<category>
-<pattern>NAME1 *</pattern>
-<template>
-<set name="USERNAME"><star index="1"/></set>!!<br /> 
-Oh! Nice to meet you <get name="USERNAME"></get>.<br/>.
-This is your dream company. And you have cleared all the previous rounds.  
-So lets get started.
-<srai>INTRO</srai>
-</template>
-</category>
-
-<category>
-<pattern>INTRO</pattern>
-<template><get name="USERNAME"></get> Introduce yourself?</template>
-</category>
-
-
-
-<category>
 <pattern>ASK QUESTION</pattern>
 <template>
 <random>

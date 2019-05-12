@@ -33,3 +33,6 @@ def generateChartForSentiment(sentiments,username):
     plt.yticks(n, sentiment_labels)
     plt.savefig('{}/Plots/{}'.format(os.getcwd(),schartname))
     return '{}/Plots/{}'.format(os.getcwd(),schartname)
+
+def getTimeStamp():
+    return time.time()

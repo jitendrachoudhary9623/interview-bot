@@ -99,7 +99,7 @@ def beginInterview(username,interviewId):
 	#user=Interview(username=username,interviewId=interviewId)
 	#user.user_response=[InterviewEvaluation(question="",answer="start interview")]	
 	#user.save()
-	user = Interview.objects(interviewId=interviewId).modify(upsert=True, new=True, set__username=username)
+	user = Interview.objects(interviewId=interviewId).modify(upsert=True, new=True, set__username=username,set__created=datetime.utcnow())
 
 def saveInterview(interviewId,question,answer,score,sentiment=None,emotion=None,textAnalysis=None):
 	time=datetime.timestamp(datetime.now())
@@ -120,26 +120,9 @@ def generateInterviewId():
 		if(len(check)==0):
 			return interviewId
 
-		
-#addQuestions()
-'''
-print("Hello")
-username=input("enter username\n")
-id1=input("enter interviewId\n")
+def getAllInterviewsOfUser(username):
+	return Interview.objects(username=username)		
 
-while True:
-	print("1.Create Interview")
-	print("2.Add Responses")
-	resp=int(input("Enter your choice\n"))
-	if resp==1:
-		print("1")
-		beginInterview(username,id1)
-	elif resp==2:
-		question=input("Enter Question\n")
-		answer=input("Enter Answer\n")
-		saveInterview(id1,question,answer,0.75)
-		
-'''
 def checkIfQuestionAlreadyAsked(interviewId,question):
 	#i = Interview.objects.filter(interviewId=interviewId).fields(username=1, user_response={'$elemMatch': {'question': "Tell me about an instance where you have failed and what you learned from it."}})
 	

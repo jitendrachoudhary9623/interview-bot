@@ -4,16 +4,15 @@ import os
 from nlp import TextAnalyser
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pdfkit
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session,sessionmaker
 import json
 from passlib.hash import sha256_crypt
-from chartGenerators import generateChartsForPDF
+from chartGenerators import generateChartsForPDF,getTimeStamp
 from score import calculateScore
 from db import *
 from chatbot import Chatbot
 from Auth import *
-#engine=create_engine("mysql+pymysql://root:root@localhost/register") 
+import threading
+
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
 def load_kern(forcereload):
@@ -162,104 +161,42 @@ def interact():
 	#print(response)
 	return jsonify(response)
 
-#route for chatbot
-@app.route("/ask", methods=['POST','GET'])
-def ask():
-	#print("Hello")
-	#print(str(request.form))
-	message = str(request.form['messageText'])
-	#print(request.form['escore'])
-	#print(message)
-	if message == "save":
-			kernel.saveBrain("bot_brain.brn")
-			return jsonify({"status":"ok", "answer":"Brain Saved"})
-	elif message == "reload":
-		load_kern(True)
-		return jsonify({"status":"ok", "answer":"Brain Reloaded"})
-	elif message == "quit":
-		exit()
-		return jsonify({"status":"ok", "answer":"exit Thank You"})
-	else:
-		bot_response = kernel.respond(message)
-		if bot_response=="":
-			bot_response=kernel.respond("NEXT QUESTION")
-		return jsonify({'status':'OK','answer':bot_response})
 
-#Route for sentiment analysis
-@app.route('/sentiment',methods=['POST','GET'])
-def sentiments():
-	#print("sentiment")
-	message = str(request.form['messageText'])
-	emotion=json.loads(request.form['escore'])
-	#print(message)
-	if message != "ask question" and message !="ASK QUESTION":
-		scores = sid.polarity_scores(message)
-		if scores['compound'] > 0:
-			sentiment='Positive'
-		elif scores['compound']< 0:
-			sentiment='Negative'
-		else:
-			sentiment='Neutral'
-		
-		sentiments={'sentiment_positive':scores['pos'],
-		'sentiment_negative':scores['neg'],
-		'sentiment_neutral':scores['neu']}
-		#score=calculateScore(emotion,sentiments)
-		return jsonify({'status':'OK','sentiment_positive':scores['pos'],
-	'sentiment_negative':scores['neg'],
-	'sentiment_neutral':scores['neu'],
-	'overall_sentiment':sentiment,
-	'score':0})	
-	else:
-		return jsonify({'status':'NOT PK'})		
-
-#route for text analysis
-@app.route('/textAnalysis',methods=['POST','GET'])
-def text_analysis():
-	userText = str(request.form['messageText'])
-	#print(userText)
-	
-	if userText != "ask question" and userText !="ASK QUESTION":
-		stemmingType = TextAnalyser.STEM
-		language = "EN"
-		myText = TextAnalyser(userText, language)
-		myText.preprocessText(lowercase = userText,removeStopWords = userText,stemming = stemmingType)
-		if myText.uniqueTokens() == 0:
-				uniqueTokensText = 1
-		else:
-			uniqueTokensText = myText.uniqueTokens()
-		#print('calls text analysis'+userText)
-		#print(myText.getMostCommonWords(10))
-		numChars=myText.length()
-		numSentences=myText.getSentences()
-		numTokens=myText.getTokens()
-		top=myText.getMostCommonWords(10)
-		lexical=myText.getTokens() / uniqueTokensText
-		return jsonify({'status':200,'numChars': numChars,'numSentences':myText.getSentences(),'numTokens': myText.getTokens(),'uniqueTokens':uniqueTokensText,'topwords':top,'Lexical':lexical})
-	else:
-		return jsonify({'status':500,'numChars': 0,'numSentences':0,'numTokens': 0,'uniqueTokens':0,'topwords':0,'Lexical':0})
-
+def savePdftoFile(name,data):
+	directory="Report/{}".format(session["username"])
+	if not os.path.exists(directory):
+		os.makedirs(directory)
+	f = open('{}/{}.pdf'.format(directory,name), 'w+b')
+	binary_format = bytearray(data)
+	f.write(binary_format)
+	f.close()
+	addReportPath(session["username"],'{}/{}.pdf'.format(directory,name))
 
 @app.route('/generate',methods=['POST'])
 def pdf_template():
 	if 'log' in session:
-		if request.method == 'POST':
+		if request.method == 'POST' :
 			message = str(request.form['data'])
 			message=json.loads(message)
 			echart,schart=generateChartsForPDF(message["emotion"],message["sentiment"],session["username"])
-			print(echart)
+			#print(echart)
 			rendered=render_template("pdf_template.html",transcript=message['transcript'],emotion=message["emotion"],totalDuration=message["interviewTime"],echart=echart,schart=schart)
 			pdf=pdfkit.from_string(rendered,False)#true for client sending
-			response=make_response(pdf)
-			response.headers['Content-Type']="application/pdf"
-			response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
-			return response
+			savePdftoFile("{}".format(session["InterviewId"]),pdf)
+			#response=make_response(pdf)
+			#response.headers['Content-Type']="application/pdf"
+			#response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
+			#return response
+			return render_template("interviewComplete.html")
+		
 	abort(404)
 
-@app.route("/trial")
-def trial():
-	return render_template("trial.html")
-
+@app.route("/viewReports")
+def viewReports():
+	if "log" in session:
+		userdata=getAllInterviewsOfUser(session["username"])
+		return render_template("viewAllReports.html",user=userdata)
+	abort(404)
 #error handlers
 @app.errorhandler(404)
 def error404(error):
@@ -269,5 +206,6 @@ def error404(error):
 def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
+
 	app.secret_key="interviewbot"
 	app.run(debug=True,port=12225,host="localhost",threaded=True)
