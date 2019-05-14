@@ -11,13 +11,25 @@ def generateChartsForPDF(emotions,sentiments,username):
 def generateChartForEmotions(emotions,username):
     ts = time.time()
     echartname="{}_{}_emotion.png".format(username,ts)
-    emotion_values=emotions.values()
-    emotion_names=emotions.keys()
-    
-    my_circle=plt.Circle( (0,0), 0.7, color='white')
-    plt.pie(emotion_values, labels=emotion_names, colors=["#ff5722","#827717","#6200ea","#c51162","#3f51b5","#004d40","#9e9e9e"])
-    p=plt.gcf()
-    p.gca().add_artist(my_circle)
+    emotion_values=list(emotions.values())
+    emotion_names=list(emotions.keys())
+    fig, ax = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"))
+    wedges, texts = ax.pie(emotion_values, wedgeprops=dict(width=0.5), startangle=-80)
+    bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
+    kw = dict(xycoords='data', textcoords='data', arrowprops=dict(arrowstyle="-"),bbox=bbox_props, zorder=0, va="center")
+
+    for i, p in enumerate(wedges):
+        ang = (p.theta2 - p.theta1)/2.6 + p.theta1
+        y = np.sin(np.deg2rad(ang))
+        x = np.cos(np.deg2rad(ang))
+        horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+        connectionstyle = "angle,angleA=0,angleB={}".format(ang)
+        kw["arrowprops"].update({"connectionstyle": connectionstyle})
+        ax.annotate(emotion_names[i], xy=(x, y), xytext=(1.35*np.sign(x), 1.4*y),
+                    horizontalalignment=horizontalalignment, **kw)
+
+    ax.set_title("Emotion Analysis")
+
     plt.savefig('{}/Plots/{}'.format(os.getcwd(),echartname))
     return '{}/Plots/{}'.format(os.getcwd(),echartname)
 

@@ -4,7 +4,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize 
 stop_words = set(stopwords.words('english')) 
- 
+import random
 def minMaxScaler(array):
 	try:
 		minimum=min(array)
@@ -19,12 +19,19 @@ def minMaxScaler(array):
 def emotionScore(emotion,scalingFactor):
 	#print(evaluable)
 	emo={"neutral":120,"sad":0,"fear":12,"disgust":0,"anger":10,"happy":70,"suprise":20}
-	emotion_multiplier=np.asarray([1,-0.35,-0.35,-1.4,-1.4,1.4,-0.35])
+	emotion_multiplier=np.asarray([1.4,-0.35,-0.35,-1.4,-1.4,1.4,-0.35])
 	scaled=minMaxScaler(emotion.values())
 	#print("scaled",scaled)
 	#print("SCACLING FACTOR IS ",scalingFactor)
 	score=sum(emotion_multiplier*scaled)*scalingFactor
+	if score<0.1:
+		score=score*10
+	elif score>1:
+		score=0.5
+	elif score<-1:
+		score=0.5
 	print("Emotion",score)
+
 	return score
 
 
@@ -33,7 +40,7 @@ def sentimentScore(sentiment,scalingFactor):
 	sentiment_multilier=[3,1.9,0.9]
 	s=np.asarray(list(sentiment.values()))*np.asarray(sentiment_multilier)
 	score=(sum(s)/3)
-	#print("Sentiment",score)
+	print("Sentiment",score)
 	return score*scalingFactor
 
 def keywordsMatch(answer,keywords):
@@ -79,8 +86,11 @@ def calculateScore(emotion,sentiment,lexical,evaluable=False,keywords=None,answe
 	score=score*100
 	#print("actual score ",score)
 
-	if score>100:
+	print("final",score)
+	if int(score) >100:
 		score=100-random.randint(1,5)
 	if score > 0:
 		return score
+	
+	print(score)
 	return -score

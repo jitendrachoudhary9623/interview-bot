@@ -12,6 +12,11 @@ from db import *
 from chatbot import Chatbot
 from Auth import *
 import threading
+from flask import send_from_directory
+from bokeh.embed import components
+from bokeh.plotting import figure,show
+from bokeh.resources import INLINE
+from bokeh.util.string import encode_utf8
 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
@@ -142,7 +147,7 @@ def interact():
 
 	answer=str(request.form['messageText'])
 	emotion=json.loads(request.form['escore'])
-	print(session["questionNo"])
+	#print(session["questionNo"])
 	chatbot=Chatbot()
 	response=chatbot.interact(username=session["username"],
 				interviewId=session["InterviewId"],
@@ -172,31 +177,51 @@ def savePdftoFile(name,data):
 	f.close()
 	addReportPath(session["username"],'{}/{}.pdf'.format(directory,name))
 
-@app.route('/generate',methods=['POST'])
+@app.route('/generate',methods=['POST','GET'])
 def pdf_template():
 	if 'log' in session:
-		if request.method == 'POST' :
-			message = str(request.form['data'])
-			message=json.loads(message)
-			echart,schart=generateChartsForPDF(message["emotion"],message["sentiment"],session["username"])
-			#print(echart)
-			rendered=render_template("pdf_template.html",transcript=message['transcript'],emotion=message["emotion"],totalDuration=message["interviewTime"],echart=echart,schart=schart)
+		if request.method == 'POST'  :
+			#message = str(request.form['data'])
+			#message=json.loads(message)
+			icon="{}/static/images/icon.png".format(os.getcwd())
+			response=getUserResponse(session["InterviewId"])
+			echart,schart=generateChartsForPDF(response["totalEmotion"],response["totalSentiment"],session["username"])
+			rendered=render_template("pdf_template.html",icon=icon,user=response,echart=echart,schart=schart)
 			pdf=pdfkit.from_string(rendered,False)#true for client sending
 			savePdftoFile("{}".format(session["InterviewId"]),pdf)
-			#response=make_response(pdf)
-			#response.headers['Content-Type']="application/pdf"
-			#response.headers['Content-Disposition']="inline; filename=output.pdf" #change to attachment
-			#return response
+
 			return render_template("interviewComplete.html")
 		
 	abort(404)
 
-@app.route("/viewReports")
-def viewReports():
+@app.route("/viewInterview")
+def viewInterviews():
 	if "log" in session:
 		userdata=getAllInterviewsOfUser(session["username"])
-		return render_template("viewAllReports.html",user=userdata)
+		for user in User.objects.filter(username=session["username"]):
+			return render_template("viewAllInterview.html",user=userdata,info=user)
 	abort(404)
+
+@app.route("/viewReport")
+def viewReport():
+	if "log" in session:
+		for user in User.objects.filter(username=session["username"]):
+			return render_template("viewReports.html",user=user)
+	abort(404)
+
+@app.route('/uploaded_file/<filename>', methods=["GET", "POST"])
+def uploaded_file(filename):
+	afile = session["username"]+"/"+filename
+	return send_from_directory(os.path.join("Report", session["username"]),
+							filename)
+
+@app.route("/profile",methods=["GET","POST"])
+def profile():
+	if "log" in session:
+		for user in User.objects.filter(username=session["username"]):
+			return render_template("profile.html",user=user)
+	abort(404)
+
 #error handlers
 @app.errorhandler(404)
 def error404(error):
@@ -208,4 +233,4 @@ def error405(error):
 if __name__ == "__main__":
 
 	app.secret_key="interviewbot"
-	app.run(debug=True,port=12225,host="localhost",threaded=True)
+	app.run(debug=True,port=12226,host="localhost",threaded=True)

@@ -89,7 +89,7 @@
       </div>
 
       <div class="list-group list-group-flush">
-        <a class=" btn sidebar_button " href=""><i class="fa fa-user" aria-hidden="true"></i>
+        <a class=" btn sidebar_button " href="/profile"><i class="fa fa-user" aria-hidden="true"></i>
           Profile
         </a>
         <a class="btn sidebar_button" href="/chatbot">
@@ -172,7 +172,7 @@
               You created the account on {{user.created}}
             </p>
             <p class="text-right font-weight-bold" style="margin:2%">
-              <button class="btn btn-info"> Update your profile >> </button>
+              <a class="btn btn-info" href="/profile"> Update your profile >> </a>
             </p>
 
 
@@ -204,14 +204,14 @@
           <div class="col-md-3  shadow p-3 mb-5 bg-white rounded" style="margin:2%">
             <h5>Total Interviews gave till date :</h5>
             <h5><span style="color:red">{{user.totalInterviews}}</span></h5>
-            <a href="" class="btn btn-info">
+            <a href="/viewInterview" class="btn btn-info">
               View All Interviews data
             </a>
           </div>
 
           <div class="col-md-3  shadow p-3 mb-5 bg-white rounded" style="margin:2%">
             <h5>View Reports</h5>
-            <a href="/viewReports" class="btn btn-warning">
+            <a href="/viewReport" class="btn btn-warning">
               View All reports
             </a>
           </div>
