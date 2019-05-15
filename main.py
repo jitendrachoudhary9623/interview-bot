@@ -13,10 +13,7 @@ from chatbot import Chatbot
 from Auth import *
 import threading
 from flask import send_from_directory
-from bokeh.embed import components
-from bokeh.plotting import figure,show
-from bokeh.resources import INLINE
-from bokeh.util.string import encode_utf8
+
 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
@@ -32,6 +29,24 @@ app = Flask(__name__)
 
 totalQuestionToBeAsked=10
 
+###     ADMIN PANEL
+@app.route("/admin")
+def admin():
+	if "log" in session:
+		if "admin" in session:
+			return render_template("admin/layout.html",users=getAllUsers(),interviews=getAllInterviews())
+	abort(404)
+
+@app.route("/search/<name>")
+def search(name):
+	print(name)
+	interview=getInterview(name)
+	user=getUserDetails(name)
+	response={}
+	response["interview"]=interview
+	response["user"]=user
+	return jsonify({"user":"Jitendra"})
+###    NORMAL USER
 
 @app.route("/")
 def index():
@@ -86,6 +101,10 @@ def login():
 				session["log"]=True
 				session["username"]=user.username
 				flash("Welcome back {} ".format(user.username),"success")
+				print(user.username,user.userType)
+				if user.userType == "admin" or user.username=="admin":
+					session["admin"]=True
+					return redirect(url_for("admin"))
 				return redirect(url_for("home"))
 			else:
 				flash("Wrong password","danger")
@@ -109,6 +128,7 @@ def logout():
 @app.route("/ppt")
 def ppt():
 	return render_template("ppt.html")
+
 @app.route("/subscription",methods=["POST","GET"])
 def subscription():
 	availableInterview=getAvailableInterviews(session["username"])
@@ -120,6 +140,7 @@ def subscription():
 		return redirect(url_for("subscription"))
 	return render_template("subscription.html",available=availableInterview)
 #route for main page
+
 @app.route("/chatbot")
 def chatbot():
 
@@ -132,7 +153,6 @@ def chatbot():
 		session["questionNo"]=0
 		return render_template('beginInterview.html',username=session["username"],interviewid=session["InterviewId"]) #chatbot.html
 	return render_template('notallowed.html')
-
 
 @app.route("/interview",methods=["POST"])
 def interview():
@@ -163,9 +183,7 @@ def interact():
 	session["previousQuestion"]=response["question"]
 	session["questionNo"]=session["questionNo"]+1
 	response["questionNo"]=session["questionNo"]
-	#print(response)
 	return jsonify(response)
-
 
 def savePdftoFile(name,data):
 	directory="Report/{}".format(session["username"])
@@ -233,4 +251,4 @@ def error405(error):
 if __name__ == "__main__":
 
 	app.secret_key="interviewbot"
-	app.run(debug=True,port=12226,host="localhost",threaded=True)
+	app.run(debug=True,port=12227,host="localhost",threaded=True)

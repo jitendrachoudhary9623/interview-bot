@@ -126,6 +126,7 @@ def getAllInterviewsOfUser(username):
 def getInterview(interviewId):
 	for interview in Interview.objects(interviewId=interviewId):
 		return interview
+	
 def checkIfQuestionAlreadyAsked(interviewId,question):
 	#i = Interview.objects.filter(interviewId=interviewId).fields(username=1, user_response={'$elemMatch': {'question': "Tell me about an instance where you have failed and what you learned from it."}})
 	
@@ -180,3 +181,5 @@ def getUserResponse(interviewId):
 		return response
 
 #getUserResponse(interviewId="F1CB4EQW1EEPXQQ")
+def getAllInterviews():
+	return Interview.objects()
