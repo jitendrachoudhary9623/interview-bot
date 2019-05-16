@@ -8,9 +8,10 @@
     <link href="{{ url_for('static', filename='styles/style.css') }}" type="text/css" rel="stylesheet" />
     <script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
     <link rel='stylesheet' href="{{ url_for('static',filename ='styles/all.css') }}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+-->
 
     <link rel='stylesheet' href="{{ url_for('static',filename ='styles/icon.css') }}">
 </head>
@@ -90,7 +91,14 @@
 
             <div class="list-group list-group-flush">
 
-                <a class="btn sidebar_button shadow p-3 mb-10 bg-white rounded" href="/logout">
+                <a class="btn sidebar_button shadow p-3 mb-3 bg-white rounded" href="/admin">
+                    <i class="fa fa-sign-out" style="color:white" aria-hidden="true"></i>
+                    Admin Dashboard </a>
+                <a class="btn sidebar_button shadow p-3 mb-3 bg-white rounded" href="/questionSet">
+                    <i class="fa fa-sign-out" style="color:white" aria-hidden="true"></i>
+                    Bot </a>
+
+                <a class="btn sidebar_button shadow p-3 mb-3 bg-white rounded" href="/logout">
                     <i class="fa fa-sign-out" style="color:white" aria-hidden="true"></i>
                     Logout </a>
 
@@ -138,6 +146,7 @@
                     </ul>
                 </div>
             </nav>
+            {% block page %}
             <div class="container-fluid">
                 <div class="row" style="margin:1%;">
                     <div class="col-md-4 shadow p-3  bg-white rounded info_row1">
@@ -193,35 +202,63 @@
                     <div class="card card-body">
                         Interview Data
                     </div>
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead style="background-color: blueviolet;color:white;">
                             <td> Username</td>
                             <td>Interview Id</td>
-                            <td>Interview Time</td>
+                            <td>Interview Start Time</td>
+                            <td>Total Interview Duration (in mins)</td>
                             <td>Total Questions Answered</td>
                             <td>Score</td>
+                            <td>Report Generated</td>
                         </thead>
                         {% for interview in interviews|sort(attribute='created',reverse=True) %}
                         <tr>
                             <td>{{interview.username}}</td>
                             <td>{{interview.interviewId}}</td>
                             <td>{{interview.created.strftime(' %H:%M - %d-%m-%Y')}}</td>
+                            {% set duration=interview.ended.minute-interview.created.minute%}
+                            {% if duration > 0%}
+                            <td>{{duration}}</td>
+                            {% else %}
+                            <td>{{0}}</td>
+                            {% endif %}
                             <td>{{interview.user_response|count}}</td>
                             {% set s=[] %}
                             {% for response in interview.user_response %}
                             {% if s.append(response.score)%}{% endif %}
                             {% endfor %}
                             {% if s|sum > 0 %}
-                            <td>{{((s|sum)/(interview.user_response|count))|round}}</td>
+                            {% if s|sum < 50 %}
+                            {% set color="btn btn-danger" %}
+                            {% elif s|sum < 80 %}
+                            {% set color="btn btn-warning" %}
                             {% else %}
-                            <td style="background-color:red;color:white;"> Not Valid Score</td>
+                            {% set color="btn btn-success" %}
                             {% endif %}
+                            <td class="{{color}} style=" color:white">
+
+                                <span>
+                                    {{((s|sum)/(interview.user_response|count))|round}}
+                                </span>
+                            </td>
+                            {% else %}
+                            <td class="btn btn-warning">Not given</td>
+                            {% endif %}
+                            <td>{% if interview.reportGenerated %}
+                                Yes
+                                {%else%}
+                                No
+                                {% endif%}
+                            </td>
+
                         </tr>
                         {% endfor %}
 
                     </table>
                 </div>
             </div>
+            {% endblock %}
         </div>
     </div>
     <script>

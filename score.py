@@ -87,10 +87,8 @@ def calculateScore(emotion,sentiment,lexical,evaluable=False,keywords=None,answe
 	#print("actual score ",score)
 
 	print("final",score)
-	if int(score) >100:
-		score=100-random.randint(1,5)
-	if score > 0:
-		return score
-	
-	print(score)
-	return -score
+	if abs(score) > 99:
+		print("again",score)
+		score=abs(score)
+		score=99-random.randint(1,7)
+	return abs(score)

@@ -5,7 +5,9 @@ import string
 import csv
 
 from QuestionDetail import QuestionDetail
-connect('interviewbot', host='localhost', port=27017)
+#connect('interviewbot', host='localhost', port=27017) #localhost
+connect(db='interviewbot',username='Jitendra',password='InterviewBot', host='mongodb+srv://Jitendra:InterviewBot@cluster0-kyhd2.mongodb.net/test?retryWrites=true')
+
 
 class InterviewEvaluation(EmbeddedDocument):
 	#squestionCount=IntField()
@@ -22,6 +24,8 @@ class Interview(Document):
 	username = StringField(required=True)
 	interviewId = StringField(required=True,unique=True)
 	user_response = ListField(EmbeddedDocumentField(InterviewEvaluation))
+	ended=DateTimeField(default=datetime.utcnow())
+	reportGenerated=BooleanField(default=False)
 
 
 class Questionset(Document):
@@ -83,7 +87,8 @@ def addQuestions():
 			    #print(row[0],row[1],row[2],row[3])
 			    line_count += 1
 			else:
-
+				row=row[0].split(',')
+				print(row)
 				questionSet(
 				qid=typ+str(line_count-1),
 				qtype=row[1],
@@ -99,7 +104,10 @@ def beginInterview(username,interviewId):
 	#user=Interview(username=username,interviewId=interviewId)
 	#user.user_response=[InterviewEvaluation(question="",answer="start interview")]	
 	#user.save()
-	user = Interview.objects(interviewId=interviewId).modify(upsert=True, new=True, set__username=username,set__created=datetime.utcnow())
+	user = Interview.objects(interviewId=interviewId).modify(upsert=True, new=True, set__username=username,set__created=datetime.utcnow(),set__ended=datetime.utcnow())
+
+def endInterview(interviewId):
+	user = Interview.objects(interviewId=interviewId).modify(upsert=True, new=True, set__ended=datetime.utcnow(),set__reportGenerated=True)
 
 def saveInterview(interviewId,question,answer,score,sentiment=None,emotion=None,textAnalysis=None):
 	time=datetime.timestamp(datetime.now())
@@ -137,9 +145,7 @@ def checkIfQuestionAlreadyAsked(interviewId,question):
 				return True
 
 	return False	
-
-#c=checkIfQuestionAlreadyAsked(interviewId="MGBFOX8253XVVA1",question="Give an example of a time you had to respond to an unhappy manager/ customer/ colleague/ professor/ friend.")
-#print(c)
+	
 def getUserResponse(interviewId):
 	for user in Interview.objects(interviewId=interviewId):
 		total_answers=len(user.user_response)
@@ -180,6 +186,6 @@ def getUserResponse(interviewId):
 		
 		return response
 
-#getUserResponse(interviewId="F1CB4EQW1EEPXQQ")
 def getAllInterviews():
 	return Interview.objects()
+

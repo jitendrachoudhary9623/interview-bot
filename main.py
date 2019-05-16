@@ -13,7 +13,7 @@ from chatbot import Chatbot
 from Auth import *
 import threading
 from flask import send_from_directory
-
+import glob
 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
@@ -36,6 +36,27 @@ def admin():
 		if "admin" in session:
 			return render_template("admin/layout.html",users=getAllUsers(),interviews=getAllInterviews())
 	abort(404)
+
+@app.route("/questionSet")
+def questionSet():
+	if "log" in session:
+		if "admin" in session:
+			files = []
+			for root, dirnames, filenames in os.walk("aiml"):
+				files.extend(glob.glob(root + "/*.aiml"))
+			return render_template("admin/bot.html",aiml=files)
+	abort(404)
+
+@app.route("/editFile/<file>")
+def editFile(file):
+	if "log" in session:
+		if "admin" in session:
+				file=file.replace('__','/')
+				print(os.getcwd())
+				print(file)
+				with open(os.path.join(file),'r') as f:
+					return str(f.readlines())
+	return "Hello World"
 
 @app.route("/search/<name>")
 def search(name):
@@ -158,6 +179,7 @@ def chatbot():
 def interview():
 	if 'log' in session:
 		beginInterview(session["username"],session["InterviewId"])
+		print("interview started")
 		updateAvailableInterview(session["username"])
 		return render_template('interview.html',interviewId=session["InterviewId"])
 	return render_template('notallowed.html')
@@ -201,14 +223,18 @@ def pdf_template():
 		if request.method == 'POST'  :
 			#message = str(request.form['data'])
 			#message=json.loads(message)
-			icon="{}/static/images/icon.png".format(os.getcwd())
-			response=getUserResponse(session["InterviewId"])
-			echart,schart=generateChartsForPDF(response["totalEmotion"],response["totalSentiment"],session["username"])
-			rendered=render_template("pdf_template.html",icon=icon,user=response,echart=echart,schart=schart)
-			pdf=pdfkit.from_string(rendered,False)#true for client sending
-			savePdftoFile("{}".format(session["InterviewId"]),pdf)
+			try:
+				icon="{}/static/images/icon.png".format(os.getcwd())
+				response=getUserResponse(session["InterviewId"])
+				echart,schart=generateChartsForPDF(response["totalEmotion"],response["totalSentiment"],session["username"])
+				rendered=render_template("pdf_template.html",icon=icon,user=response,echart=echart,schart=schart)
+				pdf=pdfkit.from_string(rendered,False)#true for client sending
+				savePdftoFile("{}".format(session["InterviewId"]),pdf)
+				endInterview(session["InterviewId"])
 
-			return render_template("interviewComplete.html")
+				return render_template("interviewComplete.html")
+			except:
+				abort(500)
 		
 	abort(404)
 
