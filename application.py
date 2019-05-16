@@ -25,19 +25,19 @@ def load_kern(forcereload):
 		kernel.saveBrain("bot_brain.brn")
 load_kern(False)
 #db=scoped_session(sessionmaker(bind=engine))
-app = Flask(__name__)
+application = Flask(__name__)
 
 totalQuestionToBeAsked=10
 
 ###     ADMIN PANEL
-@app.route("/admin")
+@application.route("/admin")
 def admin():
 	if "log" in session:
 		if "admin" in session:
 			return render_template("admin/layout.html",users=getAllUsers(),interviews=getAllInterviews())
 	abort(404)
 
-@app.route("/questionSet")
+@application.route("/questionSet")
 def questionSet():
 	if "log" in session:
 		if "admin" in session:
@@ -47,7 +47,7 @@ def questionSet():
 			return render_template("admin/bot.html",aiml=files)
 	abort(404)
 
-@app.route("/editFile/<file>")
+@application.route("/editFile/<file>")
 def editFile(file):
 	if "log" in session:
 		if "admin" in session:
@@ -58,7 +58,7 @@ def editFile(file):
 					return str(f.readlines())
 	return "Hello World"
 
-@app.route("/search/<name>")
+@application.route("/search/<name>")
 def search(name):
 	print(name)
 	interview=getInterview(name)
@@ -69,18 +69,18 @@ def search(name):
 	return jsonify({"user":"Jitendra"})
 ###    NORMAL USER
 
-@app.route("/")
+@application.route("/")
 def index():
 	return render_template("index.html")
 
-@app.route("/home")
+@application.route("/home")
 def home():
 	if 'log' in session:
 		for user in User.objects.filter(username=session["username"]):
 			return render_template("home.html",user=user)
 	abort(404)
 
-@app.route("/register",methods=["GET","POST"])
+@application.route("/register",methods=["GET","POST"])
 def register():
 	if 'log' in session:
 		flash("Your already logged in your account, logout if you want to create new account","danger")
@@ -108,7 +108,7 @@ def register():
 				return render_template('register.html')
 		return render_template("register.html")
 
-@app.route("/login",methods=["GET","POST"])
+@application.route("/login",methods=["GET","POST"])
 def login():
 	if 'log' in session:
 			flash("Already Logged in , To login with another account logout first","danger")
@@ -135,7 +135,7 @@ def login():
 	else:	
 		return render_template("login.html")
 
-@app.route("/logout")
+@application.route("/logout")
 def logout():
 	if 'log' in session:
 		session["log"]=False
@@ -146,11 +146,11 @@ def logout():
 		flash("For logging out you need to login first","danger")
 		return redirect(url_for("index"))
 
-@app.route("/ppt")
+@application.route("/ppt")
 def ppt():
 	return render_template("ppt.html")
 
-@app.route("/subscription",methods=["POST","GET"])
+@application.route("/subscription",methods=["POST","GET"])
 def subscription():
 	availableInterview=getAvailableInterviews(session["username"])
 	if request.method=="POST":
@@ -162,7 +162,7 @@ def subscription():
 	return render_template("subscription.html",available=availableInterview)
 #route for main page
 
-@app.route("/chatbot")
+@application.route("/chatbot")
 def chatbot():
 
 	if 'log' in session:
@@ -175,7 +175,7 @@ def chatbot():
 		return render_template('beginInterview.html',username=session["username"],interviewid=session["InterviewId"]) #chatbot.html
 	return render_template('notallowed.html')
 
-@app.route("/interview",methods=["POST"])
+@application.route("/interview",methods=["POST"])
 def interview():
 	if 'log' in session:
 		beginInterview(session["username"],session["InterviewId"])
@@ -184,7 +184,7 @@ def interview():
 		return render_template('interview.html',interviewId=session["InterviewId"])
 	return render_template('notallowed.html')
 	
-@app.route("/interact",methods=["POST"])
+@application.route("/interact",methods=["POST"])
 def interact():
 
 	answer=str(request.form['messageText'])
@@ -217,7 +217,7 @@ def savePdftoFile(name,data):
 	f.close()
 	addReportPath(session["username"],'{}/{}.pdf'.format(directory,name))
 
-@app.route('/generate',methods=['POST','GET'])
+@application.route('/generate',methods=['POST','GET'])
 def pdf_template():
 	if 'log' in session:
 		if request.method == 'POST'  :
@@ -238,7 +238,7 @@ def pdf_template():
 		
 	abort(404)
 
-@app.route("/viewInterview")
+@application.route("/viewInterview")
 def viewInterviews():
 	if "log" in session:
 		userdata=getAllInterviewsOfUser(session["username"])
@@ -246,20 +246,20 @@ def viewInterviews():
 			return render_template("viewAllInterview.html",user=userdata,info=user)
 	abort(404)
 
-@app.route("/viewReport")
+@application.route("/viewReport")
 def viewReport():
 	if "log" in session:
 		for user in User.objects.filter(username=session["username"]):
 			return render_template("viewReports.html",user=user)
 	abort(404)
 
-@app.route('/uploaded_file/<filename>', methods=["GET", "POST"])
+@application.route('/uploaded_file/<filename>', methods=["GET", "POST"])
 def uploaded_file(filename):
 	afile = session["username"]+"/"+filename
 	return send_from_directory(os.path.join("Report", session["username"]),
 							filename)
 
-@app.route("/profile",methods=["GET","POST"])
+@application.route("/profile",methods=["GET","POST"])
 def profile():
 	if "log" in session:
 		for user in User.objects.filter(username=session["username"]):
@@ -267,14 +267,14 @@ def profile():
 	abort(404)
 
 #error handlers
-@app.errorhandler(404)
+@application.errorhandler(404)
 def error404(error):
 	return render_template("notallowed.html"),404
 
-@app.errorhandler(405)
+@application.errorhandler(405)
 def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 
-	app.secret_key="interviewbot"
-	app.run(debug=True,port=12227,host="localhost",threaded=True)
+	application.secret_key="interviewbot"
+	application.run(threaded=True)
