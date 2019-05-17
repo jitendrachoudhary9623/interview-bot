@@ -1,5 +1,2 @@
 stopwords
-sentiment/vader
-lexicon.zip/vader
-lexicon/vader
-lexicon.txt
+vader_lexicon
