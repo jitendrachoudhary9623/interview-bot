@@ -1,4 +1,9 @@
 {
     "python.pythonPath": "/home/jitendra/anaconda3/bin/python",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "appService.defaultWebAppToDeploy": "/subscriptions/8bd25cc0-6734-43f7-a963-8d852c028ba5/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/interviewbot96",
+    "appService.deploySubpath": "",
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ]
 }
