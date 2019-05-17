@@ -1,2 +1,4 @@
 interviewbot/
 .ebextensions/
+.elasticbeanstalk/
+.vscode/
