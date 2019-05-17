@@ -39,9 +39,9 @@ def admin():
 			return render_template("admin/layout.html",users=getAllUsers(),interviews=getAllInterviews())
 	abort(404)
 
-@app.route('/favicon.ico')
+@application.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
+    return send_from_directory(os.path.join(application.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 @application.route("/questionSet")
 def questionSet():
