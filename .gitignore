@@ -2,3 +2,4 @@ interviewbot/
 .ebextensions/
 .elasticbeanstalk/
 .vscode/
+__pycache__/
