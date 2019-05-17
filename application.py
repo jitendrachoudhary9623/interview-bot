@@ -26,6 +26,8 @@ def load_kern(forcereload):
 load_kern(False)
 #db=scoped_session(sessionmaker(bind=engine))
 application = Flask(__name__)
+application.secret_key="interviewbot"
+application.config['SECRET_KEY'] = 'interviewbot'
 
 totalQuestionToBeAsked=10
 
@@ -52,15 +54,12 @@ def editFile(file):
 	if "log" in session:
 		if "admin" in session:
 				file=file.replace('__','/')
-				print(os.getcwd())
-				print(file)
 				with open(os.path.join(file),'r') as f:
 					return str(f.readlines())
 	return "Hello World"
 
 @application.route("/search/<name>")
 def search(name):
-	print(name)
 	interview=getInterview(name)
 	user=getUserDetails(name)
 	response={}
@@ -122,7 +121,6 @@ def login():
 				session["log"]=True
 				session["username"]=user.username
 				flash("Welcome back {} ".format(user.username),"success")
-				print(user.username,user.userType)
 				if user.userType == "admin" or user.username=="admin":
 					session["admin"]=True
 					return redirect(url_for("admin"))
@@ -155,7 +153,6 @@ def subscription():
 	availableInterview=getAvailableInterviews(session["username"])
 	if request.method=="POST":
 		no_of_interview=request.form.get("no")
-		print(no_of_interview)
 		addInterviews(session["username"],int(no_of_interview))
 		flash("Interviews added","success")
 		return redirect(url_for("subscription"))
@@ -179,7 +176,6 @@ def chatbot():
 def interview():
 	if 'log' in session:
 		beginInterview(session["username"],session["InterviewId"])
-		print("interview started")
 		updateAvailableInterview(session["username"])
 		return render_template('interview.html',interviewId=session["InterviewId"])
 	return render_template('notallowed.html')
@@ -276,5 +272,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 
-	application.secret_key="interviewbot"
-	application.run()
+	application.run(threaded=True)
