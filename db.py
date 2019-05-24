@@ -6,7 +6,9 @@ import csv
 
 from QuestionDetail import QuestionDetail
 #connect('interviewbot', host='localhost', port=27017) #localhost
-connect(db='interviewbot',username='Jitendra',password='InterviewBot', host='mongodb+srv://Jitendra:InterviewBot@cluster0-kyhd2.mongodb.net/test?retryWrites=true')
+connect(db='interviewbot',username='Jitendra',password='InterviewBot', 
+host='mongodb+srv://Jitendra:InterviewBot@cluster0-kyhd2.mongodb.net/test?retryWrites=true')
+
 
 
 class InterviewEvaluation(EmbeddedDocument):
