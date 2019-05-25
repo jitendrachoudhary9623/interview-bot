@@ -42,7 +42,6 @@ class Questionset(Document):
 
 		
 def getQuestionDetails(question):
-	#print("Inside Question Detail")
 	for q in Questionset.objects(question=question):
 		ques= QuestionDetail(q.questionId,q.questionType,q.question,q.category,q.subcategory,q.keywords,q.evaluable)
 		return ques

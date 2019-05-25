@@ -179,6 +179,9 @@ def chatbot():
 @application.route("/interview",methods=["POST"])
 def interview():
 	if 'log' in session:
+		if getUserDetails(session["username"]).availableInterview<1:
+			flash("Your interview Limit has been reached, get more from subscription page","danger")
+			return redirect(url_for("home"))
 		beginInterview(session["username"],session["InterviewId"])
 		updateAvailableInterview(session["username"])
 		return render_template('interview.html',interviewId=session["InterviewId"])
