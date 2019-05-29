@@ -224,8 +224,6 @@ def savePdftoFile(name,data):
 def pdf_template():
 	if 'log' in session:
 		if request.method == 'POST'  :
-			#message = str(request.form['data'])
-			#message=json.loads(message)
 			try:
 				icon="{}/static/images/icon.png".format(os.getcwd())
 				response=getUserResponse(session["InterviewId"])
@@ -234,7 +232,7 @@ def pdf_template():
 				pdf=pdfkit.from_string(rendered,False)#true for client sending
 				savePdftoFile("{}".format(session["InterviewId"]),pdf)
 				endInterview(session["InterviewId"])
-
+				#return render_template("report.html",user=response)
 				return render_template("interviewComplete.html")
 			except:
 				abort(500)
@@ -279,4 +277,4 @@ def error405(error):
 	return render_template("noaccess.html"),405
 if __name__ == "__main__":
 
-	application.run(threaded=True)
+	application.run(threaded=True,debug=True)
