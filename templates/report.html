@@ -86,7 +86,7 @@
                     </div>
                     <div class="row">
 
-                        <canvas id="emotionChart" width="240" height="200"></canvas>
+                        <canvas id="emotionChart" width="370" height="200"></canvas>
                     </div>
                 </div>
                 <hr />
@@ -117,8 +117,12 @@
                 </div>
             </div>
             <div class="col-md-4  card card-body shadow ">
-
-                <h4>Your Transcript</h4>
+                <div class="row">
+                    <div class="col-md-8 p-3">
+                        <h4>Your Transcript</h4>
+                    </div>
+                    <div class="col-md-4"><a href="/home" class="btn btn-danger">Go Home</a></div>
+                </div>
                 <div class="alert-warning p-3">
                     Kindly Note that scoring is based on various factors,<br />
                     Take the score as a motivation<br />
@@ -163,12 +167,12 @@
     Chart.defaults.global.legend.display = false;
     var ctx = document.getElementById("emotionChart").getContext("2d");
     echart = new Chart($("#emotionChart"), {
-        type: "polarArea",
+        type: "radar",
         data: {
             labels: ['neutral', 'angry', 'disgust', 'fear', 'happy', 'sad', 'surprise'],
             datasets: [{
                 label: "Emotion Analysis",
-                backgroundColor: ["#03c637", "#f4424b", "#8e5ea2"],
+                backgroundColor: ["#ff5722", "#827717", "#6200ea", "#c51162", "#3f51b5", "#004d40", "#9e9e9e"],
                 data: {{ user.totalEmotion.values() | list }}
     }], options: {
             legend: {
@@ -179,12 +183,12 @@
 
     var ctx = document.getElementById("sentimentChart").getContext("2d");
     echart = new Chart($("#sentimentChart"), {
-        type: "horizontalBar",
+        type: "line",
         data: {
             labels: ["Positive", "Negative", "Neutral"],
             datasets: [{
                 label: "Sentiment in terms of %",
-                backgroundColor: ["#03c637", "#f4424b", "#8e5ea2"],
+                backgroundColor: ["#FF6347", "#03c637", "#f4424b", "#8e5ea2"],
                 data: {{ user.totalSentiment.values() | list }}
     }], options: {
             legend: {

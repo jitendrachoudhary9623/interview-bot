@@ -295,6 +295,8 @@ def getReport():
 		if request.method == 'POST':
 			try:
 				response = getUserResponse(session["InterviewId"])
+				addReportPath(session["username"], session["InterviewId"])
+
 				return render_template("report.html",user=response)
 			except:
 				abort(404)
@@ -305,8 +307,9 @@ def getReportById(interviewId):
 	if 'log' in session:
 		if request.method == 'GET':
 			try:
-				response = getUserResponse(interviewId)
-				return render_template("report.html",user=response)
+				if interviewId in getUserReportPaths(session["username"]):
+					response = getUserResponse(interviewId)
+					return render_template("report.html",user=response)
 			except:
 				abort(404)
 	abort(404)
