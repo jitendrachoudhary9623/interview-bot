@@ -273,21 +273,43 @@ def pdf_template():
 				print("ok 1")
 
 				#icon = "{}/static/images/icon.png".format(os.getcwd())
-				#response = getUserResponse(session["InterviewId"])
+				response = getUserResponse(session["InterviewId"])
 				#echart, schart = generateChartsForPDF(response["totalEmotion"], response["totalSentiment"],session["username"])
 				#rendered=render_template("report.html",icon=icon,user=response,echart=echart,schart=schart)
 				#pdf=pdfkit.from_string(rendered,False)#true for client sending
 				print("ok")
 				#savePdftoFile("{}".format(session["InterviewId"]),pdf)
 				#endInterview(session["InterviewId"])
-
-				return render_template('interviewComplete.html')
+				print(response)
+				return render_template("report.html",user=response)
 				#return render_template("interviewComplete.html")
 			except:
 				abort(500)
 
 	abort(404)
 
+
+@application.route('/report', methods=['POST', 'GET'])
+def getReport():
+	if 'log' in session:
+		if request.method == 'POST':
+			try:
+				response = getUserResponse(session["InterviewId"])
+				return render_template("report.html",user=response)
+			except:
+				abort(404)
+	abort(404)
+
+@application.route('/report/<interviewId>', methods=['POST', 'GET'])
+def getReportById(interviewId):
+	if 'log' in session:
+		if request.method == 'GET':
+			try:
+				response = getUserResponse(interviewId)
+				return render_template("report.html",user=response)
+			except:
+				abort(404)
+	abort(404)
 
 @application.route("/viewInterview")
 def viewInterviews():
@@ -336,4 +358,4 @@ def error405(error):
 
 if __name__ == "__main__":
 
-	application.run(threaded=True)
+	application.run(port=5002,threaded=True,debug=True)

@@ -15,7 +15,8 @@ Interview Complete
     {% for report in user.reportPaths %}
     <li class="card card-body">
 
-        <a href="{{url_for('uploaded_file',filename = report.split('/')[-1])}}">{{report.split("/")[-1]}}</a>
+        <a
+            href="{{url_for('getReportById',interviewId = report.split('/')[-1].split('.')[0])}}">{{report.split("/")[-1]}}</a>
 
     </li>
     {% endfor %}
