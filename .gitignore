@@ -3,3 +3,5 @@ interviewbot/
 .elasticbeanstalk/
 .vscode/
 __pycache__/
+Plots/
+Report/
