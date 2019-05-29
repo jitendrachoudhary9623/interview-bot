@@ -270,20 +270,16 @@ def pdf_template():
     if 'log' in session:
         if request.method == 'POST':
             try:
-                icon = "{}/static/images/icon.png".format(os.getcwd())
-                response = getUserResponse(session["InterviewId"])
-                echart, schart = generateChartsForPDF(
-                    response["totalEmotion"], response["totalSentiment"],
-                    session["username"])
-                rendered=render_template("report.html",
-                                       icon=icon,
-                                       user=response,
-                                       echart=echart,
-                                       schart=schart)
-                pdf=pdfkit.from_string(rendered,False)#true for client sending
+				print("ok 1")
+
+                #icon = "{}/static/images/icon.png".format(os.getcwd())
+                #response = getUserResponse(session["InterviewId"])
+                #echart, schart = generateChartsForPDF(response["totalEmotion"], response["totalSentiment"],session["username"])
+                #rendered=render_template("report.html",icon=icon,user=response,echart=echart,schart=schart)
+                #pdf=pdfkit.from_string(rendered,False)#true for client sending
                 print("ok")
                 #savePdftoFile("{}".format(session["InterviewId"]),pdf)
-                endInterview(session["InterviewId"])
+                #endInterview(session["InterviewId"])
 
                 return render_template('interviewComplete.html')
                 #return render_template("interviewComplete.html")
