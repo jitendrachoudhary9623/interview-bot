@@ -282,7 +282,7 @@ def pdf_template():
                                        schart=schart)
                 pdf=pdfkit.from_string(rendered,False)#true for client sending
                 print("ok")
-                savePdftoFile("{}".format(session["InterviewId"]),pdf)
+                #savePdftoFile("{}".format(session["InterviewId"]),pdf)
                 endInterview(session["InterviewId"])
 
                 return render_template('interviewComplete.html')
