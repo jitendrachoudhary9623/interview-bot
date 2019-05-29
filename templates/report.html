@@ -1,262 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Report {{user.interviewId}}</title>
+    <title>
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js">
-    </script>
-    <script type="text/javascript"
-        src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+
+    <style>
+        body {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(42deg, rgba(2, 0, 36, 1) 0%, rgba(104, 9, 121, 1) 33%, rgba(135, 29, 218, 1) 68%, rgba(183, 19, 230, 1) 88%, rgba(186, 0, 255, 1) 100%);
+            font-size: 24px;
+            color: white;
+        }
+
+        .back {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(42deg, rgba(2, 0, 36, 1) 0%, rgba(104, 9, 121, 1) 33%, rgba(135, 29, 218, 1) 68%, rgba(183, 19, 230, 1) 88%, rgba(186, 0, 255, 1) 100%);
+            font-size: 24px;
+            color: white;
+        }
+
+        hr {
+            background: white;
+        }
+
+        .element {
+            font-size: 24px;
+            margin-top: 3.5%;
+            margin-right: 2%;
+            margin-left: 2.5%;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .display-4 {
+            color: #4a148c;
+            padding: 2.5%;
+            background: white;
+            font-size: 30px;
+            border-radius: 30px;
+        }
+
+        .holder {
+            color: #4a148c;
+            padding: 2.5%;
+            background: white;
+            font-size: 25px;
+            border-radius: 30px;
+            margin-right: 2%;
+        }
+
+        .holder_lesspad {
+            padding: 0%;
+        }
+    </style>
 </head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="author" content="Sharma" />
 
 <body>
-    <div id="editor"></div>
-    <button class="create_pdf" id="print">Generate PDF</button>
 
-    <div class="container-fluid" id="content">
-        <div class="row">
-            <div class="">
-                <div class="row">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">{{ user.interviewId }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">Congratulations {{ session.username }},</div>
-                    <div class="col-md-6"></div>
-                </div>
-                <div class="row col-md-6">
-                    We hope you have came across various questions
-                    which could be asked based on the responses you
+    <div class="card card-body" id="welcome" style="height:90%;color:black;">
+        <p class="text-center"><b>Modern Education Society's College of Engineering, Pune - 01 ,<br />Presents<br /></b>
+        </p>
+        <img src="{{ icon }}" style="width:80%;height:60%;margin:12%;"></img>
+        <div style="margin:4%">
+        </div>
+        <div class="text-center" style="font-size:65px;font-weight:bolder;">
+            <p>Interview Bot</p>
+        </div>
+    </div>
+    <div style="height:10%;">
+        <b>
+            <h2 class="text-center">
+                Interview Id : <br /><br />
+                {{user.interviewId}}</h2>
+        </b>
+    </div>
+    <div class="card card-body back" id="welcome" style="height:100%;">
+        <div class="container-fluid element" style="margin-right:3%;">
+            <!-- container start -->
+            <h1 class="display-4" style="text-align:right;">
+                <b>Interview-bot : Report</b>
+            </h1> <!-- heading -->
+            <hr />
+            <!-- message -->
+            <div class="holder">
+                <p>Congratulations!!!.. <span style="color:red">Your Report is generated</span></p>
+                <p style="margin-right:2%;">Dear {{session.username}},<br /><br />
+                    We hope you have came acroos various questions which could be asked based on the responses you
                     provide during
-                    the interview process.
+                    the interview process.<br />
                     We agree interviews may seem difficult, but once you get come to know how to answer in ther
                     interview you can
                     defintely crack any interview. This is a report generated based on the responses you gave during the
                     mock
                     interview. Don't get disheartned if you scored less there is always a room of improvement, and if
                     you have
-                    scored great, that's awesome keep practising.
+                    scored great, that's awesome keep practising
+                    <ps>
+                        <p style="text-align:right;">Thank you</p>
+                        <p style="text-align:right;">
+                            <b>PROJECT - INTERVIEW BOT</b>
+                        </p>
+            </div>
+            <br />
+            <br />
+            <!--end message -->
+            <!--<div style="height:3%;"></div>-->
+            <hr />
+            <!-- sentiment score -->
+            <h2>Your Sentiment Score</h2>
+            <br />
+
+            <div class="row">
+                <!-- start row -->
+                <div class="col holder">
+                    <p>Overall sentiment during the interview process was : <b
+                            style="color:red">{{user.prominentSentiment}}</b>
+                    </p><br />
+                    <p>{{user.smsg}}
+                    </p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6" style="text-align: right;">Thank You<br />Interview Bot</div>
+                <div class="col">
+                    <img src="{{ schart }}" alt="{{schartname}}" height="300" width="400"></img>
+
+
+                </div>
+                <br />
+                <br />
+            </div><!-- end row -->
+            <br />
+            <br />
+            <hr />
+            <br />
+            <br />
+            <hr />
+            <h2>Your Emotion Score</h2>
+            <div class="row">
+                <div class="col holder">
+                    <p>Overall Emotion during the interview process was : <b
+                            style="color:red">{{user.prominentEmotion}}</b></p>
+                    <br />
+                    <p>Keeping Neutral Sentiment is not a bad idea and it's way better than having a negative impression
+                        on the
+                        interviewer.
+                        A little more positive answers would definetly work for you, and you should try the same.</p>
+                </div>
+                <div class="col">
+                    <img src="{{ echart }}" alt="{{echartname}}" height="300" width="400"></img>
                 </div>
             </div>
-            <!--
-            <div class="card card-body shadow mb-1 bg-white rounded">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="row">
-                            <h4>Emotion Score</h4>
+            <br />
+            <br />
+            <hr />
+            <br />
 
-                        </div>
-                        <div class="row">
-                            <p>Overall Emotion during the interview process was : <b
-                                    style="color:red">{{ user.prominentEmotion }}</b></p>
-                            <p>Keeping Neutral Sentiment is not a bad idea and it's way better than having a negative
-                                impression on the
-                                interviewer.
-                                A little more positive answers would definetly work for you, and you should try the
-                                same.</p>
+            <h2 class="holder">Your Interview Stats</h2>
+            <div class="row"
+                style="background:white;color:#4a148c;margin-left:5%;padding:3%;margin-top:1.5%;border:1px solid #4a148c;">
 
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-
-                        <canvas id="emotionChart" width="170" height="200"></canvas>
-                        <p id="caption" class="text-center">Emotion Analysis</p>
-                    </div>
-                </div>
-                <div class="row ">
-
-                </div>
+            </div><!-- end row -->
+            <div class="row"
+                style="background:white;color:#4a148c;margin-left:5%;padding:3%;margin-top:1.5%;border:1px solid #4a148c;">
+                Your score is {{user.totalScore|round}}<br />
+                {% if user.totalScore < 50 %}
+                <p>You need to practise as your score is below 50. You can again give mock interviews ans prepare, try
+                    to watch
+                    videoson youtube and other mediums and prepare</p>
+                {% elif user.totalScore < 70 %}
+                <p>You are going great, Just a little practise and you would definetly excel in your interviews</p>
+                {% else %}
+                <p>You are doing an awesome job, but don't be overconfident. All the Best !!</p>
+                {% endif %}
             </div>
-            <div class="card card-body shadow bg-white rounded">
-                <div class="row ">
-                    <div class="col-md-7">
-                        <div class="row">
-                            <h4>Sentiment Score</h4>
-                        </div>
-                        <div class="row">
-                            <p>Overall sentiment during the interview process was : <b
-                                    style="color:red">{{ user.prominentSentiment }}</b>
-                            </p>
-                            <p>{{ user.smsg }}
-                            </p>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-5">
-
-                        <canvas id="sentimentChart" width="170" height="200"></canvas>
-                        <p id="caption" class="text-center">Sentiment Analysis</p>
-                    </div>
+            <hr />
+            <div class="row">
+                <!-- start row -->
+                <div class="col-md-3 holder holder_lesspad">
+                    <p style="text-align:center;padding:0%;">Your Transcript</p>
                 </div>
-                <div class="row config">
+                <br />
+                <div class="col-md-7 holder">
+                    <div id="transcript">
+                        <ul style="padding-right:1.5%"">
+              {% for item in user.user_response %}
+              <li>
+                <div class=" card card-body shadow-lg p-3 mb-5 bg-white rounded" style="border:solid black 2px;">
+                            <span style="color:red;">Question</span> - &nbsp;&nbsp;&nbsp;&nbsp;{{ item.question }}<br />
+                            <span style="color:green;">Answer</span> - &nbsp;&nbsp;&nbsp;&nbsp; {{ item.answer }}<br />
+                            <hr />
+                            Your Answer was : <br />
 
-                </div>
-            </div>-->
-        </div>
-        <!--<div class="row" style="height:30vh;">
-            <div class="scrolling-wrapper-flexbox">
-                {% for item in user.user_response %}
-                <div class=" tcard card-body shadow-lg p-3 mb-5 bg-white rounded" style="border:solid black 2px;">
-                    <span style="color:red;">Question</span> - &nbsp;&nbsp;&nbsp;&nbsp;{{ item.question }}<br />
-                    <span style="color:green;">Answer</span> - &nbsp;&nbsp;&nbsp;&nbsp; {{ item.answer }}<br />
-                    Your Answer was : <br />
-                    <div class="row">
-                        <span class="bg-success col-md-4 "
-                            style="color:white;font-weight: bolder">{{ item.sentiment.sentiment_positive * 100 }}
-                            % &nbsp;&nbsp;
-                        </span>
-                        <span class="bg-danger col-md-4  "
-                            style="color:white;font-weight: bolder">{{ item.sentiment.sentiment_negative * 100 }}
-                            % &nbsp;&nbsp;
-                        </span>
-                        <span class="bg-warning col-md-4 "
-                            style="color:white;font-weight: bolder">{{ item.sentiment.sentiment_neutral * 100 }}
-                            % &nbsp;&nbsp;
-                        </span>
+                            <span class="bg-success"
+                                style="color:white;font-weight: bolder">{{item.sentiment.sentiment_positive*100}}
+                                % &nbsp;&nbsp;
+                                Positive.</span>
+                            <span class="bg-danger"
+                                style="color:white;font-weight: bolder">{{item.sentiment.sentiment_negative*100}}
+                                % &nbsp;&nbsp;
+                                Negative.</span>
+                            <span class="bg-warning"
+                                style="color:white;font-weight: bolder">{{item.sentiment.sentiment_neutral*100}}
+                                % &nbsp;&nbsp;
+                                Neutral.</span>
+                            <hr />
+                            <span class="bg-info" style="color:black">Your Score was {{item.score|round}}</span>
                     </div>
-                    <hr />
-                    <span class="bg-info" style="color:black">Your Score was {{ item.score | round }}</span>
+
+
+                    </li>
+
+                    {% endfor %}
+                    </ul>
                 </div>
-
-
-
-                {% endfor %}
+                <div class="col-md-2"></div>
             </div>
-        </div>-->
+        </div><!-- end row -->
+        <hr />
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
-
 </body>
-<script>
-    // Global parameters:
-    // do not resize the chart canvas when its container does (keep at 600x400px)
-    Chart.defaults.global.responsive = false;
-
-    // get chart canvas
-    var ctx = document.getElementById("emotionChart").getContext("2d");
-    console.log()
-    var emotion = new Chart(ctx, {
-        type: "polarArea",
-        data: {
-            labels: ['neutral', 'angry', 'disgust', 'fear', 'happy', 'sad', 'surprise'],
-            datasets: [
-                {
-                    backgroundColor: ["#03c637", "#f4424b", "#8e5ea2", "#03c637", "#f4424b", "#8e5ea2", "#8e5ea2"],
-                    data: {{ user.totalEmotion.values() | list }}
-    }
-            ]}, options: {
-        legend: {
-            display: false
-        }
-    }
-            }); //end chart
-
-    var ctx2 = document.getElementById("sentimentChart").getContext("2d");
-    var sentimen = new Chart(ctx2, {
-        type: "horizontalBar",
-        data: {
-            labels: ["Positive", "Negative", "Neutral"],
-            datasets: [
-                {
-                    backgroundColor: ["#03c637", "#f4424b", "#8e5ea2"],
-                    data: {{ user.totalSentiment.values() | list }}
-    }
-                        ]}
-                    }); //end chart
-</script>
-<script>
-    $('#print').click(function () {
-        //replace all svgs with a temp canvas
-        var replaceSVGwithCanvas = function (callback) {
-            //find all svg elements in $container
-            var $container = $('body');
-            //$container is the jQuery object of the div that you need to convert to image. This div may contain highcharts along with other child divs, etc
-            var svgElements = $container.find('svg');
-            svgElements.each(function () {
-                var canvas, xml;
-                canvas = document.createElement("canvas");
-                canvas.className = "screenShotTempCanvas";
-                //convert SVG into a XML string
-                xml = (new XMLSerializer()).serializeToString(this);
-                // Removing the name space as IE throws an error
-                xml = xml.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, '');
-                //draw the SVG onto a canvas
-                canvg(canvas, xml);
-                $(canvas).insertAfter(this);
-                $(this).hide();
-            });
-            callback(); //to be called after the process in finished
-        };
-        replaceSVGwithCanvas(function onComplete() {
-            html2canvas(document.getElementById('dom-to-print'), {
-                onrendered: function (canvasObj) {
-                    startPrintProcess(canvasObj, 'printedPDF', function () {
-                        alert('PDF saved');
-                    });
-                    //save this object to the pdf
-                }
-            });
-        });
-        var pdf = new jsPDF('l', 'pt', 'a4'), // landscape/point(Unit)/A4(size)
-            pdfConf = {
-                pagesplit: false, //Adding page breaks manually using pdf.addPage();
-                background: '#fff' //White Background.
-            };
-        function startPrintProcess(canvasObj, fileName, callback) {
-            var pdf = new jsPDF('l', 'pt', 'a4'),
-                pdfConf = {
-                    pagesplit: false,
-                    background: '#fff'
-                };
-            document.body.appendChild(canvasObj); //appendChild is required for html to add page in pdf
-            pdf.addHTML(canvasObj, 0, 0, pdfConf, function () {
-                document.body.removeChild(canvasObj);
-                pdf.addPage();
-                html2canvas(document.getElementById('new-page-dom')).then(function (newCanvasDom) { //render the dom to be printed on the second page
-                    document.body.appendChild(newCanvasDom);
-                    pdf.addHTML(newCanvasDom, 20, 20, pdfConf, function () {
-                        document.body.removeChild(newCanvasDom);
-                        pdf.save('a.pdf');
-                        callback();
-                    });
-                });
-            });
-        }
-
-    });
-
-</script>
-<style>
-    .scrolling-wrapper-flexbox {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-
-    }
-
-    .tcard {
-        flex: 0 0 auto;
-        margin: 1%;
-        width: 20vw;
-    }
-
-    .config {
-        height: 20vh;
-    }
-</style>
 
 </html>
