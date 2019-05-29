@@ -145,13 +145,14 @@ def login():
 		username = request.form.get("username")
 		password = request.form.get("password")
 		for user in User.objects.filter(username=username).fields(username=1,
-																password=1):
+																password=1,userType=1):
 
 			if sha256_crypt.verify(password, user.password):
 				session["log"] = True
 				session["username"] = user.username
 				flash("Welcome back {} ".format(user.username), "success")
-				if user.userType == "admin" or user.username == "admin":
+			
+				if user.userType == "admin":
 					session["admin"] = True
 					return redirect(url_for("admin"))
 				return redirect(url_for("home"))
