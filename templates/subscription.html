@@ -25,7 +25,7 @@ Subscription
         }
         $("#planName").text(plan.planName);
         $("#noOfInterviews").val(plan.noOfInterviews);
-        $("#totalPrice").text("Rs ." + plan.price);
+        $("#totalPrice").text(plan.price);
     }
 </script>
 
@@ -47,6 +47,17 @@ Subscription
                             </li>
                         </ul>
                     </p>
+                    <form action="charge" method="POST">
+                        <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_SwjYDE0pT0UJv8"
+                            data-amount="5000" data-name="Standard Pack" data-description="5 Interviews"
+                            data-image="{{ url_for('static',filename='images/icon.png') }}" data-netbanking="true"
+                            data-description="InterviewBot">
+                            </script>
+                        <input type="hidden" name="shopping_order_id" value="21">
+                        <input type="hidden" name="amount" value="5000">
+
+                        <input type="number" name="no" id="noOfInterviews" value="5" hidden />
+                    </form>
                 </div>
             </div>
             <div class="card text-white bg-info mb-3" style="max-width: 35rem;" onclick="planselect(101)">
@@ -63,6 +74,18 @@ Subscription
                             </li>
                         </ul>
                     </p>
+                    <form action="charge" method="POST">
+                        <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_SwjYDE0pT0UJv8"
+                            data-amount="10000" data-name="Plus Pack"
+                            data-description="10 Interviews + Interview Material"
+                            data-image="{{ url_for('static',filename='images/icon.png') }}" data-netbanking="true"
+                            data-description="InterviewBot">
+                            </script>
+                        <input type="hidden" name="shopping_order_id" value="21">
+                        <input type="hidden" name="amount" value="10000">
+
+                        <input type="number" name="no" id="noOfInterviews" value="10" hidden />
+                    </form>
                 </div>
             </div>
         </div>
@@ -76,12 +99,23 @@ Subscription
                     <div class="card-header" id="totalPrice">Select Your Plan</div>
                 </div>
             </div>
+            <!--
             <form action="/subscription" method="POST">
                 <input type="number" name="no" id="noOfInterviews" hidden />
-                <button class="btn btn-danger" type="submit">Proceed</button>
+                <button class="btn btn-danger" type="submit">Use This if you don't want to go for payment
+                    gateway</button>
             </form>
+            -->
         </div>
     </div>
 </div>
 </div>
+<style>
+    .razorpay-payment-button {
+        background-color: white;
+        color: red;
+        border-radius: 10px;
+        padding: 2%;
+    }
+</style>
 {% endblock %}

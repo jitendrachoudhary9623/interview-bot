@@ -14,11 +14,12 @@ from Auth import *
 import threading
 from flask import send_from_directory
 import glob
+import razorpay
 
 kernel = aiml.Kernel()
 sid = SentimentIntensityAnalyzer()
 
-
+razorpay_client = razorpay.Client(auth=("rzp_test_SwjYDE0pT0UJv8", "hmB1IoIy0TVVlnYubGMpbcbI"))
 def load_kern(forcereload):
 	if os.path.isfile("bot_brain.brn") and not forcereload:
 		kernel.bootstrap(brainFile="bot_brain.brn")
@@ -84,6 +85,20 @@ def search(name):
 	response["interview"] = interview
 	response["user"] = user
 	return jsonify({"user": "Jitendra"})
+
+################## PAYMENT GATEWAY
+
+
+@application.route('/charge', methods=['POST'])
+def app_charge():
+	amount = request.form['amount']
+	payment_id = request.form['razorpay_payment_id']
+	razorpay_client.payment.capture(payment_id, amount)
+	razorpay_client.payment.fetch(payment_id)
+	no_of_interview = request.form.get("no")
+	addInterviews(session["username"], int(no_of_interview))
+	flash("Interviews added", "success")
+	return redirect(url_for("subscription"))
 
 
 ###    NORMAL USER
