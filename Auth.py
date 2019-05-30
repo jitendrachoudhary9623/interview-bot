@@ -13,7 +13,6 @@ class User(Document):
     userType = StringField(default="user")
     purchaseDate = ListField()
     purchaseAmount = ListField()
-    isAdmin = BooleanField()
 
 
 def updateAvailableInterview(username):
